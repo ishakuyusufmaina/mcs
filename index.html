@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maiduguri Capital School - Coming Soon</title>
+
+  <!-- Meta placeholders -->
+  <meta name="description" content="Maiduguri Capital School official website is under construction. Coming soon!" />
+  <meta name="keywords" content="Maiduguri, Capital School, Education" />
+  <meta name="author" content="Maiduguri Capital School" />
+
+  <!-- Favicon Placeholder -->
+  <link rel="icon" type="image/jpg" href="../logo.jpg" />
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #003973, #e5e5be);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 700px;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.45);
+      border-radius: 1.5rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+      animation: float 3s ease-in-out infinite;
+      border-radius: 15px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.15);
+      padding: 1rem 1.5rem;
+      border-radius: 1rem;
+      backdrop-filter: blur(8px);
+      min-width: 80px;
+    }
+
+    .time-box span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .time-box small {
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+
+    footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .time-box span {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Logo Placeholder -->
+    <img src="../logo.jpg" alt="Maiduguri Capital School Logo" class="logo" />
+
+    <h1>Coming Soon</h1>
+    <p>Our official website is currently under construction.<br />Stay tuned for something amazing!</p>
+
+    <!-- Countdown Timer -->
+    <div class="countdown" id="countdown">
+      <div class="time-box">
+        <span id="days">00</span>
+        <small>Days</small>
+      </div>
+      <div class="time-box">
+        <span id="hours">00</span>
+        <small>Hours</small>
+      </div>
+      <div class="time-box">
+        <span id="minutes">00</span>
+        <small>Minutes</small>
+      </div>
+      <div class="time-box">
+        <span id="seconds">00</span>
+        <small>Seconds</small>
+      </div>
+    </div>
+
+    <footer>
+      &copy; <span id="year"></span> Maiduguri Capital School. All Rights Reserved.
+    </footer>
+  </div>
+
+  <script>
+    // Auto update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Countdown placeholder (set launch date)
+    const launchDate = new Date("2025-11-20T00:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+
+      if (distance <= 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "<p>We are live!</p>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
+    }, 1000);
+  </script>
+</body>
+</html>
