@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maiduguri Capital School — Home</title>
+  <meta name="description" content="Maiduguri Capital School — academic excellence, digital learning, and modern facilities in Maiduguri." />
+  <style>
+    /* Palette: teal, blue, white, pink, purple */
+    :root{
+      --teal:#0697a1;
+      --deep-blue:#0b4f6c;
+      --soft-blue:#6fb3d2;
+      --pink:#ff8fb1;
+      --purple:#7b61ff;
+      --muted:#f6f9fb;
+      --card:#ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --max-width:1200px;
+      --radius:14px;
+      --shadow: 0 6px 30px rgba(11,79,108,0.12);
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,var(--muted),#fff 60%);color:var(--deep-blue);line-height:1.45}
+    a{color:var(--deep-blue);text-decoration:none}
+    header{position:sticky;top:0;backdrop-filter: blur(6px);background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.75));z-index:50;border-bottom:1px solid rgba(11,79,108,0.05)}
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand-logo{width:56px;height:56px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--teal),var(--purple));color:#fff;font-weight:700;box-shadow:var(--shadow)}
+    .brand h1{font-size:18px;margin:0}
+    nav ul{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    nav li{font-weight:600}
+    .cta{display:inline-flex;gap:8px;align-items:center;padding:8px 14px;border-radius:999px;background:linear-gradient(90deg,var(--pink),var(--purple));color:#fff;font-weight:700}
+    .mobile-toggle{display:none}
+
+    /* HERO */
+    .hero{margin-top:20px;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff}
+    .carousel{position:relative;height:430px;display:block}
+    .slide{position:absolute;inset:0;opacity:0;transition:opacity .8s ease,transform .8s ease;display:grid;grid-template-columns:1fr 1fr}
+    .slide.active{opacity:1;transform:translateY(0)}
+    .slide .left{padding:46px 40px;display:flex;flex-direction:column;justify-content:center;gap:18px}
+    .slide h2{font-size:32px;margin:0;color:var(--deep-blue)}
+    .slide p{margin:0;color:#234}
+    .slide .actions{margin-top:12px;display:flex;gap:12px}
+    .slide .media{background-size:cover;background-position:center}
+    .carousel-controls{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(11,79,108,0.18);cursor:pointer}
+    .dot.active{background:linear-gradient(90deg,var(--teal),var(--purple))}
+    .hero .playbtn{padding:10px 14px;border-radius:10px;background:var(--glass);border:1px solid rgba(11,79,108,0.06)}
+
+    /* MAIN GRID */
+    main{padding:30px 0}
+    .grid{display:grid;grid-template-columns:1fr 380px;gap:26px;align-items:start}
+
+    /* about card */
+    .card{background:var(--card);padding:22px;border-radius:12px;box-shadow:var(--shadow)}
+    .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px}
+    .stat{flex:1;min-width:120px;background:linear-gradient(180deg,rgba(7,94,110,0.04),transparent);padding:12px;border-radius:10px}
+    .stat strong{display:block;font-size:20px}
+
+    /* facilities */
+    .facilities{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+    .fac{display:flex;gap:12px;align-items:flex-start}
+    .fac svg{width:28px;height:28px;flex-shrink:0}
+
+    /* gallery */
+    .gallery{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
+    .gallery img{width:100%;height:140px;object-fit:cover;border-radius:10px;cursor:pointer}
+
+    /* events & news */
+    .side-section h3{margin:0 0 8px 0}
+    .event{display:flex;gap:12px;padding:10px 0;border-bottom:1px dashed rgba(11,79,108,0.06)}
+
+    /* portals */
+    .portals{display:flex;flex-direction:column;gap:8px}
+    .portal{display:flex;gap:10px;align-items:center;padding:12px;border-radius:10px;background:linear-gradient(90deg,rgba(7,94,110,0.03),transparent);font-weight:700}
+
+    /* team */
+    .team{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .member{background:linear-gradient(180deg,#fff,rgba(123,97,255,0.04));padding:12px;border-radius:10px;text-align:center}
+    .member .avatar{width:74px;height:74px;border-radius:50%;margin:0 auto;background:linear-gradient(135deg,var(--teal),var(--soft-blue));display:grid;place-items:center;color:#fff;font-weight:700}
+
+    /* footer */
+    footer{margin-top:26px;padding:20px 0;background:linear-gradient(180deg,rgba(11,79,108,0.03),transparent)}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:18px}
+
+    /* responsive */
+    @media(max-width:980px){
+      .grid{grid-template-columns:1fr}
+      .carousel{height:380px}
+      .slide{grid-template-columns:1fr}
+      .slide .media{display:none}
+      nav ul{display:none}
+      .mobile-toggle{display:block}
+    }
+    @media(max-width:640px){
+      .carousel{height:300px}
+      .gallery img{height:100px}
+      .team{grid-template-columns:repeat(2,1fr)}
+    }
+
+    /* small helpers */
+    .muted{color:#4d6b7a;font-size:14px}
+    .chip{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,var(--teal),var(--soft-blue));color:#fff;font-weight:700}
+
+    /* Scroll reveal helper */
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+
+    /* modal */
+    .modal{position:fixed;inset:0;background:rgba(2,6,23,0.6);display:none;place-items:center;padding:20px;z-index:120}
+    .modal.open{display:grid}
+    .modal .frame{max-width:980px;width:100%;background:#fff;border-radius:12px;overflow:hidden}
+    .modal img{width:100%;height:540px;object-fit:cover}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="brand-logo">MCS</div>
+        <div>
+          <h1>Maiduguri Capital School</h1>
+          <div class="muted">Academic excellence • Digital learning • Caring community</div>
+        </div>
+      </div>
+
+      <nav>
+        <button class="mobile-toggle" aria-expanded="false">☰</button>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div style="display:flex;gap:10px;align-items:center">
+        <a class="cta" href="#admissions">Apply Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO / Carousel -->
+    <section class="hero reveal" id="home">
+      <div class="carousel" id="heroCarousel" aria-roledescription="carousel">
+        <!-- Slide 1 -->
+        <article class="slide active" data-index="0">
+          <div class="left">
+            <span class="chip">Since 1988</span>
+            <h2>Welcome to Maiduguri Capital School</h2>
+            <p>One of Nigeria's leading pre-tertiary institutions — blending academic excellence with modern digital learning and a nurturing community in the heart of Maiduguri.</p>
+            <div class="actions">
+              <a class="cta" href="#about">Learn More</a>
+              <a class="playbtn" href="#gallery">View Gallery ▶</a>
+            </div>
+            <div class="muted">Over 6,000 graduates and counting • Full digitalization in progress</div>
+          </div>
+          <div class="media" style="background-image:url('https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=1200&q=60');"></div>
+        </article>
+
+        <!-- Slide 2 -->
+        <article class="slide" data-index="1">
+          <div class="left">
+            <span class="chip">Digital First</span>
+            <h2>Technology & Learning</h2>
+            <p>Three computer labs, modern science labs, JAMB Mock CBT software, and programming for young learners — preparing students for the future.</p>
+            <div class="actions"><a class="cta" href="#facilities">Our Facilities</a></div>
+            <div class="muted">24/7 power • High-speed internet • CCTV security</div>
+          </div>
+          <div class="media" style="background-image:url('https://images.unsplash.com/photo-1581092795375-7f4aa2b8f8fb?auto=format&fit=crop&w=1200&q=60');"></div>
+        </article>
+
+        <!-- Slide 3 -->
+        <article class="slide" data-index="2">
+          <div class="left">
+            <span class="chip">All Round Development</span>
+            <h2>Clubs, Excursions & Awards</h2>
+            <p>Active co-curricular programs, excursions, and award-winning students who shine both in and outside the classroom.</p>
+            <div class="actions"><a class="cta" href="#activities">Co-curricular</a></div>
+            <div class="muted">Strong pastoral care and a nurturing environment.</div>
+          </div>
+          <div class="media" style="background-image:url('https://images.unsplash.com/photo-1511974035430-5de47d3b95da?auto=format&fit=crop&w=1200&q=60');"></div>
+        </article>
+
+        <div class="carousel-controls" aria-hidden="false"></div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <!-- Left column: About, Facilities, Gallery -->
+      <section>
+        <div id="about" class="card reveal">
+          <h2>About Maiduguri Capital School</h2>
+          <p><strong>Founded:</strong> 18th September, 1988 — starting with three pupils and two teachers. The secondary section began in 1993. By 2025 the school has graduated about 18 sets totaling over 6,000 graduates.</p>
+
+          <div class="stats">
+            <div class="stat"><small class="muted">Classrooms</small><strong>100+</strong></div>
+            <div class="stat"><small class="muted">Computers</small><strong>300+</strong></div>
+            <div class="stat"><small class="muted">Graduates</small><strong>6,000+</strong></div>
+            <div class="stat"><small class="muted">Lab Types</small><strong>4 (Physics, Chemistry, Biology, Agri)</strong></div>
+          </div>
+
+          <h3 style="margin-top:18px">Vision & Mission</h3>
+          <p><strong>Vision:</strong> To raise smart, confident, and responsible young people who respect their culture and use their knowledge to serve and uplift their communities.</p>
+          <p><strong>Mission:</strong> To provide children with a strong and affordable education that nurtures their intellect, equips them with technological skills, and keeps them grounded in cultural and moral values.</p>
+
+          <h3 style="margin-top:18px">School Structure</h3>
+          <p class="muted">Nursery • Primary • Junior Secondary • Senior Secondary</p>
+
+          <h3 style="margin-top:18px">Infrastructure & Facilities</h3>
+          <div class="facilities">
+            <div class="fac"><svg viewBox="0 0 24 24"><path fill="var(--teal)" d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z"/></svg><div><strong>Modern Classrooms</strong><div class="muted">100+ modern classrooms</div></div></div>
+            <div class="fac"><svg viewBox="0 0 24 24"><path fill="var(--pink)" d="M12 2a10 10 0 100 20 10 10 0 000-20z"/></svg><div><strong>Power & Net</strong><div class="muted">24/7 power & high-speed internet</div></div></div>
+            <div class="fac"><svg viewBox="0 0 24 24"><path fill="var(--purple)" d="M4 4h16v4H4zM4 10h16v10H4z"/></svg><div><strong>Labs</strong><div class="muted">Science & 3 Computer labs (300+ PCs)</div></div></div>
+            <div class="fac"><svg viewBox="0 0 24 24"><path fill="var(--soft-blue)" d="M12 2L2 7v6c0 5 5 9 10 9s10-4 10-9V7l-10-5z"/></svg><div><strong>Security</strong><div class="muted">CCTV & campus security</div></div></div>
+          </div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="gallery" class="card reveal" style="margin-top:18px">
+          <h2>Gallery</h2>
+          <p class="muted">Click an image to open full view</p>
+          <div class="gallery" aria-live="polite">
+            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=60" alt="Students learning" data-large="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=60" alt="Computer lab" data-large="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1581091012184-7f1850b4f8b3?auto=format&fit=crop&w=800&q=60" alt="Science lab" data-large="https://images.unsplash.com/photo-1581091012184-7f1850b4f8b3?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb3a45?auto=format&fit=crop&w=800&q=60" alt="Playground" data-large="https://images.unsplash.com/photo-1596495577886-d920f1fb3a45?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=60" alt="Classroom" data-large="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1400&q=80">
+            <img src="https://images.unsplash.com/photo-1562774058-6b3ad7f1b2bf?auto=format&fit=crop&w=800&q=60" alt="Assembly" data-large="https://images.unsplash.com/photo-1562774058-6b3ad7f1b2bf?auto=format&fit=crop&w=1400&q=80">
+          </div>
+        </div>
+
+        <!-- Video / Multimedia -->
+        <div class="card reveal" style="margin-top:18px">
+          <h3>Virtual Tour</h3>
+          <p class="muted">Watch a short introduction to our campus and programs</p>
+          <div style="position:relative;padding-top:56.25%;border-radius:10px;overflow:hidden;margin-top:12px">
+            <!-- Placeholder YouTube or school video embed: replace src with actual video -->
+            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Maiduguri Capital School tour" frameborder="0" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%"></iframe>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right column: Events, Fees, Portals, Contact -->
+      <aside class="side-section">
+        <div class="card reveal">
+          <h3>Upcoming Events</h3>
+          <div class="event"><div><strong>Science Fair</strong><div class="muted">Nov 12, 2025</div></div></div>
+          <div class="event"><div><strong>Parents' Meeting</strong><div class="muted">Dec 05, 2025</div></div></div>
+          <a href="#events" class="muted" style="display:inline-block;margin-top:10px">See all events →</a>
+        </div>
+
+        <div class="card reveal" style="margin-top:12px">
+          <h3>School Fees</h3>
+          <p class="muted">Flexible payment plans. Please contact the bursar for a breakdown by term and year group.</p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="portal">Download Fees Schedule</button>
+            <button class="portal">Pay Online</button>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:12px">
+          <h3>Online Portals</h3>
+          <div class="portals">
+            <a class="portal" href="#">Staff Portal</a>
+            <a class="portal" href="#">Student Portal</a>
+            <a class="portal" href="#">Parent Portal</a>
+          </div>
+        </div>
+
+        <div class="card reveal" style="margin-top:12px">
+          <h3>Contact</h3>
+          <p class="muted">Email: <a href="mailto:info@example.com">info@example.com</a><br>WhatsApp: <a href="tel:+234000000000">+234 000 000 000</a></p>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <a class="portal" href="#">Facebook</a>
+            <a class="portal" href="#">Instagram</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- Team & Partners -->
+    <section style="margin-top:22px" class="reveal">
+      <div class="card">
+        <h2>Our Team</h2>
+        <p class="muted">Leadership and staff committed to student success</p>
+        <div class="team" style="margin-top:12px">
+          <div class="member"><div class="avatar">P</div><strong>Proprietress</strong><div class="muted">Founder</div></div>
+          <div class="member"><div class="avatar">D</div><strong>Director</strong><div class="muted">Administration</div></div>
+          <div class="member"><div class="avatar">PR</div><strong>Principal</strong><div class="muted">Academic Lead</div></div>
+          <div class="member"><div class="avatar">HM</div><strong>Headmaster</strong><div class="muted">Secondary</div></div>
+          <div class="member"><div class="avatar">B</div><strong>Bursar</strong><div class="muted">Finance</div></div>
+          <div class="member"><div class="avatar">EO</div><strong>Exam Officer</strong><div class="muted">Exams</div></div>
+        </div>
+
+        <h3 style="margin-top:18px">Our Partners</h3>
+        <p class="muted">Orator xyz • Mainafly Software Solutions • …</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div>
+        <strong>Maiduguri Capital School</strong>
+        <p class="muted">A premier citadel of learning in Maiduguri. Empowering students since 1988.</p>
+      </div>
+      <div>
+        <strong>Quick Links</strong>
+        <ul style="list-style:none;padding:0;margin-top:8px">
+          <li><a href="#admissions">Admissions</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <strong>Location</strong>
+        <p class="muted">[Insert school address here]</p>
+        <!-- Map placeholder -->
+        <div style="margin-top:8px;border-radius:8px;overflow:hidden;box-shadow:var(--shadow)">
+          <iframe src="https://www.google.com/maps?q=Maiduguri&output=embed" style="width:100%;height:120px;border:0"></iframe>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;padding:12px 0;color:#567;">© Maiduguri Capital School • All rights reserved</div>
+  </footer>
+
+  <!-- Image modal -->
+  <div class="modal" id="modal">
+    <div class="frame">
+      <img id="modalImg" alt="Expanded" />
+    </div>
+  </div>
+
+  <script>
+    /* HERO CAROUSEL */
+    (function(){
+      const carousel = document.getElementById('heroCarousel');
+      const slides = Array.from(carousel.querySelectorAll('.slide'));
+      const controls = carousel.querySelector('.carousel-controls');
+      let idx = 0; let autoplay = true; let timer = null;
+
+      function renderDots(){
+        controls.innerHTML = '';
+        slides.forEach((s,i)=>{
+          const d = document.createElement('button');
+          d.className = 'dot' + (i===idx? ' active':'');
+          d.setAttribute('aria-label','Go to slide '+(i+1));
+          d.addEventListener('click',()=>{goTo(i);});
+          controls.appendChild(d);
+        })
+      }
+      function show(){
+        slides.forEach((s,i)=> s.classList.toggle('active', i===idx));
+        renderDots();
+      }
+      function goTo(i){ idx = (i+slides.length)%slides.length; show(); }
+      function next(){ goTo(idx+1); }
+      function start(){ if(timer) clearInterval(timer); timer=setInterval(()=>{ if(autoplay) next(); },5000); }
+
+      carousel.addEventListener('mouseenter',()=>autoplay=false);
+      carousel.addEventListener('mouseleave',()=>autoplay=true);
+
+      renderDots(); show(); start();
+    })();
+
+    /* GALLERY MODAL */
+    (function(){
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImg');
+      document.querySelectorAll('.gallery img').forEach(img=>{
+        img.addEventListener('click',()=>{
+          const src = img.dataset.large || img.src;
+          modalImg.src = src;
+          modal.classList.add('open');
+        })
+      });
+      modal.addEventListener('click',(e)=>{ if(e.target===modal || e.target.id==='modalImg') modal.classList.remove('open'); });
+    })();
+
+    /* SCROLL REVEAL using IntersectionObserver */
+    (function(){
+      const nodes = document.querySelectorAll('.reveal');
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.12});
+      nodes.forEach(n=>obs.observe(n));
+    })();
+
+    /* Simple mobile nav toggle */
+    (function(){
+      const btn = document.querySelector('.mobile-toggle');
+      const ul = document.querySelector('nav ul');
+      btn.addEventListener('click',()=>{ const open = btn.getAttribute('aria-expanded')==='true'; btn.setAttribute('aria-expanded', String(!open)); ul.style.display = open? 'none' : 'flex'; });
+    })();
+
+    /* Accessibility: keyboard for carousel dots */
+    (function(){
+      document.querySelectorAll('.carousel-controls button').forEach((b,i)=>{
+        b.addEventListener('keydown',(e)=>{ if(e.key==='ArrowLeft') document.querySelectorAll('.dot')[Math.max(i-1,0)].focus(); if(e.key==='ArrowRight') document.querySelectorAll('.dot')[Math.min(i+1,document.querySelectorAll('.dot').length-1)].focus(); });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,792 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maiduguri Capital School — Home</title>
+  <meta name="description" content="Maiduguri Capital School — academic excellence, digital learning, modern facilities." />
+  <meta name="color-scheme" content="light dark">
+  <style>
+    /* ===========================
+       Color theme & variables
+       Vibrant: teal, light-blue, pink, purple, white
+       =========================== */
+    :root{
+      --teal: #0fb5a6;
+      --light-blue: #67c7ee;
+      --pink: #ff7bb0;
+      --purple: #7a4bd6;
+      --bg: #f6f9fc;
+      --card: #ffffff;
+      --muted: #6b7280;
+      --glass: rgba(255,255,255,0.75);
+      --radius: 14px;
+      --shadow-1: 0 6px 18px rgba(16,24,40,0.08);
+      --shadow-2: 0 10px 30px rgba(16,24,40,0.12);
+      --max-width: 1200px;
+    }
+
+    /* Global reset + typography */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg),#ffffff);
+      color:#111827;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    a { color:inherit; text-decoration:none; }
+    img{display:block;max-width:100%;height:auto;border-radius:10px}
+    h1,h2,h3,h4{margin:0 0 .6rem 0;line-height:1.15}
+    p{margin:0 0 1rem 0}
+
+    /* ===========================
+       Top Navigation (sticky)
+       =========================== */
+    .nav-wrap{
+      position:sticky; top:10px; z-index:1200;
+      display:flex; justify-content:center; padding:8px 16px;
+      pointer-events:none;
+    }
+    nav {
+      pointer-events:auto;
+      width:100%;
+      max-width:var(--max-width);
+      display:flex;align-items:center;gap:16px;
+      background:linear-gradient(90deg, rgba(255,255,255,0.9), rgba(255,255,255,0.82));
+      border-radius:12px;
+      box-shadow:var(--shadow-1);
+      padding:8px 14px;
+      backdrop-filter: blur(6px);
+    }
+    .brand {
+      display:flex; align-items:center; gap:12px; flex:0 0 auto;
+    }
+    .brand img{width:56px;height:56px;object-fit:cover;border-radius:10px;box-shadow:var(--shadow-2)}
+    .brand .title{
+      display:flex;flex-direction:column;line-height:1;
+    }
+    .brand .title .name{font-weight:700;color:var(--purple); font-size:1rem}
+    .brand .title .tag{font-size:.78rem;color:var(--muted)}
+
+    .nav-links {margin-left:auto; display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    .nav-links a{
+      padding:8px 12px;border-radius:10px;font-size:.95rem;color:var(--purple);
+      transition: all .18s ease;
+    }
+    .nav-links a:hover, .nav-links a:focus{
+      transform:translateY(-3px);
+      background:linear-gradient(90deg,var(--light-blue),var(--pink));
+      color:white;
+      box-shadow:var(--shadow-1);
+    }
+
+    .cta{
+      background:linear-gradient(90deg,var(--pink),var(--purple));
+      color:white;padding:8px 14px;border-radius:10px;font-weight:600;
+      box-shadow:var(--shadow-2);
+    }
+
+    /* ===========================
+       Header / Hero carousel
+       =========================== */
+    header.site-hero{
+      margin: 18px auto 28px;
+      width:100%;
+      max-width:var(--max-width);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow-2);
+      background: linear-gradient(180deg, rgba(15,181,166,0.06), rgba(122,75,214,0.03));
+    }
+    .hero-grid{
+      display:grid;gap:1.2rem;
+      grid-template-columns: 1fr;
+      padding:1.4rem;
+    }
+    /* Hero top (logo + heading) */
+    .hero-top{
+      display:flex;gap:1rem;align-items:center;
+    }
+    .hero-top img{width:84px;height:84px;border-radius:12px;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+    .hero-meta{display:flex;flex-direction:column;gap:4px}
+    .hero-meta h1{font-size:1.45rem;color:var(--purple)}
+    .hero-meta p{color:var(--muted);font-size:.98rem}
+
+    /* Carousel */
+    .carousel {
+      position:relative;
+      --height: 320px;
+      width:100%;
+      height:var(--height);
+      border-radius:12px;
+      overflow:hidden;
+      display:block;
+    }
+    .slides {display:flex;height:100%;transition:transform .6s cubic-bezier(.2,.9,.2,1)}
+    .slide{min-width:100%; height:100%; flex:0 0 100%; position:relative}
+    .slide img{width:100%;height:100%;object-fit:cover;border-radius:8px}
+    .slide .caption{
+      position:absolute; left:20px; bottom:18px; padding:10px 14px;border-radius:10px;
+      background:linear-gradient(90deg, rgba(10,10,10,0.55), rgba(10,10,10,0.28));
+      color:white; font-weight:600; max-width:75%;
+      box-shadow:0 8px 24px rgba(0,0,0,.25)
+    }
+    .carousel-controls{
+      position:absolute;right:14px;top:14px;display:flex;gap:8px;
+    }
+    .control-btn{
+      background:rgba(255,255,255,0.86); border:none; padding:8px 10px;border-radius:10px; cursor:pointer;
+      box-shadow:var(--shadow-1); font-weight:700;
+    }
+
+    /* Pagination dots */
+    .dots{position:absolute;left:50%;transform:translateX(-50%);bottom:12px;display:flex;gap:8px}
+    .dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.6); cursor:pointer}
+    .dot.active{background:linear-gradient(90deg,var(--pink),var(--purple)); box-shadow:0 6px 12px rgba(122,75,214,0.18)}
+
+    /* ===========================
+       Main content and layout
+       =========================== */
+    main{
+      max-width:var(--max-width); margin:0 auto;padding:22px;
+      display:grid; gap:20px;
+      grid-template-columns: 1fr;
+    }
+
+    /* Two-column content on larger screens */
+    .split-2 {display:grid; gap:18px; grid-template-columns: 1fr;}
+    @media(min-width:900px){
+      .split-2{grid-template-columns: 1fr 360px}
+      .hero-grid{grid-template-columns: 1fr 360px}
+    }
+
+    section.card{
+      background:var(--card); padding:18px;border-radius:12px;box-shadow:var(--shadow-1);
+      opacity:0; transform:translateY(22px); transition:all .6s cubic-bezier(.2,.9,.2,1);
+    }
+    section.card.revealed{opacity:1; transform:none}
+
+    .section-header{
+      display:flex;align-items:center;gap:12px;margin-bottom:8px;
+    }
+    .section-header h2{
+      color:var(--purple); font-size:1.2rem; margin:0;
+    }
+    .section-sub {color:var(--muted); font-size:.95rem}
+
+    /* Figures grid */
+    .fig-grid{display:grid;gap:12px; grid-template-columns: 1fr;}
+    @media(min-width:700px){.fig-grid{grid-template-columns: repeat(2,1fr)}}
+    .small-fig{display:flex;gap:12px;align-items:center}
+    .small-fig img{width:120px;height:80px;object-fit:cover;border-radius:8px}
+    .small-fig figcaption{font-size:.88rem;color:var(--muted)}
+
+    /* Articles and lists */
+    article{margin-bottom:12px}
+    .muted{color:var(--muted);font-size:.95rem}
+
+    /* Partners / logos */
+    .partners img{max-height:80px;object-fit:contain; background:linear-gradient(180deg,white, rgba(255,255,255,0.95)); padding:8px;border-radius:8px}
+
+    /* Footer */
+    footer{
+      margin-top:12px;padding:20px;border-radius:12px;background:linear-gradient(90deg,var(--purple),var(--teal)); color:white;
+      box-shadow:var(--shadow-2); max-width:var(--max-width); margin-left:auto;margin-right:auto
+    }
+    footer a{color:rgba(255,255,255,0.95);text-decoration:underline}
+
+    /* Small tweaks */
+    .meta {font-size:.92rem;color:var(--muted)}
+    .lead {font-weight:600;color:#0f1724}
+    .caps{font-size:.78rem;letter-spacing:.06em;color:var(--muted)}
+    .badge{background:linear-gradient(90deg,var(--light-blue),var(--pink)); color:white;padding:6px 10px;border-radius:999px;font-weight:700}
+
+    /* Responsive improvements */
+    @media (max-width:600px){
+      .nav-links{display:none}
+      nav{padding:10px}
+      .hero-top{flex-direction:row;gap:12px}
+      .carousel{--height:220px}
+    }
+
+    /* Accessibility focus */
+    a:focus, button:focus {outline:3px solid rgba(122,75,214,0.12); outline-offset:3px}
+  </style>
+</head>
+<body>
+
+  <!-- Sticky navigation -->
+  <div class="nav-wrap" aria-hidden="false">
+    <nav role="navigation" aria-label="Main navigation">
+      <div class="brand" aria-hidden="false">
+        <img src="logo.jpg" alt="Maiduguri Capital School logo">
+        <div class="title">
+          <span class="name">Maiduguri Capital School</span>
+          <span class="tag">Academic excellence • Digital learning</span>
+        </div>
+      </div>
+
+      <div class="nav-links" role="menubar" aria-label="Primary">
+        <a href="#overview" role="menuitem">Overview</a>
+        <a href="#about" role="menuitem">About</a>
+        <a href="#vision-mission" role="menuitem">Vision & Mission</a>
+        <a href="#structure" role="menuitem">Structure</a>
+        <a href="#facilities" role="menuitem">Facilities</a>
+        <a href="#digitalization" role="menuitem">Digitalization</a>
+        <a href="#team" role="menuitem">Our Team</a>
+        <a href="#partners" role="menuitem">Partners</a>
+        <a href="#contact" role="menuitem" class="cta">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Header / Hero -->
+  <header class="site-hero" role="banner" aria-roledescription="site hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-top" style="align-items:center">
+          <img src="logo.jpg" alt="Maiduguri Capital School logo">
+          <div class="hero-meta">
+            <h1>Maiduguri Capital School</h1>
+            <p class="meta"><strong>A premier citadel of learning institution, located in the heart of Maiduguri.</strong></p>
+            <div style="margin-top:6px;display:flex;gap:8px;align-items:center">
+              <span class="badge">Established 1988</span>
+              <span class="caps">Nursery • Primary • Secondary</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- carousel -->
+        <div style="margin-top:14px; position:relative" aria-hidden="false">
+          <div class="carousel" id="heroCarousel" aria-roledescription="carousel" aria-label="Hero images">
+            <div class="slides" id="slides">
+              <!-- Keep your original slides and captions (no content removed). -->
+              <div class="slide">
+                <img src="school-building2.jpg" alt="Maiduguri Capital School - Hero image">
+                <div class="caption">Welcome to Maiduguri Capital School — academic excellence & digital learning.</div>
+              </div>
+              <div class="slide">
+                <img src="school-building1.jpg" alt="Maiduguri Capital School - Hero image">
+                <div class="caption">Welcome to Maiduguri Capital School — academic excellence & digital learning.</div>
+              </div>
+              <div class="slide">
+                <img src="computer-lab.jpg" alt="Computer lab">
+                <div class="caption">Computer lab.</div>
+              </div>
+              <div class="slide">
+                <img src="computer-lab2.jpg" alt="Computer lab 2">
+                <div class="caption">Computer lab.</div>
+              </div>
+              <div class="slide">
+                <img src="playground2.jpg" alt="Playground">
+                <div class="caption">Playground and outdoor activities.</div>
+              </div>
+              <div class="slide">
+                <img src="proprietress.jpg" alt="Proprietress delivering keynote speech">
+                <div class="caption">Proprietress delivering keynote speech at 26th & 33rd speech and prize giving day.</div>
+              </div>
+            </div>
+
+            <div class="carousel-controls" aria-hidden="true">
+              <button class="control-btn" id="prevBtn" aria-label="Previous slide">‹</button>
+              <button class="control-btn" id="nextBtn" aria-label="Next slide">›</button>
+            </div>
+
+            <div class="dots" id="dots" aria-hidden="true"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column: key facts summary (keeps original info but in a compact card) -->
+      <aside class="card" aria-label="Quick facts">
+        <div class="section-header"><h2>Quick Facts</h2></div>
+        <p class="lead">Maiduguri Capital School is one of Nigeria’s leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assembly Quarters, Gombole Road.</p>
+
+        <ul style="margin-top:10px;list-style:none;padding-left:0">
+          <li class="meta">📅 <strong>Founded:</strong> 18 Sept 1988</li>
+          <li class="meta">🎓 <strong>Graduates:</strong> ~6,000+ (as of 2025)</li>
+          <li class="meta">💻 <strong>Computer Labs:</strong> 3 labs — 300+ computers</li>
+          <li class="meta">⚡ <strong>Power & Internet:</strong> 24/7 supply & high-speed internet</li>
+        </ul>
+
+        <div style="margin-top:12px">
+          <a href="#contact" class="cta" style="display:inline-block">Contact Admissions</a>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- School Overview (keep original content entirely) -->
+    <section id="overview" class="card">
+      <div class="section-header"><h2>School Overview</h2></div>
+      <p>Maiduguri Capital School is one of Nigeria’s leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assemby Quarters, Gombole Road, P.M.B 1017, Maiduguri - Borno State. The school is known for its academic excellence, modern facilities, and commitment to digital learning.</p>
+
+      <div class="fig-grid" style="margin-top:12px">
+        <figure>
+          <img src="school-building1.jpg" alt="School building">
+          <figcaption class="muted">Campus view of Maiduguri Capital School.</figcaption>
+        </figure>
+        <figure>
+          <img src="school-building2.jpg" alt="School building">
+          <figcaption class="muted">Campus view of Maiduguri Capital School.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- About Us (original content kept) -->
+    <section id="about" class="card">
+      <div class="section-header"><h2>About Us</h2></div>
+      <p>Maiduguri Capital School, a premier citadel of learning, began humbly on the <strong>18th of September, 1988</strong>, with just three pupils and two teachers. The school graduated its first set of nine pupils in <strong>1991</strong>.</p>
+      <p>In <strong>1993</strong>, a secondary section was introduced with 14 pioneer students and six teachers. The first set of graduates from the secondary section completed their studies in <strong>1999</strong>.</p>
+      <p>As of <strong>2025</strong>, the school has successfully graduated approximately <strong>18 sets of students</strong>, totaling over <strong>6,000 graduates</strong> — averaging more than <strong>400 students per year</strong>.</p>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision-mission" class="card">
+      <div class="section-header"><h2>Vision & Mission</h2></div>
+      <article id="vision">
+        <figure>
+          <img src="vision-mission.jpg" alt="Vision and mission">
+          <figcaption class="muted">Campus view of Maiduguri Capital School.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- School Structure -->
+    <section id="structure" class="card">
+      <div class="section-header"><h2>School Structure</h2></div>
+      <ul>
+        <li>Nursery Section</li>
+        <li>Primary Section</li>
+        <li>Secondary Section</li>
+      </ul>
+    </section>
+
+    <!-- Infrastructure & Facilities -->
+    <section id="facilities" class="card">
+      <div class="section-header"><h2>Infrastructure &amp; Facilities</h2></div>
+
+      <article>
+        <h3>Over 100 modern classrooms</h3>
+        <figure>
+          <img src="https://via.placeholder.com/600x350?text=100+Classrooms" alt="Classrooms">
+          <figcaption class="muted">Modern classrooms across the campus.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>24/7 power supply and high-speed internet</h3>
+        <figure>
+          <img src="power-and-internet.jpg" alt="Power and internet">
+          <figcaption class="muted">Reliable power and internet for learning and administration.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Three (3) Computer Laboratories — over 300 computers</h3>
+        <figure>
+          <img src="computer-lab.jpg" alt="Computer laboratories">
+          <figcaption class="muted">Computer labs equipped for ICT and coding lessons.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Well equipped science laboratories: Physics, Chemistry, Biology, Agricultural Science</h3>
+
+        <figure class="fig-grid" aria-hidden="false" style="margin-top:10px">
+          <figure>
+            <img src="practical1.jpg" alt="Science laboratories">
+            <figcaption class="muted">Functional science labs for hands-on experiments.</figcaption>
+          </figure>
+          <figure>
+            <img src="practicals2.jpg" alt="Science laboratories">
+            <figcaption class="muted">Functional science labs for hands-on experiments.</figcaption>
+          </figure>
+        </figure>
+
+      </article>
+
+      <article>
+        <h3>School dispensary</h3>
+        <figure>
+          <img src="dispensary.jpg" alt="School dispensary">
+          <figcaption class="muted">On-site health facility for students and staff.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Modern playground</h3>
+        <figure class="fig-grid" style="margin-top:10px">
+          <figure>
+            <img src="playground.jpg" alt="Playground">
+            <figcaption class="muted">Play and sports area for pupils.</figcaption>
+          </figure>
+          <figure>
+            <img src="playground2.jpg" alt="Playground">
+            <figcaption class="muted">Play and sports area for pupils.</figcaption>
+          </figure>
+          <figure>
+            <img src="playground3.jpg" alt="Playground">
+            <figcaption class="muted">Play and sports area for pupils.</figcaption>
+          </figure>
+        </figure>
+      </article>
+
+      <article>
+        <h3>CCTV cameras for round-the-clock security</h3>
+        <figure>
+          <img src="cctv.jpg" alt="CCTV cameras">
+          <figcaption class="muted">Campus-wide CCTV surveillance.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Multi-purpose school hall</h3>
+        <figure>
+          <img src="school-hall.jpg" alt="School hall">
+          <figcaption class="muted">Hall for assemblies, events and examinations.</figcaption>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Conference room</h3>
+        <figure class="fig-grid" style="margin-top:10px">
+          <figure>
+            <img src="conference-room1.jpg" alt="Conference room">
+            <figcaption class="muted">Meeting and conference facilities.</figcaption>
+          </figure>
+          <figure>
+            <img src="conference-room2.jpg" alt="Conference room">
+            <figcaption class="muted">Meeting and conference facilities.</figcaption>
+          </figure>
+          <figure>
+            <img src="conference-room3.jpg" alt="Conference room">
+            <figcaption class="muted">Meeting and conference facilities.</figcaption>
+          </figure>
+        </figure>
+      </article>
+
+      <article>
+        <h3>Conducive administrative offices</h3>
+        <figure>
+          <img src="hm-working-in-office.jpg" alt="Administrative offices">
+          <figcaption class="muted">Comfortable offices for staff and administration.</figcaption>
+        </figure>
+      </article>
+    </section>
+
+    <!-- Capital School Annex -->
+    <section id="annex" class="card">
+      <div class="section-header"><h2>Capital School Annex</h2></div>
+      <p>Due to the increasing demand for enrollment, the Capital School Annex was established. It provides a conducive environment for teaching and learning and houses facilities for conducting national examinations such as WAEC and NECO.</p>
+    </section>
+
+    <!-- Digitalization & Technology -->
+    <section id="digitalization" class="card">
+      <div class="section-header"><h2>Digitalization &amp; Technology</h2></div>
+      <p>The school operates many educational software systems and continues progress toward full digitalization.</p>
+      <ul>
+        <li>JAMB Mock CBT Software – used to prepare students for UTME exams</li>
+        <li>School in the Box (premium version) – comprehensive cloud-based school management</li>
+        <li>Catch Them Young: <em>Computer Programming Using Python</em> App – coding education and practice</li>
+        <li>Continuous progress toward becoming a fully digitalized learning institution</li>
+      </ul>
+
+      <figure style="margin-top:12px">
+        <img src="computer-lab3.jpg" alt="Digital learning tools">
+        <figcaption class="muted">Digital tools and learning platforms used by the school.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Academic Excellence -->
+    <section id="academic" class="card">
+      <div class="section-header"><h2>Academic Excellence</h2></div>
+      <p>Exceptional success rate in JAMB examinations and a high university admission rate for graduates.</p>
+      <figure>
+        <img src="award.jpg" alt="Academic excellence">
+        <figcaption class="muted">Students celebrating academic success.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Co-curricular Activities -->
+    <section id="co-curricular" class="card">
+      <div class="section-header"><h2>Co-curricular Activities</h2></div>
+      <ul>
+        <li>Various student clubs and societies</li>
+        <li>Excursions and other educational trips</li>
+        <li>Awards and prizes won by students, examples include:
+          <ul>
+            <li>Award A</li>
+            <li>Award B</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Our Team -->
+    <section id="team" class="card">
+      <div class="section-header"><h2>Our Team</h2></div>
+      <p>Meet the leadership and teaching staff who guide the school:</p>
+      <ul>
+        <li>Proprietress</li>
+        <li>Director</li>
+        <li>Principal</li>
+        <li>Headmaster</li>
+        <li>School Bursar</li>
+        <li>Vice Principal (Academic)</li>
+        <li>Vice Principal (Admin)</li>
+        <li>Exam Officer</li>
+        <li>School Inspectors</li>
+        <li>Heads of Departments</li>
+        <li>Year Group Coordinators</li>
+        <li>Form Masters/Mistresses</li>
+        <li>Class Teachers</li>
+        <li>Subject Teachers</li>
+      </ul>
+      <!-- Simple team photo grid (no JS/CSS) kept intentionally simple -->
+    </section>
+
+    <!-- Our Partners -->
+    <section id="partners" class="card">
+      <div class="section-header"><h2>Our Partners</h2></div>
+      <ul>
+        <li>Orator xyz</li>
+        <li>Mainafly Software Solutions</li>
+        <li>….</li>
+        <li>….</li>
+      </ul>
+      <figure class="partners" style="margin-top:12px">
+        <img src="https://via.placeholder.com/900x300?text=Partners+Logos+Placeholder" alt="Partners logos">
+        <figcaption class="muted">Partners and collaborators supporting the school.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Dynamic Sections -->
+    <section id="dynamic" class="card">
+      <div class="section-header"><h2>Dynamic Sections</h2></div>
+
+      <!-- Upcoming Events -->
+      <article id="events">
+        <h3>Upcoming Events</h3>
+        <ul>
+          <li>
+            <strong>Founders' Day:</strong> Date: <em>To be announced</em>
+            <figure>
+              <img src="https://via.placeholder.com/600x300?text=Founders+Day" alt="Founders Day">
+              <figcaption class="muted">Founders' Day celebration placeholder image.</figcaption>
+            </figure>
+          </li>
+          <li>
+            <strong>Inter-school Quiz:</strong> Date: <em>To be announced</em>
+            <figure>
+              <img src="https://via.placeholder.com/600x300?text=Quiz+Competition" alt="Quiz competition">
+              <figcaption class="muted">Inter-school quiz placeholder image.</figcaption>
+            </figure>
+          </li>
+        </ul>
+      </article>
+
+      <!-- Media & Updates -->
+      <article id="media">
+        <h3>Media &amp; Updates</h3>
+
+        <!-- Gallery (keeps your images) -->
+        <section aria-labelledby="gallery-heading">
+          <h4 id="gallery-heading">Gallery</h4>
+          <figure>
+            <img src="https://via.placeholder.com/1200x600?text=Gallery+Image+1" alt="Gallery image 1">
+            <figcaption class="muted">Gallery image 1 — school event.</figcaption>
+          </figure>
+          <figure>
+            <img src="https://via.placeholder.com/1200x600?text=Gallery+Image+2" alt="Gallery image 2">
+            <figcaption class="muted">Gallery image 2 — students in class.</figcaption>
+          </figure>
+          <figure>
+            <img src="https://via.placeholder.com/1200x600?text=Gallery+Image+3" alt="Gallery image 3">
+            <figcaption class="muted">Gallery image 3 — sports day.</figcaption>
+          </figure>
+        </section>
+
+        <!-- Newsletters -->
+        <section id="newsletters" style="margin-top:12px">
+          <h4>News</h4>
+          <figure>
+            <img src="news-icon.jpg" alt="MCS News">
+            <figcaption class="muted">MCS News</figcaption>
+          </figure>
+          <ul>
+            <li><a href="#" aria-label="Newsletter January">Newsletter — Januar</a></li>
+            <li><a href="#" aria-label="Newsletter March">Newsletter — March</a></li>
+            <li><a href="#" aria-label="Newsletter June">Newsletter — June</a></li>
+          </ul>
+          <div style="margin-top:8px"><a href="news.href">More news</a></div>
+        </section>
+
+        <!-- School Fees Information -->
+        <section id="fees" style="margin-top:12px">
+          <h4>School Fees Information</h4>
+          <p>Full details of school fees, payment plans and scholarships are available from the school office and via the parent portal.</p>
+          <figure>
+            <img src="https://via.placeholder.com/800x350?text=School+Fees+Info" alt="School fees information">
+            <figcaption class="muted">Contact the bursary for fee schedules and payment options.</figcaption>
+          </figure>
+        </section>
+      </article>
+    </section>
+
+    <!-- Online Portals -->
+    <section id="portals" class="card">
+      <div class="section-header"><h2>Online Portals</h2></div>
+      <ul>
+        <li><a href="#" aria-label="Staff Portal">Staff Portal</a></li>
+        <li><a href="#" aria-label="Student Portal">Student Portal</a></li>
+        <li><a href="#" aria-label="Parent Portal">Parent Portal</a></li>
+      </ul>
+      <figure style="margin-top:12px">
+        <img src="https://via.placeholder.com/900x350?text=Online+Portals" alt="Online portals">
+        <figcaption class="muted">Secure portals for staff, students and parents.</figcaption>
+      </figure>
+    </section>
+
+    <!-- Contact Information -->
+    <section id="contact" class="card">
+      <div class="section-header"><h2>Contact Information</h2></div>
+      <p><strong>Email:</strong> <a href="mailto:info@maiduguricapitalschool.edu.ng">info@maiduguricapitalschool.edu.ng</a></p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/2340000000000" aria-label="WhatsApp contact">+234 0 000 000 000</a></p>
+      <p><strong>Facebook:</strong> <a href="#" aria-label="Facebook page">Maiduguri Capital School</a></p>
+      <p><strong>Twitter/X:</strong> <a href="#" aria-label="Twitter profile">@MaiduguriCapital</a></p>
+      <p><strong>Instagram:</strong> <a href="#" aria-label="Instagram profile">@maiduguri_capital_school</a></p>
+
+      <figure style="margin-top:12px">
+        <img src="https://via.placeholder.com/900x300?text=Contact+Us" alt="Contact us">
+        <figcaption class="muted">Contact the school for admissions, visits and enquiries.</figcaption>
+      </figure>
+
+      <h3 style="margin-top:12px">Location</h3>
+      <p>[School Address / Map Section]</p>
+      <figure>
+        <img src="https://via.placeholder.com/900x400?text=Map+Placeholder" alt="Map placeholder">
+        <figcaption class="muted">Map placeholder — insert embedded map here (e.g., Google Maps iframe) when available.</figcaption>
+      </figure>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div style="max-width:var(--max-width);margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap">
+      <div>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</div>
+      <div>For enquiries: <a href="mailto:info@maiduguricapitalschool.edu.ng">info@maiduguricapitalschool.edu.ng</a></div>
+    </div>
+  </footer>
+
+  <!-- ===========================
+       JavaScript: carousel + scroll reveal
+       =========================== -->
+  <script>
+    // ---------- Year auto-update ----------
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---------- Basic Carousel with dots ----------
+    (function(){
+      const slidesEl = document.getElementById('slides');
+      const slides = Array.from(slidesEl.children);
+      const dotsWrap = document.getElementById('dots');
+      let index = 0;
+      let autoplay = true;
+      let timer = null;
+      const delay = 5000;
+
+      // create dots
+      slides.forEach((s,i)=>{
+        const d = document.createElement('button');
+        d.className = 'dot' + (i===0? ' active':'');
+        d.setAttribute('aria-label','Go to slide ' + (i+1));
+        d.addEventListener('click', ()=>{ go(i); });
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function go(i){
+        index = (i + slides.length) % slides.length;
+        slidesEl.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((d,idx)=> d.classList.toggle('active', idx===index));
+        resetTimer();
+      }
+
+      function next(){ go(index+1) }
+      function prev(){ go(index-1) }
+
+      // controls
+      document.getElementById('nextBtn').addEventListener('click', next);
+      document.getElementById('prevBtn').addEventListener('click', prev);
+
+      // keyboard controls
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight') next();
+        if(e.key === 'ArrowLeft') prev();
+      });
+
+      // touch swipe (basic)
+      let startX = null;
+      slidesEl.addEventListener('touchstart', (ev)=> { startX = ev.touches[0].clientX }, {passive:true});
+      slidesEl.addEventListener('touchend', (ev)=> {
+        if(startX === null) return;
+        const diff = startX - ev.changedTouches[0].clientX;
+        if(Math.abs(diff) > 30){
+          if(diff > 0) next(); else prev();
+        }
+        startX = null;
+      });
+
+      function resetTimer(){
+        if(timer) clearInterval(timer);
+        if(autoplay) timer = setInterval(next, delay);
+      }
+      resetTimer();
+    })();
+
+    // ---------- Scroll reveal using IntersectionObserver ----------
+    (function(){
+      const revealables = document.querySelectorAll('section.card, aside.card, header.site-hero');
+      const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add('revealed');
+            // keep revealed permanently
+            observer.unobserve(entry.target);
+          }
+        })
+      }, {threshold: 0.15});
+      revealables.forEach(el => observer.observe(el));
+    })();
+
+    // ---------- Smooth scrolling for nav links ----------
+    (function(){
+      const navLinks = document.querySelectorAll('nav a[href^="#"]');
+      navLinks.forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          e.preventDefault();
+          const id = a.getAttribute('href');
+          const target = document.querySelector(id);
+          if(!target) return;
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+    })();
+
+    // Accessibility: reduce-motion respect
+    (function(){
+      const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+      if(mq.matches){
+        document.querySelectorAll('.slides').forEach(s=> s.style.transition = 'none');
+      }
+    })();
+  </script>
+</body>
+</html>

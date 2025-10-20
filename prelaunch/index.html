@@ -1,525 +1,163 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maiduguri Capital School — Home</title>
-  <meta name="description" content="Maiduguri Capital School — academic excellence, digital learning, modern facilities." />
-  <link href="index.css" rel="stylesheet">
+  <title>{{SCHOOL_NAME}} — Home</title>
+  <meta name="description" content="Welcome to {{SCHOOL_NAME}} — Excellence in education" />
+  <style>
+    :root{
+      --teal:#0d9488;
+      --blue:#2563eb;
+      --pink:#ec4899;
+      --purple:#7e22ce;
+      --white:#ffffff;
+      --muted:#64748b;
+      --bg:#f0f9ff;
+      --radius:16px;
+      font-family: 'Poppins', sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:#0f172a;line-height:1.6}
+    a{text-decoration:none;color:inherit}header{background:linear-gradient(90deg,var(--teal),var(--blue),var(--purple));color:var(--white);padding:1rem 2rem;position:sticky;top:0;z-index:20}
+header .nav{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:auto}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .logo{width:55px;height:55px;border-radius:50%;background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--teal);font-weight:800;font-size:1.2rem;box-shadow:0 0 10px rgba(255,255,255,0.3)}
+nav ul{display:flex;gap:20px;list-style:none}
+nav a{color:var(--white);font-weight:600;transition:opacity .2s}
+nav a:hover{opacity:.7}
+.btn{background:var(--pink);border:none;color:var(--white);padding:.6rem 1rem;border-radius:var(--radius);font-weight:600;cursor:pointer;transition:all .3s}
+.btn:hover{opacity:.9;transform:translateY(-2px)}
+
+.hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:2rem;padding:3rem 2rem;max-width:1200px;margin:auto}
+.hero-text{flex:1;min-width:300px}
+.hero-text h1{font-size:2.5rem;background:linear-gradient(90deg,var(--blue),var(--pink));-webkit-background-clip:text;color:transparent;font-weight:800;margin-bottom:.8rem}
+.hero-text p{color:var(--muted);margin-bottom:1rem}
+.hero-image{flex:1;min-width:300px;text-align:center}
+.hero-image img{width:100%;max-width:480px;border-radius:var(--radius);box-shadow:0 4px 20px rgba(0,0,0,.1)}
+
+section{padding:3rem 2rem;max-width:1200px;margin:auto}
+h2{font-size:1.8rem;font-weight:700;margin-bottom:1rem;color:var(--blue)}
+
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem}
+.card{background:var(--white);border-radius:var(--radius);padding:1.5rem;box-shadow:0 4px 16px rgba(0,0,0,0.06)}
+
+.facility-list ul{list-style:disc;margin-left:1.5rem;color:var(--muted)}
+.facility-list li{margin-bottom:.5rem}
+
+.levels .card h3{color:var(--purple)}
+
+.why .card{border-left:5px solid var(--teal)}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem;margin-top:1rem}
+.stat{background:linear-gradient(90deg,var(--blue),var(--purple));color:var(--white);padding:1rem;border-radius:var(--radius);text-align:center;font-weight:600}
+
+footer{background:linear-gradient(90deg,var(--teal),var(--blue));color:var(--white);padding:2rem 1rem;margin-top:3rem}
+footer .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;max-width:1200px;margin:auto}
+footer a{color:var(--white)}
+footer p{margin-top:.5rem;color:#d1fae5}
+footer .copy{text-align:center;margin-top:1rem;color:#bae6fd;font-size:.9rem}
+
+@media (max-width:768px){
+  .hero-text h1{font-size:2rem}
+}
+
+  </style>
 </head>
 <body>
-
-  <!-- Header / Hero -->
   <header>
-
-      <div class="header-top">
-        <div class="logo-container">
-          <img src="logo.jpg" alt="MCS Logo">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">MC</div>
+        <div>
+          <strong>{{SCHOOL_NAME}}</strong><br>
+          <small>{{SCHOOL_TAGLINE}}</small>
         </div>
-        <div class="header-title">
-          <h1>Maiduguri Capital School</h1>
-          <p>A premier citadel of learning institution, located in the heart of Maiduguri.</p>
-        </div>
-        <div id="menu-items">
-          <div id="menu" class="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="menu-container ">
-           <button id="close">X</button> Menu
-           <hr>
-            <ul>
-             <li id="switch">Report Card Checker</li>
-              <li>Login as staff</li>
-              <li>Login as student</li>
-              <li>Login as parent</li></li>
-           
-            </ul>
-         </div>
-        </div>
-         
-      </div>  
-           
-      <figure class="slideshow hero-container">              
-        <button class="cta-button">Enroll</button>
-        <figure class="hero">
-          <img src="school-building2.jpg" alt="Maiduguri Capital School - Hero image">
-          <figcaption>Welcome to Maiduguri Capital School — academic excellence & digital learning.</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="school-building1.jpg" alt="Maiduguri Capital School - Hero image">
-          <figcaption>Welcome to Maiduguri Capital School — academic excellence & digital learning.</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="computer-lab.jpg" alt="School building">
-          <figcaption>Students appreciating computer in computer lab.</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="computer-lab2.jpg" alt="School building">
-          <figcaption>Students appreciating computer in computer lab.</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="playground2.jpg" alt="School building">
-          <figcaption>Cheerful pupils playing on the school playground</figcaption>
-        </figure>      
-        <figure class="hero">
-          <img src="proprietress.jpg" alt="School building">
-          <figcaption>Proprietress delivering keynote speech at 26<sup>th</sup> & 33<sup>rd</sup> speech and prize giving day.</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="beautiful-capital-students.png" alt="School building">
-          <figcaption>Inked and educated happy graduating students of Capital</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="award2.jpg" alt="School building">
-          <figcaption>Prize giving day</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="grad-day4.jpg" alt="School building">
-          <figcaption>A moment caputured on speech and prize giving day</figcaption>
-        </figure>
-        <figure class="hero">
-          <img src="grad-day1.jpg" alt="School building">
-          <figcaption>Speech and prize giving day</figcaption>
-        </figure>
-        
-      
-    </figure>
-  </header>
-
-  <main>
-    <!-- School Overview -->
-    <section id="overview">
-      <h2>School Overview</h2>
-      <p>Maiduguri Capital School is one of Nigeria’s leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assemby Quarters, Gombole Road, P.M.B 1017, Maiduguri - Borno State. The school is known for its academic excellence, modern facilities, and commitment to digital learning.</p>
-      <figure class="slideshow">
-        
-        <figure>
-          <img src="school-building1.jpg" alt="School building">
-          <figcaption>Admin Block front-view of Maiduguri Capital School.</figcaption>
-        </figure>
-        <figure>
-          <img src="school-building2.jpg" alt="School building">
-          <figcaption>Campus Admin Block side-view of Maiduguri Capital School.</figcaption>
-        </figure>  
-        
-      </figure>        
-    </section>
-
-    <!-- About Us -->
-    <section id="about">
-      <h2>About Us</h2>
-      <p>Maiduguri Capital School, a premier citadel of learning, began humbly on the <strong>18th of September, 1988</strong>, with just three pupils and two teachers. The school graduated its first set of nine pupils in <strong>1991</strong>.</p>
-      <p>In <strong>1993</strong>, a secondary section was introduced with 14 pioneer students and six teachers. The first set of graduates from the secondary section completed their studies in <strong>1999</strong>.</p>
-      <p>As of <strong>2025</strong>, the school has successfully graduated approximately <strong>18 sets of students</strong>, totaling over <strong>6,000 graduates</strong> — averaging more than <strong>400 students per year</strong>.</p>
- 
-    </section>
-
-    <!-- Vision & Mission -->
-    <section id="vision-mission">
-      <h2>Vision & Mission</h2>
-
-      <article id="vision">
-         <img src="vision-mission.jpg" alt="School building">
-        <figcaption>Campus view of Maiduguri Capital School.</figcaption>
-
-      </article>
-    </section>
-
-    <!-- School Structure -->
-    <section id="structure">
-      
-      <h2>School Sections</h2>
-      <ul>
-        <li>Nursery Section</li>
-        <li>Primary Section</li>
-        <li>Secondary Section</li>
-      </ul>
-    </section>
-
-    <!-- Infrastructure & Facilities -->
-    <section id="facilities">
-      <h2>Infrastructure &amp; Facilities</h2>
-      <article>
-        <h3>Over 100 modern classrooms</h3>
-        <figure class="slideshow">
-          
-          <figure>
-            <img src="classroom1.jpg" alt="Classrooms">
-            <figcaption>Modern classroom.</figcaption>
-          </figure>
-          <figure>
-            <img src="classroom2.jpg" alt="Classrooms">
-            <figcaption>Modern classroom.</figcaption>
-          </figure>
-          <figure>
-            <img src="classroom3.jpg" alt="Classrooms">
-            <figcaption>Modern classroom.</figcaption>
-          </figure>
-          
-        </figure>
-      </article>
-
-      <article>
-        <h3>24/7 Power Supply</h3>       
-        <figure>
-          <img src="power.jpg" alt="Power and internet">
-          <figcaption>Reliable power and internet for learning and administration.</figcaption>
-        </figure>
-      </article>
-      <article>
-        <h3>Access to High Speed Internet</h3>       
-        <figure>
-          <img src="internet.jpg" alt="Internet">
-          <figcaption>Internet for learning and administrative functions.</figcaption>
-        </figure>
-      </article>
-
-
-      <article>
-        <h3>Three (3) Computer Laboratories — over 300 computers</h3>
-        <figure class="slideshow">
-          <figure>
-            <img src="computer-lab.jpg" alt="Computer laboratories">
-            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
-          </figure>
-          <figure>
-            <img src="computer-lab2.jpg" alt="Computer laboratories">
-            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
-          </figure>
-          <figure>
-            <img src="computer-lab3.jpg" alt="Computer laboratories">
-            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
-          </figure>
-        </figure>
-      </article>
-
-      <article>
-        <h3>Well Equipped Science Laboratories</h3>
-        <figure class="slideshow">
-          
-          <figure>
-            <img src="practicals1.jpg" alt="Science laboratories">
-            <figcaption>Functional science labs for hands-on experiments.</figcaption>
-          </figure>
-          <figure>
-            <img src="practical2.jpg" alt="Science laboratories">
-            <figcaption>Functional science labs for hands-on experiments.</figcaption>
-          </figure>
-          
-        </figure>
-        </article>
-      
-        <article>
-          <h3>School dispensary</h3>
-          <figure>
-            <img src="dispensary.jpg" alt="School dispensary">
-            <figcaption>On-site health facility for students and staff.</figcaption>
-          </figure>
-        </article>
-      
-      <article>
-        <h3>Modern playground</h3>
-        <figure>
-          <img src="playground.jpg" alt="Playground">
-          <figcaption>Play and sports area for pupils.</figcaption>
-        </figure>
-        <figure>
-          <img src="playground2.jpg" alt="Playground">
-          <figcaption>Play and sports area for pupils.</figcaption>
-        </figure>
-         <figure>
-          <img src="playground3.jpg" alt="Playground">
-          <figcaption>Play and sports area for pupils.</figcaption>
-        </figure>
-      </article>
-
- 
-
-      <article>
-        <h3>CCTV cameras for round-the-clock security</h3>
-        <figure>
-          <img src="cctv.jpg" alt="CCTV cameras">
-          <figcaption>Campus-wide CCTV surveillance.</figcaption>
-        </figure>
-      </article>
-
-      
-
-      <article>
-        <h3>Multi-purpose School Hall</h3>
-        <figure>
-          <img src="school-hall.jpg" alt="School hall">
-          <figcaption>Hall for assemblies, events and examinations.</figcaption>
-        </figure>
-      </article>
-
-      <article>
-        <h3>Conference room</h3>
-        <figure>
-          <img src="conference-room1.jpg" alt="Conference room">
-          <figcaption>Meeting and conference facilities.</figcaption>
-        </figure>
-         <figure>
-          <img src="conference-room2.jpg" alt="Conference room">
-          <figcaption>Meeting and conference facilities.</figcaption>
-        </figure>
-         <figure>
-          <img src="conference-room3.jpg" alt="Conference room">
-          <figcaption>Meeting and conference facilities.</figcaption>
-        </figure>
-      </article>
-
-      <article>
-        <h3>Conducive administrative offices</h3>
-        <figure>
-          <img src="hm-working-in-office.jpg" alt="Administrative offices">
-          <figcaption>Comfortable offices for staff and administration.</figcaption>
-        </figure>
-      </article>
-    </section>
-
-    <!-- Capital School Annex -->
-    <section id="annex">
-      <h2>Capital School Annex</h2>
-      <p>Due to the increasing demand for enrollment, the Capital School Annex was established. It provides a conducive environment for teaching and learning and houses facilities for conducting national examinations such as WAEC and NECO.</p>
-
-    </section>
-
-    <!-- Digitalization & Technology -->
-    <section id="digitalization">
-      <h2>Digitalization &amp; Technology</h2>
-      <p>The school operates many education-related software systems and continues progress toward maximum digitalization.</p>
-      <ul>
-        <li>JAMB Mock CBT Software – used to prepare students for UTME exams</li>
-        <li>School in the Box (premium version) – comprehensive cloud-based school management</li>
-        <li>Catch Them Young: <em>Computer Programming Using Python</em> App – coding education and practice</li>
-        <li>Mainafly Memory Game</li>
-        <li>ArithmeticQ - a gamified arithmetic learning app</li>
-      </ul>
-      <!--figure>
-        <img src="computer-lab3.jpg" alt="Digital learning tools">
-        <figcaption>Digital tools and learning platforms used by the school.</figcaption>
-      </figure -->
-    </section>
-
-    <!-- Academic Excellence -->
-    <section id="academic">
-      <h2>Academic Excellence</h2>
-      <p>Exceptional success rate in JAMB examinations and a high university admission rate for graduates.</p>
-      <figure>
-        <img src="award.jpg" alt="Academic excellence">
-        <figcaption>Students celebrating academic success.</figcaption>
-      </figure>
-    </section>
-
-    <!-- Co-curricular Activities -->
-    <!--section id="co-curricular">
-      <h2>Co-curricular Activities</h2>
-      <ul>
-        <li>Various student clubs and societies</li>
-        <li>Excursions and other educational trips</li>
-        <li>Awards and prizes won by students, examples include:
-          <ul>
-            <li>Award A</li>
-            <li>Award B</li>
-          </ul>
-        </li>
-      </ul>
-    </section-->
-
-    <!-- Our Team -->
-    <section id="team">
-      <h2>Our Team</h2>
-      <p><a href="#">Meet the leadership and teaching staff who guide the school</a></p>
-      <!--ul>
-        <li>Proprietress</li>
-        <li>Director</li>
-        <li>Principal</li>
-        <li>Headmaster</li>
-        <li>School Bursar</li>
-        <li>Vice Principal (Academic)</li>
-        <li>Vice Principal (Admin)</li>
-        <li>Exam Officer</li>
-        <li>School Inspector</li>
-        <li>Heads of Departments</li>
-        <li>Year Group Coordinators</li>
-        <li>Form Masters/Mistresses</li>
-        <li>Class Teachers</li>
-        <li>Subject Teachers</li>
-      </ul-->
-    </section>
-
-    <!-- Our Partners -->
-    <!-- section id="partners">
-      <h2>Our Partners</h2>
-      <ul>
-        <li>Orator xyz</li>
-        <li>Mainafly Software Solutions</li>
-        <li>….</li>
-        <li>….</li>
-      </ul>
-      <figure>
-        <img src="https://via.placeholder.com/900x300?text=Partners+Logos+Placeholder" alt="Partners logos">
-        <figcaption>Partners and collaborators supporting the school.</figcaption>
-      </figure>
-    </section -->
-
-    <!-- Dynamic Sections -->
-    <section id="dynamic">
-      <!--h2>Dynamic Sections</h2-->
-
-      <!-- Upcoming Events -->
-      <article id="events">
-        <h3>Upcoming Events</h3>
+      </div>
+      <nav>
         <ul>
-          <li>
-            <strong>Founders' Day:</strong> Date: <em>To be announced</em>
-            <figure>
-              <img src="https://via.placeholder.com/600x300?text=Founders+Day" alt="Founders Day">
-              <figcaption>Founders' Day celebration placeholder image.</figcaption>
-            </figure>
-          </li>
-          <li>
-            <strong>Inter-school Quiz:</strong> Date: <em>To be announced</em>
-            <figure>
-              <img src="https://via.placeholder.com/600x300?text=Quiz+Competition" alt="Quiz competition">
-              <figcaption>Inter-school quiz placeholder image.</figcaption>
-            </figure>
-          </li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#levels">Levels</a></li>
+          <li><a href="#facilities">Facilities</a></li>
+          <li><a href="#success">Success</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
-      </article>
-
-      <!-- Media & Updates -->
-      <article id="media">
-        <h3>Media &amp; Updates</h3>
-
-        <!-- Gallery (image list / pseudo-carousel without JS) -->
-        <section aria-labelledby="gallery-heading">
-          <h4 id="gallery-heading">Gallery</h4>
-          <figure class="courasel">
-            <figure>
-              <img src="grad-day.jpg" alt="Gallery image 1">
-              <figcaption>Gallery image 1 — school event.</figcaption>
-            </figure>
-            <figure>
-              <img src="class-room3.jpg" alt="Gallery image 2">
-              <figcaption>Gallery image 2 — students in class.</figcaption>
-            </figure>
-            <figure>
-              <img src="award2.jpg" alt="Gallery image 3">
-              <figcaption>Gallery image 3 — speech and prize giving day.</figcaption>
-            </figure>
-          </figure>
-        </section>
-
-        <!-- Newsletters -->
-        <hr>
-        <section id="newsletters">
-          <figure>
-            <img src="news-icon.jpg" alt="Gallery image 3">
-            <figcaption>MCS News</figcaption>
-          </figure>
-          <ul>
-            <li>
-              <h5>
-                School Resumption Alert: Debunking the Rumors
-              </h5>
-              <p>
-                Message to parents, guardians & students<br>
-                Rumor: Some students on WhatsApp say resumption will be September 28, 2025 <a href="#" aria-label="Newsletter January">Read more..</a>
- 
-              </p>
-                           
-            </li>
-          </ul>
-          <div><a href="news.href">More news</a></div>
-        </section>
-
-        <!-- School Fees Information -->
-        <section id="fees">
-          <h4>School Fees</h4>
-          <a href="#">
-            Check for how to pay school fees of your ward
-          </a>
-        </section>
-      </article>
-    </section>
-
-    <!-- Online Portals -->
-    <!--section id="portals">
-      <h2>Online Portals</h2>
-      <ul>
-        <li><a href="#" aria-label="Staff Portal">Staff Portal</a></li>
-        <li><a href="#" aria-label="Student Portal">Student Portal</a></li>
-        <li><a href="#" aria-label="Parent Portal">Parent Portal</a></li>
-      </ul>
-      <figure>
-        <img src="https://via.placeholder.com/900x350?text=Online+Portals" alt="Online portals">
-        <figcaption>Secure portals for staff, students and parents.</figcaption>
-      </figure>
-    </section-->
-
-    <!-- Contact Information -->
-    <section id="contact">
-      <h2>Contact Information</h2>
-      <p><strong>Email:</strong> <a href="mailto:info@maiduguricapitalschool.edu.ng">info@maiduguricapitalschool.edu.ng</a></p>
-      <p><strong>WhatsApp:</strong> <a href="https://wa.me/2340000000000" aria-label="WhatsApp contact">+234 0 000 000 000</a></p>
-      <p><strong>Facebook:</strong> <a href="#" aria-label="Facebook page">Maiduguri Capital School</a></p>
-      <p><strong>Twitter/X:</strong> <a href="#" aria-label="Twitter profile">@MaiduguriCapital</a></p>
-      <p><strong>Instagram:</strong> <a href="#" aria-label="Instagram profile">@maiduguri_capital_school</a></p>
-
-      <h3>Location</h3>
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.082083313971!2d13.152!3d11.829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10c37fa1188b2d33%3A0x1d72cb5eeef9f0e8!2sOld%20GRA%20Gombole%20Road%2C%20Maiduguri%2C%20Borno%20State!5e0!3m2!1sen!2sng!4v1739950000000!5m2!1sen!2sng"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </section>
-
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</p>
-    <p>For enquiries: <a href="mailto:info@maiduguricapitalschool.edu.ng">info@maiduguricapitalschool.edu.ng</a></p>
+      </nav>
+      <button class="btn">Apply Now</button>
+    </div>
+  </header>  <section class="hero">
+    <div class="hero-text">
+      <h1>Welcome to {{SCHOOL_NAME}}</h1>
+      <p>A technology-driven learning institution adopting <strong>School in the Box (SIB)</strong> to empower students with 21st-century skills. Our serene, well-equipped environment fosters academic excellence and character development.</p>
+      <button class="btn">Start Admission</button>
+    </div>
+    <div class="hero-image">
+      <img src="https://source.unsplash.com/featured/?school,classroom" alt="school hero">
+    </div>
+  </section>  <section id="about">
+    <h2>About Us</h2>
+    <p>{{SCHOOL_NAME}} offers world-class education from Nursery to Secondary levels (JSS & SSS). We combine academics with innovation, using technology and creativity to prepare our learners for excellence in life.</p>
+    <div class="why grid-3" style="margin-top:1rem">
+      <div class="card"><strong>24/7 Internet Access</strong><br><span class="muted">Always connected campus for students and teachers.</span></div>
+      <div class="card"><strong>Technology-Driven Learning</strong><br><span class="muted">Interactive classes powered by digital tools and smart boards.</span></div>
+      <div class="card"><strong>Comprehensive Management</strong><br><span class="muted">Using SIB – the leading school management software for seamless operations.</span></div>
+    </div>
+  </section>  <section id="levels" class="levels">
+    <h2>Our School Levels</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Nursery</h3>
+        <p>Vibrant and colorful classes equipped with TVs and interactive learning materials that engage young minds in fun, foundational learning.</p>
+      </div>
+      <div class="card">
+        <h3>Primary</h3>
+        <p>Building literacy, numeracy, confidence, and curiosity through an integrated and activity-based curriculum.</p>
+      </div>
+      <div class="card">
+        <h3>Secondary (JSS & SSS)</h3>
+        <p>Dynamic academic environment offering science, arts, and technology streams. Students benefit from JAMB mock tests and career mentorship programs.</p>
+      </div>
+    </div>
+  </section>  <section id="facilities" class="facility-list">
+    <h2>Our Facilities</h2>
+    <ul>
+      <li>Physics, Chemistry, and Biology Laboratories</li>
+      <li>Fully functional School Clinic</li>
+      <li>Modern Playground and Sports Arena</li>
+      <li>Well-ventilated 101 classrooms</li>
+      <li>Students Clubs and Co-curricular Societies</li>
+      <li>Digital Learning Center with 24/7 Internet Access</li>
+    </ul>
+  </section>  <section id="success">
+    <h2>Our Track Record</h2>
+    <p>We are proud of our students’ achievements. With dedicated teachers and robust exam preparation, {{SCHOOL_NAME}} consistently records high success rates in national exams and university admissions.</p>
+    <div class="stats">
+      <div class="stat">98% JAMB Success Rate</div>
+      <div class="stat">85% Admission into Top Universities</div>
+      <div class="stat">101 Modern Classrooms</div>
+    </div>
+  </section>  <footer id="contact">
+    <div class="grid">
+      <div>
+        <h3>{{SCHOOL_NAME}}</h3>
+        <p>{{SCHOOL_ADDRESS}}</p>
+        <p>Phone: {{SCHOOL_PHONE}}</p>
+        <p>Email: <a href="mailto:{{SCHOOL_EMAIL}}">{{SCHOOL_EMAIL}}</a></p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <p><a href="#levels">School Levels</a></p>
+        <p><a href="#facilities">Facilities</a></p>
+        <p><a href="#success">Achievements</a></p>
+      </div>
+      <div>
+        <h3>Office Hours</h3>
+        <p>Mon–Fri: 8:00 AM – 3:00 PM</p>
+        <p>Sat: 9:00 AM – 12:00 PM</p>
+      </div>
+    </div>
+    <div class="copy">© {{CURRENT_YEAR}} {{SCHOOL_NAME}}. All Rights Reserved.</div>
   </footer>
-  
-  
-  <script>
-  // --- Dynamic Year in Footer ---
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// --- Hero Image Slideshow ---
-const slides = document.querySelectorAll('.hero-container .hero');
-let currentSlide = 0;
-
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-  });
-}
-
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
-
-// Auto-rotate every 5 seconds
-if (slides.length > 0) {
-  showSlide(currentSlide);
-  setInterval(nextSlide, 5000);
-}
-  
-    
-  document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
-  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
-
-  </script>
-
 </body>
 </html>

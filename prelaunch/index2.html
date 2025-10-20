@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maiduguri Capital School — Home</title>
+  <meta name="description" content="Maiduguri Capital School — academic excellence, modern facilities and digital learning in the heart of Maiduguri." />
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --teal:#0fb5a3;
+      --blue:#2b6cb0;
+      --pink:#ff7ab6;
+      --purple:#;
+      --white:#ffffff;
+    }
+    /* small UI tweaks */
+    .brand-gradient{background:linear-gradient(90deg,var(--teal),var(--blue));}
+    .accent-gradient{background:linear-gradient(90deg,var(--pink),var(--purple));}
+    .glass{background:rgba(255,255,255,0.6);backdrop-filter:blur(6px)}
+    /* simple carousel dots */
+    .dot{width:10px;height:10px;border-radius:9999px}
+  </style>
+</head>
+<body class="bg-gradient-to-b from-white via-sky-50 to-white text-slate-800 leading-relaxed">
+  <!-- Topbar -->
+  <header class="sticky top-0 z-40 backdrop-blur glass border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full brand-gradient flex items-center justify-center text-white font-bold">MCS</div>
+          <div>
+            <a href="#home" class="text-lg font-semibold">Maiduguri Capital School</a>
+            <p class="text-xs text-slate-600">Academic excellence • Digital learning • Community</p>
+          </div>
+        </div>
+        <nav class="hidden md:flex gap-6 items-center text-sm">
+          <a href="#about" class="hover:underline">About</a>
+          <a href="#sections" class="hover:underline">School Structure</a>
+          <a href="#facilities" class="hover:underline">Facilities</a>
+          <a href="#digital" class="hover:underline">Digital</a>
+          <a href="#admissions" class="hover:underline">Admissions</a>
+          <a href="#contact" class="px-3 py-2 rounded-full accent-gradient text-white">Contact</a>
+        </nav>
+        <div class="md:hidden">
+          <button id="menuBtn" class="p-2 rounded-md border">Menu</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero -->
+    <section class="relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid lg:grid-cols-2 gap-8 items-center">
+        <div class="space-y-6">
+          <h1 class="text-4xl lg:text-5xl font-extrabold">Maiduguri Capital School</h1>
+          <p class="text-lg text-slate-700">One of Nigeria’s leading pre-tertiary institutions — founded in 1988. We blend strong academics, modern facilities, and a bold digital-first approach to learning.</p>
+          <div class="flex gap-3">
+            <a href="#admissions" class="px-6 py-3 rounded-md brand-gradient text-white font-semibold shadow">Apply Now</a>
+            <a href="#about" class="px-6 py-3 rounded-md border">Learn More</a>
+          </div>
+
+          <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <div class="p-3 bg-white rounded-lg shadow">
+              <h3 class="text-xs text-slate-500">Founded</h3>
+              <p class="font-semibold">18 Sept, 1988</p>
+            </div>
+            <div class="p-3 bg-white rounded-lg shadow">
+              <h3 class="text-xs text-slate-500">Graduates</h3>
+              <p class="font-semibold">6,000+ (approx.)</p>
+            </div>
+            <div class="p-3 bg-white rounded-lg shadow">
+              <h3 class="text-xs text-slate-500">Classrooms</h3>
+              <p class="font-semibold">100+</p>
+            </div>
+            <div class="p-3 bg-white rounded-lg shadow">
+              <h3 class="text-xs text-slate-500">Computer Labs</h3>
+              <p class="font-semibold">3 labs • 300+ PCs</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Multimedia card: carousel + video -->
+        <div class="space-y-4">
+          <div class="rounded-lg overflow-hidden shadow-lg">
+            <div id="carousel" class="relative h-64 sm:h-80 bg-slate-100">
+              <!-- slides -->
+              <img src="https://images.unsplash.com/photo-1555529771-78c6801f4d10?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Students in classroom" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+              <div class="absolute left-4 bottom-4 bg-black/40 text-white px-3 py-1 rounded">Maiduguri Capital School — interactive learning</div>
+            </div>
+          </div>
+
+          <div class="rounded-lg overflow-hidden shadow-lg bg-white p-4">
+            <h4 class="font-semibold">Welcome video</h4>
+            <p class="text-sm text-slate-600">A short introduction to life and learning at MCS.</p>
+            <div class="mt-3 aspect-video bg-black rounded overflow-hidden">
+              <!-- placeholder Youtube embed -->
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Welcome to Maiduguri Capital School" allowfullscreen class="w-full h-full"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="bg-white py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-8 items-start">
+        <div class="lg:col-span-2 space-y-4">
+          <h2 class="text-2xl font-bold">About Maiduguri Capital School</h2>
+          <p class="text-slate-700">Maiduguri Capital School began humbly on <strong>18th September 1988</strong> with just three pupils and two teachers. The school graduated its first set of nine pupils in 1991. In 1993, a secondary section was introduced with 14 pioneer students; the first secondary graduates completed their studies in 1999.</p>
+          <p class="text-slate-700">As of 2025 the school has graduated approximately <strong>18 sets</strong> — totaling over <strong>6,000 graduates</strong>, averaging more than <strong>400 students per year</strong>. Today MCS is known for academic excellence, modern facilities, and its commitment to digital learning.</p>
+
+          <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="p-4 border rounded-lg">
+              <h4 class="font-semibold">Vision</h4>
+              <p class="text-sm">To raise smart, confident, and responsible young people who respect their culture and use their knowledge to serve and uplift their communities.</p>
+            </div>
+            <div class="p-4 border rounded-lg">
+              <h4 class="font-semibold">Mission</h4>
+              <p class="text-sm">To provide children with a strong and affordable education that nurtures their intellect, equips them with technological skills, and keeps them grounded in cultural and moral values.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick facts card -->
+        <aside class="p-4 border rounded-lg bg-sky-50">
+          <h3 class="font-semibold">Quick Facts</h3>
+          <ul class="mt-3 space-y-2 text-sm text-slate-700">
+            <li>Nursery • Primary • Junior & Senior Secondary</li>
+            <li>24/7 power & high-speed internet</li>
+            <li>Science & Computer laboratories</li>
+            <li>Round-the-clock CCTV security</li>
+            <li>School Annex for national exams (WAEC/NECO)</li>
+          </ul>
+          <a href="#facilities" class="mt-4 inline-block text-sm underline">View Facilities</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- School structure -->
+    <section id="sections" class="py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold mb-4">School Structure</h2>
+        <div class="grid sm:grid-cols-3 gap-6">
+          <div class="p-6 border rounded-lg text-center bg-white">
+            <h3 class="font-semibold">Nursery Section</h3>
+            <p class="text-sm mt-2">Interactive learning; TVs in classrooms for young learners.</p>
+          </div>
+          <div class="p-6 border rounded-lg text-center bg-white">
+            <h3 class="font-semibold">Primary Section</h3>
+            <p class="text-sm mt-2">Strong foundations in literacy, numeracy and ICT.</p>
+          </div>
+          <div class="p-6 border rounded-lg text-center bg-white">
+            <h3 class="font-semibold">Secondary Section</h3>
+            <p class="text-sm mt-2">Junior & Senior streams with exam preparation and career guidance.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Facilities -->
+    <section id="facilities" class="bg-white py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold mb-6">Infrastructure & Facilities</h2>
+        <div class="grid lg:grid-cols-3 gap-6">
+          <div class="space-y-4">
+            <ul class="space-y-3 text-sm text-slate-700">
+              <li>• Over 100 modern classrooms</li>
+              <li>• 24/7 power supply & high-speed internet</li>
+              <li>• Three computer labs (300+ computers)</li>
+              <li>• Functional science labs: Physics, Chemistry, Biology, Agricultural Science</li>
+              <li>• School dispensary & clean water supply</li>
+              <li>• Modern playground & multi-purpose hall</li>
+              <li>• CCTV security & places of worship</li>
+            </ul>
+          </div>
+          <div class="lg:col-span-2">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="rounded overflow-hidden shadow">
+                <img src="https://images.unsplash.com/photo-1529101091764-c3526daf38fe?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Lab" class="w-full h-44 object-cover">
+                <div class="p-3">
+                  <h4 class="font-semibold">Science Laboratories</h4>
+                  <p class="text-sm text-slate-600">Well-equipped labs for practical science learning.</p>
+                </div>
+              </div>
+              <div class="rounded overflow-hidden shadow">
+                <img src="https://images.unsplash.com/photo-1581091012184-7e7c14b1d6c1?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="Computer lab" class="w-full h-44 object-cover">
+                <div class="p-3">
+                  <h4 class="font-semibold">Computer Labs</h4>
+                  <p class="text-sm text-slate-600">Three labs running coding and exam CBT software.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Digitalization -->
+    <section id="digital" class="py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl font-bold">Digitalization & Technology</h2>
+          <p class="text-slate-700 mt-2">Maiduguri Capital School integrates modern software and tools into learning and administration:</p>
+          <ul class="mt-4 list-disc list-inside text-sm text-slate-700 space-y-2">
+            <li>JAMB Mock CBT Software — UTME preparation</li>
+            <li>School in the Box (premium) — cloud-based management</li>
+            <li>"Catch Them Young": Python programming app for students</li>
+            <li>Continuous progress toward a fully digitalized institution</li>
+          </ul>
+          <a class="mt-4 inline-block px-4 py-2 rounded-md border" href="#">Explore e-learning portals</a>
+        </div>
+        <div>
+          <div class="rounded-lg overflow-hidden shadow bg-white p-4">
+            <h4 class="font-semibold">Student Portals</h4>
+            <p class="text-sm text-slate-600">Quick access links for staff, students and parents.</p>
+            <div class="mt-3 grid grid-cols-3 gap-2">
+              <a href="#" class="p-2 border rounded text-center text-xs">Staff Portal</a>
+              <a href="#" class="p-2 border rounded text-center text-xs">Student Portal</a>
+              <a href="#" class="p-2 border rounded text-center text-xs">Parent Portal</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Academics & Awards -->
+    <section id="academics" class="bg-white py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold mb-4">Academic Excellence & Achievements</h2>
+        <p class="text-slate-700">MCS students achieve excellent JAMB results and consistently gain admission to universities. Our students also win prizes and awards across co-curricular competitions.</p>
+        <div class="mt-6 grid sm:grid-cols-3 gap-4">
+          <div class="p-4 border rounded">
+            <h3 class="font-semibold">Award A</h3>
+            <p class="text-sm text-slate-600">Description of Award A.</p>
+          </div>
+          <div class="p-4 border rounded">
+            <h3 class="font-semibold">Award B</h3>
+            <p class="text-sm text-slate-600">Description of Award B.</p>
+          </div>
+          <div class="p-4 border rounded">
+            <h3 class="font-semibold">Excursions</h3>
+            <p class="text-sm text-slate-600">Educational trips and hands-on experiences.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold mb-4">Our Team</h2>
+        <p class="text-sm text-slate-700 mb-4">Leadership and teaching staff who make the school run.</p>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="p-4 border rounded">
+            <h4 class="font-semibold">Proprietress</h4>
+            <p class="text-sm text-slate-600">Name & brief bio (insert details).</p>
+          </div>
+          <div class="p-4 border rounded">
+            <h4 class="font-semibold">Principal / Headmaster</h4>
+            <p class="text-sm text-slate-600">Name & brief bio (insert details).</p>
+          </div>
+          <div class="p-4 border rounded">
+            <h4 class="font-semibold">Administrative Team</h4>
+            <p class="text-sm text-slate-600">Bursar, Vice Principals, Exam Officer, Inspectors, HODs, Coordinators, Teachers.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partners -->
+    <section id="partners" class="bg-sky-50 py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold mb-6">Our Partners</h2>
+        <div class="flex items-center justify-center gap-6 flex-wrap">
+          <div class="p-4 bg-white rounded shadow">Orator xyz</div>
+          <div class="p-4 bg-white rounded shadow">Mainafly Software Solutions</div>
+          <div class="p-4 bg-white rounded shadow">[Partner name]</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic sections: events & media -->
+    <section id="dynamic" class="py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
+        <div>
+          <h3 class="font-semibold text-xl">Upcoming Events</h3>
+          <ul id="eventsList" class="mt-4 space-y-3 text-sm text-slate-700">
+            <!-- JS will insert events here -->
+          </ul>
+          <a href="#news" class="mt-3 inline-block underline">View all news & updates</a>
+        </div>
+        <div>
+          <h3 class="font-semibold text-xl">Media & Updates</h3>
+          <div class="mt-4">
+            <div class="rounded overflow-hidden">
+              <!-- simple image carousel placeholder -->
+              <div id="gallery" class="grid grid-cols-3 gap-2">
+                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="gallery1" class="w-full h-24 object-cover rounded">
+                <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="gallery2" class="w-full h-24 object-cover rounded">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="gallery3" class="w-full h-24 object-cover rounded">
+              </div>
+            </div>
+            <div class="mt-3">
+              <a href="#galleryModal" class="text-sm underline" id="openGallery">Open full gallery</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Admissions / Fees -->
+    <section id="admissions" class="bg-white py-12">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-2xl font-bold mb-4">Admissions & School Fees</h2>
+        <p class="text-sm text-slate-700">Admissions open all year round. For detailed fees information, download the fees schedule or contact the admissions office.</p>
+        <div class="mt-4 flex items-center justify-center gap-3">
+          <a class="px-4 py-2 rounded-md brand-gradient text-white" href="#">Download Fees Schedule (PDF)</a>
+          <a class="px-4 py-2 rounded-md border" href="#contact">Contact Admissions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" class="py-12">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-bold">Contact Us</h2>
+          <p class="text-sm text-slate-700 mt-2">For enquiries, admissions and partnerships:</p>
+          <ul class="mt-4 text-sm space-y-2 text-slate-700">
+            <li>Email: <strong>[insert email]</strong></li>
+            <li>WhatsApp: <strong>[insert number]</strong></li>
+            <li>Facebook: <strong>[insert link]</strong></li>
+            <li>Twitter: <strong>[insert link]</strong></li>
+            <li>Instagram: <strong>[insert link]</strong></li>
+          </ul>
+          <div class="mt-4">
+            <a href="mailto:[insert email]" class="px-4 py-2 rounded-md brand-gradient text-white">Email Admissions</a>
+          </div>
+        </div>
+        <div>
+          <h3 class="font-semibold">Location</h3>
+          <p class="text-sm text-slate-700">[Insert school address]</p>
+          <div class="mt-3 rounded overflow-hidden border">
+            <!-- Placeholder map: replace with Google Maps iframe or embed -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..." class="w-full h-64" style="border:0;" allowfullscreen loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-6">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div>
+          <div class="font-semibold">Maiduguri Capital School</div>
+          <div class="text-sm text-slate-300">&copy; <span id="year"></span> Maiduguri Capital School. All rights reserved.</div>
+        </div>
+        <div class="flex gap-3 text-sm">
+          <a href="#" class="underline">Privacy</a>
+          <a href="#" class="underline">Terms</a>
+          <a href="#" class="underline">Sitemap</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Lightbox / Gallery Modal -->
+  <div id="galleryModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60">
+    <div class="bg-white rounded-lg max-w-4xl w-full p-4">
+      <div class="flex items-center justify-between">
+        <h4 class="font-semibold">Gallery</h4>
+        <button id="closeGallery" class="text-slate-500">Close</button>
+      </div>
+      <div class="mt-3 grid sm:grid-cols-3 gap-2">
+        <!-- repeated images -->
+        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="w-full h-40 object-cover rounded">
+        <img src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="w-full h-40 object-cover rounded">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" class="w-full h-40 object-cover rounded">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // small scripts to make the page interactive
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // simple events array (replace with API-driven content)
+    const events = [
+      {date: '2025-11-10', title: 'First Term Exams', details: 'All students to prepare.'},
+      {date: '2025-12-15', title: 'Christmas Concert', details: 'Parents invited.'},
+      {date: '2026-01-10', title: 'New Academic Session', details: 'Back to school.'}
+    ];
+    const eventsList = document.getElementById('eventsList');
+    events.forEach(ev =>{
+      const li = document.createElement('li');
+      li.innerHTML = `<strong>${ev.date}</strong> — <span class=\"font-semibold\">${ev.title}</span>: <span class=\"text-slate-600\">${ev.details}</span>`;
+      eventsList.appendChild(li);
+    });
+
+    // gallery modal
+    const openGallery = document.getElementById('openGallery');
+    const galleryModal = document.getElementById('galleryModal');
+    const closeGallery = document.getElementById('closeGallery');
+    openGallery?.addEventListener('click', (e)=>{e.preventDefault(); galleryModal.classList.remove('hidden'); galleryModal.classList.add('flex');});
+    closeGallery?.addEventListener('click', ()=>{galleryModal.classList.remove('flex'); galleryModal.classList.add('hidden');});
+
+    // mobile menu toggle (very simple)
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn?.addEventListener('click', ()=>{
+      alert('For a full mobile menu, integrate a drawer.');
+    });
+  </script>
+</body>
+</html>
