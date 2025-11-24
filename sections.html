@@ -127,6 +127,8 @@
     hr {
         margin: 12px;
     }
+    
+    
 </style>
 </head>
 <body>
@@ -150,11 +152,12 @@
         <div class="menu-container ">
           <button id="close">X</button> Menu
            <hr>
-            <ul>
-             <li id="switch">Report Card Checker</li>
-              <li>Login as staff</li>
-              <li>Login as student</li>
-              <li>Login as parent</li>         
+            <ul class="main-menu">
+             <li><a href="result.html">Result Checker</a></li>
+              <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
+              <li><a href="admission-fees.html">Admission</a></li>
+              <li><a href="admission-fees.html#fees">School Fees</a></li>
+              <li><a href="sections.html">School Sections</a></li>              
             </ul>
          </div>
         </div>         
@@ -294,8 +297,24 @@
   
 
   <footer>
+      <div class="footer-links">
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="result.html">Result Checker</a></li>
+    <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
+    <li><a href="admission-fees.html">Admission</a></li>
+    <li><a href="admission-fees.html#fees">School Fees</a></li>
+    <li><a href="sections.html">School Sections</a></li>
+  </ul>
+</div>
     <p>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</p>
     <p>For enquiries: <a href="mailto:maiduguricapitalschool@yahoo.com">maiduguricapitalschool@yahoo.com</a></p>
   </footer>
+    
+    <script>
+    document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
+  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
+
+    </script>
 </body>
 </html>
