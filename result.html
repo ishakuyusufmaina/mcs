@@ -1,0 +1,175 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="description" content="Maiduguri Capital School — addmission procedure and school fees payment guidelines." />
+  <link href="index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
+
+  <title>Result Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+    .container {
+      
+      max-width: 450px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    h2 {
+      text-align: center;
+      color: #1a4d7a;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1a4d7a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #163d63;
+    }.result-card {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #1a4d7a;
+}
+.not-found {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffe5e5;
+  color: #b10000;
+  border-radius: 10px;
+  border-left: 5px solid red;
+  font-weight: bold;
+}
+
+  .logo-container  {
+   //border: 1px solid;
+    text-align: center;
+  }
+  .logo-container  img {
+    display: inline-block;
+    text-align: center;
+  }
+  </style>
+</head>
+<body>
+  
+  
+  <div class="container">
+    <div class="logo-container">
+         <a href="index.html">
+          <img src="logo.jpg" alt="MCS Logo">
+        </a>
+      </div>
+    <h2>Result Checker</h2><label>Session</label>
+<select id="session">
+
+  <option value="2024/2025">2025/2026</option>
+</select>
+
+<label>Term</label>
+<select id="term">
+  <option value="1st Term">1st Term</option>
+  <option value="2nd Term">2nd Term</option>
+  <option value="3rd Term">3rd Term</option>
+</select>
+
+<label>Student ID</label>
+<input type="text" id="studentId" placeholder="Enter Student ID" />
+
+<button onclick="checkResult()">Check Result</button>
+
+<div id="output"></div>
+
+  </div>  <script>
+    const sampleResults = {
+      "STU001": {
+        name: "Adam Musa",
+        class: "JSS 1",
+        session: "2023/2024",
+        term: "1st Term",
+        scores: {
+          Mathematics: 85,
+          English: 78,
+          Science: 90,
+          "Social Studies": 74,
+        },
+      },
+      "STU002": {
+        name: "Sarah Ibrahim",
+        class: "Primary 5",
+        session: "2024/2025",
+        term: "1st Term",
+        scores: {
+          Mathematics: 92,
+          English: 88,
+          Science: 91,
+          "CCA": 75,
+        },
+      },
+    };
+
+    function checkResult() {
+      const session = document.getElementById("session").value;
+      const term = document.getElementById("term").value;
+      const id = document.getElementById("studentId").value.trim();
+
+      const data = sampleResults[id];
+      const output = document.getElementById("output");
+      output.innerHTML = "";
+
+      if (!data) {
+        output.innerHTML = `<div class='not-found'>Result not found. Student ID may be incorrect or result not yet published.</div>`;
+        return;
+      }
+
+      if (data.session !== session || data.term !== term) {
+        output.innerHTML = `<div class='not-found'>Result for this session/term is not yet published.</div>`;
+        return;
+      }
+
+      let scoresHTML = "";
+      for (let subject in data.scores) {
+        scoresHTML += `<p><strong>${subject}</strong>: ${data.scores[subject]}</p>`;
+      }
+
+      output.innerHTML = `
+        <div class='result-card'>
+          <h3>${data.name}</h3>
+          <p><strong>Class:</strong> ${data.class}</p>
+          <p><strong>Session:</strong> ${data.session}</p>
+          <p><strong>Term:</strong> ${data.term}</p>
+          <h4>Scores:</h4>
+          ${scoresHTML}
+        </div>
+      `;
+    }
+  </script></body>
+</html>

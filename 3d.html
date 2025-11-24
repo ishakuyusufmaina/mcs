@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Three.js Textured Rotating Cube</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    html,body { height:100%; margin:0; }
+    #app { 
+      width:50%; height:50vh; display:block; overflow:hidden; background:#111; }
+    .credit {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      color: #ddd;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-size: 13px;
+      background: rgba(0,0,0,0.35);
+      padding: 6px 8px;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <div class="credit">Rotating textured cube — images: <code>pic1.jpg</code> … <code>pic6.jpg</code></div>
+
+  <!-- Use three.js as an ES module from CDN -->
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.155.0/build/three.module.js';
+
+    // --- Setup renderer, scene, camera ---
+    const container = document.getElementById('app');
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.outputEncoding = THREE.sRGBEncoding;
+    container.appendChild(renderer.domElement);
+
+    const scene = new THREE.Scene();
+
+    const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    // subtle ambient + directional light so textures show nicely
+    const ambient = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambient);
+    const dir = new THREE.DirectionalLight(0xffffff, 0.6);
+    dir.position.set(5, 5, 5);
+    scene.add(dir);
+
+    // --- Load textures for 6 faces ---
+    // Put pic1.jpg ... pic6.jpg in the same folder as this HTML file.
+    const urls = [
+      'pic1.jpg', // +X
+      'pic2.jpg', // -X
+      'pic3.jpg', // +Y
+      'pic4.jpg', // -Y
+      'pic5.jpg', // +Z
+      'pic6.jpg'  // -Z
+    ];
+
+    const loader = new THREE.TextureLoader();
+    // Optional: use a manager to detect load errors or display progress
+    const materials = urls.map((url) => {
+      const tex = loader.load(
+        url,
+        undefined,
+        undefined,
+        (err) => {
+          // fallback in case an image fails to load
+          console.warn('Failed to load', url, err);
+        }
+      );
+      tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+      tex.encoding = THREE.sRGBEncoding;
+      // Ensure textures fit faces (BoxGeometry UVs are 0..1), no repeat by default.
+      return new THREE.MeshStandardMaterial({ map: tex, roughness: 0.6, metalness: 0.0 });
+    });
+
+    // If any texture failed to load, material will still exist but may appear blank.
+    // We create a BoxGeometry and give the materials array (one per face).
+    const size = 1;
+    const geometry = new THREE.BoxGeometry(size, size, size);
+
+    // Create mesh with per-face materials array
+    const cube = new THREE.Mesh(geometry, materials);
+    scene.add(cube);
+
+    // Slight initial tilt so rotation looks nicer
+    cube.rotation.x = 0.4;
+    cube.rotation.y = 0.2;
+
+    // --- Responsive resize handler ---
+    function onWindowResize() {
+      const w = container.clientWidth;
+      const h = container.clientHeight;
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+      renderer.setSize(w, h);
+    }
+    window.addEventListener('resize', onWindowResize, { passive: true });
+
+    // --- Smooth rotation with damping-like motion ---
+    // We'll increment rotation each frame for smooth effect
+    const rotationSpeed = { x: 0.0005, y: 0.0005 }; // tweak to taste
+
+    let lastTime = performance.now();
+    function animate(now) {
+      const dt = (now - lastTime) / 1000; // seconds since last frame
+      lastTime = now;
+
+      // Increment rotation scaled by dt to be frame-rate independent
+      cube.rotation.y += rotationSpeed.y * (60 * dt); // multiplier keeps speed similar across framerates
+      cube.rotation.x += rotationSpeed.x * (60 * dt);
+
+      renderer.render(scene, camera);
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    // Optional: simple pointer drag to slightly rotate cube while keeping auto-rotation
+    let isDown = false, startX = 0, startY = 0, startRotX = 0, startRotY = 0;
+    container.addEventListener('pointerdown', (e) => {
+      isDown = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startRotX = cube.rotation.x;
+      startRotY = cube.rotation.y;
+      container.setPointerCapture(e.pointerId);
+    });
+    container.addEventListener('pointermove', (e) => {
+      if (!isDown) return;
+      const dx = (e.clientX - startX) / container.clientWidth;
+      const dy = (e.clientY - startY) / container.clientHeight;
+      cube.rotation.y = startRotY + dx * Math.PI * 1.2;
+      cube.rotation.x = startRotX + dy * Math.PI * 1.2;
+    });
+    container.addEventListener('pointerup', (e) => {
+      isDown = false;
+    });
+    container.addEventListener('pointercancel', () => { isDown = false; });
+
+    // handle visibility change to pause rendering if tab hidden (nice to save resources)
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        // stop updates by not doing anything; render loop still running but minimal work
+        // (for a more aggressive pause you'd cancel the animation frame and restart on visibility)
+      } else {
+        lastTime = performance.now();
+      }
+    });
+  </script>
+</body>
+</html>
