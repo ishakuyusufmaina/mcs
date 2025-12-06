@@ -1,7 +1,5 @@
 backend:
-  name: github
-  repo: ishakuyusufmaina/mcs
-  branch: main
+  name: test-repo
  
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
