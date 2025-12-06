@@ -34,7 +34,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 4.3)
+  jekyll (~> 4.3.4)
   minima (2.5.2)
 
 BUNDLED WITH
