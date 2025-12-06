@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ishakuyusufmaina/mcs
   branch: main
-
+ 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
