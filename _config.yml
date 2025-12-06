@@ -1,7 +1,9 @@
+title: My Demo Site
+description: Demo articles managed by Decap CMS
+markdown: kramdown
+theme: minima
+
 collections:
   articles:
     output: true
-    permalink: /articles/:slug
-
-markdown: kramdown
-theme: minima
+    permalink: /articles/:slug/
