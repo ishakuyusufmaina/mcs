@@ -2,3 +2,5 @@ collections:
   articles:
     output: true
     permalink: /articles/:slug/
+markdown: kramdown
+theme: minima
