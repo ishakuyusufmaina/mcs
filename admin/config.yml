@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-username/your-repo
+  repo: ishakuyusufmaina/mcs
   branch: main
 
 media_folder: "assets/uploads"
