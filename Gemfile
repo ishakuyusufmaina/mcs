@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 5.0"
-gem "minima"
+ruby "3.2.2"
+
+gem "jekyll", "~> 4.3.4"
+gem "minima", "~> 2.5""
