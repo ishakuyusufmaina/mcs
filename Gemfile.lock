@@ -15,7 +15,7 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.16)
       jekyll-seo-tag (~> 2.6)
-    jekyll-feed (0.16)
+    jekyll-feed (0.17.0)
       jekyll (>= 3.3, < 5.0)
     jekyll-seo-tag (2.7.1)
       jekyll (>= 3.5, < 5.0)
