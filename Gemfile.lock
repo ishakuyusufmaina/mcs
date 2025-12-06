@@ -34,8 +34,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 4.3.4)
-  minima (~> 2.6)
+  jekyll (~> 4.3)
+  minima
 
 BUNDLED WITH
    2.4.13
