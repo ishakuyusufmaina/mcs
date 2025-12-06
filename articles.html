@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<h1>Latest Articles</h1>
+
+<ul>
+  {% for article in site.articles reversed %}
+    <li>
+      <a href="{{ article.url }}">{{ article.title }}</a><br>
+      <small>{{ article.date | date: "%B %d, %Y" }}</small><br>
+      <p>{{ article.description }}</p>
+    </li>
+  {% endfor %}
+</ul>
