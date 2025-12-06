@@ -35,7 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll (~> 4.3.4)
-  minima (~> 2.5)
+  minima (~> 2.6)
 
 BUNDLED WITH
    2.4.13
