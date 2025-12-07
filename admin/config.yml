@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ishakuyusufmaina/mcs
   branch: main
-  auth_type: implicit
+  auth_type: pkce
   app_id: Ov23liYe6XmAJ1eSBULn
   scope: repo
 
