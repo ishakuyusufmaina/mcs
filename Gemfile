@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
-ruby "3.4.7"
-
-gem "jekyll", "~> 4.3.4"
-gem "minima", "~> 2.5.2"
+# Remove Ruby version to match Netlify default
+gem "jekyll", "~> 4.3"
+gem "minima"
+gem "jekyll-feed"
+gem "jekyll-seo-tag"
