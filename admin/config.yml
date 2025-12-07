@@ -1,5 +1,5 @@
 backend:
-  name: github
+  name: git-gateway
   repo: ishakuyusufmaina/mcs
   branch: main
   auth_type: pkce
