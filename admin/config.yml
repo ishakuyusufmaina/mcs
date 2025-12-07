@@ -1,6 +1,6 @@
 backend:
-  name: github
-  repo: username/repo-name  # replace with your GitHub repo
+  name: git-gateway
+  repo: ishakuyusufmaina/mcs # replace with your GitHub repo
   branch: main
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
