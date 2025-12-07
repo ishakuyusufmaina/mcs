@@ -1,9 +1,5 @@
-title: My Demo Site
-description: Demo articles managed by Decap CMS
-markdown: kramdown
+title: My Minimal Jekyll Site
+description: Demo site with Decap CMS
 theme: minima
-
-collections:
-  articles:
-    output: true
-    permalink: /articles/:slug/
+plugins:
+  - jekyll-feed
