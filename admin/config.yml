@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  repo: https://github.com/ishakuyusufmaina/mcs
+  repo: ishakuyusufmaina/mcs
   branch: main
   
 media_folder: "assets/images/uploads"
