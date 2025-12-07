@@ -1,0 +1,121 @@
+/* GLOBAL -------------------------------------------------- */
+
+body, .nc-app {
+  background: #f4f7fb !important; 
+  font-family: "Inter", sans-serif !important;
+  color: #1e293b !important;
+}
+
+/* SCROLLBAR ------------------------------------------------ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #8b5cf6; /* purple */
+  border-radius: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #e2e8f0;
+}
+
+
+/* SIDEBAR -------------------------------------------------- */
+.css-1p0ekn7, /* main sidebar */
+.css-1s3t6q1 {
+  background: linear-gradient(180deg, #14b8a6, #38bdf8) !important; 
+  color: white !important;
+}
+
+.css-1p0ekn7 a,
+.css-1p0ekn7 button {
+  color: white !important;
+}
+
+.css-1p0ekn7 a:hover {
+  background: rgba(255,255,255,0.15) !important;
+}
+
+
+/* HEADER BAR ---------------------------------------------- */
+
+.css-1w1j9v7 {
+  background: linear-gradient(90deg, #8b5cf6, #ec4899) !important;
+  color: #fff !important;
+  border-bottom: none !important;
+}
+
+
+/* COLLECTION LIST ----------------------------------------- */
+
+.card, .CollectionsListPage_listItem {
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06) !important;
+}
+
+.card:hover, .CollectionsListPage_listItem:hover {
+  border-color: #14b8a6 !important;
+  box-shadow: 0 2px 10px rgba(20,184,166,0.3) !important;
+}
+
+
+/* BUTTONS -------------------------------------------------- */
+
+button,
+[type="button"],
+[type="submit"] {
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  padding: 8px 16px !important;
+  border: none !important;
+  transition: 0.2s ease !important;
+}
+
+button:not(.EditorControlBar_button):not(:disabled) {
+  background: #14b8a6 !important; /* teal */
+  color: white !important;
+}
+
+button:hover:not(:disabled) {
+  background: #38bdf8 !important; /* light blue */
+}
+
+button:active {
+  background: #8b5cf6 !important; /* purple */
+}
+
+
+/* PRIMARY ACTION BUTTONS */
+button[class*="primary"],
+button[type="submit"] {
+  background: #ec4899 !important; /* pink */
+  color: white !important;
+}
+
+button[class*="primary"]:hover {
+  background: #8b5cf6 !important; /* purple */
+}
+
+
+/* EDITOR --------------------------------------------------- */
+
+.EditorControlPane_container {
+  background: #ffffff !important;
+  border-left: 3px solid #14b8a6 !important;
+}
+
+.css-1ad2tmt, 
+.css-1o7k6wx {
+  background: #f8fafc !important;
+  border-radius: 8px !important;
+  border: 1px solid #e2e8f0 !important;
+}
+
+.css-1ad2tmt:hover {
+  border-color: #38bdf8 !important;
+}
+
+.css-1ad2tmt:focus-within {
+  border-color: #8b5cf6 !important;
