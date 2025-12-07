@@ -1,10 +1,5 @@
 ---
-title: New Student
+layout: post
+title: "Post title"
+date: 2024-01-01
 ---
-vvvbbbb
-
-```
-
-```
-
-![](/assets/images/uploads/61086.png)
