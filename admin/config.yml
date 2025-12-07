@@ -1,21 +1,15 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: username/repo-name  # replace with your GitHub repo
   branch: main
-
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
-
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 collections:
-  - name: articles
-    label: Articles
-    folder: "articles"
+  - name: "posts"
+    label: "Posts"
+    folder: "_posts"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    extension: "md"
-    format: "frontmatter"
     fields:
-      - { label: Title, name: title, widget: string }
-      - { label: Description, name: description, widget: string }
-      - { label: Date, name: date, widget: datetime }
-      - { label: Body, name: body, widget: markdown }
-- { label: Layout, name: layout, widget: hidden, default: "post" }
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Body", name: "body", widget: "markdown" }
