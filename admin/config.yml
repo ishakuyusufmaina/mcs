@@ -3,7 +3,6 @@ backend:
   repo: ishakuyusufmaina/mcs
   branch: main
   
-
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
