@@ -4,8 +4,10 @@ backend:
   branch: main
   auth_type: implicit
   app_id: Ov23liYe6XmAJ1eSBULn
+
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
+
 collections:
   - name: "posts"
     label: "Posts"
