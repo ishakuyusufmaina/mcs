@@ -202,7 +202,95 @@ a:active {
 
   <script>
     /* Your original JS code stays unchanged */
+
+  </script>
+  <script>
+
+
+  const link = (ref, txt)=>{
+    let a = document.createElement("a");
+    a.href = ref;
+    a.innerHTML = txt;
+    return a;
+  }
+  menuList.innerHTML = "";
+ menuData.forEach(l=>{
+    let a = link(l.url, l.label);
+    console.log(l.url, l.label);
+    let li = document.createElement("li");
+    li.append(a);
+    menuList.append(li);
+  })
+  const heroConatainer = document.querySelector(".hero-container");
+  heroConatainer.innerHTML = "";
+  heroItems.forEach(item=>{
+    let fig = document.createElement("figure");
+    fig.className = "hero";
+    let img = document.createElement("img");
+    img.src = item.src;
+    img.alt = item.alt;
+    let cap = document.createElement("figcaption");
+    cap.innerText= item.caption;
+    fig.append(img, cap);
+    heroConatainer.append(fig);
+  })
+
+  const menu = document.querySelector("#sectionList");
+sections.forEach(section => {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = section.url;
+  a.textContent = section.label;
+  li.appendChild(a);
+  menu.appendChild(li);
+});
+
+  // --- Dynamic Year in Footer ---
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// --- Hero Image Slideshow ---
+const slides = document.querySelectorAll('.hero-container .hero');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-rotate every 5 seconds
+if (slides.length > 0) {
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000);
+}
+
+
+  document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
+  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
+
   </script>
 
+
+  <style>
+
+  </style>
+
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", (user) => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
