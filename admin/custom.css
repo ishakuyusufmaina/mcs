@@ -66,24 +66,24 @@ body, .nc-app {
 button,
 [type="button"],
 [type="submit"] {
-  border-radius: 8px !important;
-  font-weight: 600 !important;
-  padding: 8px 16px !important;
-  border: none !important;
-  transition: 0.2s ease !important;
+//  border-radius: 8px !important;
+ // font-weight: 600 !important;
+  //padding: 8px 16px !important;
+//  border: none !important;
+//  transition: 0.2s ease !important;
 }
 
 button:not(.EditorControlBar_button):not(:disabled) {
-  background: #14b8a6 !important; /* teal */
-  color: white !important;
+//  background: #14b8a6 !important; /* teal */
+//  color: white !important;
 }
 
 button:hover:not(:disabled) {
-  background: #38bdf8 !important; /* light blue */
+//  background: #38bdf8 !important; /* light blue */
 }
 
 button:active {
-  background: #8b5cf6 !important; /* purple */
+//  background: #8b5cf6 !important; /* purple */
 }
 
 
