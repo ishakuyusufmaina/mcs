@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{{ page.title }} — Maiduguri Capital School</title>
+
+  <meta name="description" content="{{ page.excerpt | strip_html }}">
+
+  <!-- Same styles as homepage -->
+  <link href="/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+<header class="sub-header">
+  <div class="header-top inner">
+    <div class="logo-container">
+      <a href="/"><img src="/images/logo.jpg" alt="MCS Logo"></a>
+    </div>
+    <h1 class="sub-title">Article</h1>
+  </div>
+</header>
+
+<main class="content-area">
+  
+  <article class="full-article">
+
+    {% if page.poster %}
+    <div class="article-poster">
+      <img src="{{ page.poster }}" alt="{{ page.posterAlt }}">
+    </div>
+    {% endif %}
+
+    <h1 class="article-title">{{ page.title }}</h1>
+
+    <p class="article-meta">
+      <span>{{ page.date | date: "%B %d, %Y" }}</span>
+      &nbsp;•&nbsp;
+      <span>By {{ page.author }}</span>
+    </p>
+
+    <div class="article-body">
+      {{ content }}
+    </div>
+
+  </article>
+
+  <!-- Previous / Next -->
+  <nav class="article-nav">
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  </nav>
+
+</main>
+
+<footer>
+  <p>&copy; {{ site.time | date: "%Y" }} Maiduguri Capital School</p>
+</footer>
+
+<style>
+/* BEAUTIFUL STYLES consistent with homepage */
+
+.content-area {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.full-article img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.article-title {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.article-meta {
+  color: #444;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+
+.article-body {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+.article-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+
+.article-nav a {
+  color: #0077cc;
+  font-weight: bold;
+}
+
+.sub-header {
+  background: #003366;
+  padding: 15px 0;
+  color: white;
+}
+
+.sub-title {
+  margin-left: 10px;
+}
+
+</style>
+
+</body>
+</html>
