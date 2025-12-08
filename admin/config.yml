@@ -47,3 +47,19 @@ collections:
       - { label: "PDF File", name: "pdf", widget: "file", allow_multiple: false }
       - { label: "Layout", name: "layout", widget: "hidden", default: "miscellaneous" }
       - { label: "Body", name: "body", widget: "markdown" }
+  # ---------------------------------------
+  # 2. ARTICLES
+  # ---------------------------------------
+  - name: "articles"
+    label: "Articles"
+    folder: "_articles"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Poster Image", name: "poster", widget: "image", required: false }
+      - { label: "Poster Alt Text", name: "posterAlt", widget: "string", required: false }
+      - { label: "Body", name: "body", widget: "markdown" }
+
