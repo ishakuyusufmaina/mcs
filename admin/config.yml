@@ -10,6 +10,7 @@ collections:
   - name: "posts"
     label: "Blog Posts"
     folder: "_posts"
+    format: "frontmatter"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     path: "{{year}}-{{month}}-{{day}}-{{slug}}.md"
