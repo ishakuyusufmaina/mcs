@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ page.title }}</title>
+  <meta name="description" content="Maiduguri Capital School — academic excellence, digital learning, modern facilities." />
+
+  <link href="/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="/index.js"></script>
+
+  <style>
+    /* (Your entire CSS remains unchanged) */
+    /* Vision & Mission Section */
+#vision-mission {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px 25px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #1e6a8a;
+  animation: fadeIn 1.2s ease;
+}
+
+#vision-mission h2 {
+  font-size: 1.7rem;
+  color: #1e6a8a;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  position: relative;
+}
+
+#vision-mission h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #2563eb;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  border-radius: 2px;
+}
+
+#vision-mission p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  #vision-mission {
+    padding: 25px 15px;
+    margin: 30px 10px;
+  }
+
+  #vision-mission h2 {
+    font-size: 1.4rem;
+  }
+
+  #vision-mission p {
+    font-size: 1rem;
+  }
+}
+
+h2, h3, h4 {
+  text-transform: uppercase;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover,
+a:focus {
+  color: #155ab6;
+  text-decoration: underline;
+  transform: translateY(-1px);
+}
+
+a:active {
+  color: #0c3d82;
+  transform: translateY(0);
+}
+
+.headline {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #555;
+  margin-top: 0;
+}
+
+.indented {
+  text-indent: 2em;
+  margin-left: 2em;
+}
+
+#newsletters {
+  border-left: 8px solid teal;
+  padding-left: 10px;
+}
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div class="logo-container">
+          <img src="/images/logo.jpg" alt="MCS Logo">
+      </div>
+      <div class="header-title">
+          <h1>Maiduguri Capital School</h1>
+          <p>A premier citadel of learning institution, located in the heart of Maiduguri.</p>
+      </div>
+
+      <div id="menu-items">
+        <div id="menu" class="menu-icon">
+          <span></span><span></span><span></span>
+        </div>
+
+        <div class="menu-container">
+          <button id="close">X</button> Menu
+          <hr>
+          <ul id="menuList" class="main-menu"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="/result.html">Result Checker</a>
+      <a href="https://capital.mainafly.com/signin">Staff Portal</a>
+    </div>
+
+    <figure class="slideshow hero-container">
+      <a href="/admission-fees.html" class="cta-button">Admission</a>
+    </figure>
+  </header>
+
+  <!-- PAGE CONTENT INSERTED HERE -->
+  <main>
+    {{ content }}
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/result.html">Result Checker</a></li>
+        <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
+        <li><a href="/admission-fees.html">Admission</a></li>
+        <li><a href="/admission-fees.html#fees">School Fees</a></li>
+        <li><a href="/sections.html">School Sections</a></li>
+      </ul>
+    </div>
+
+    <p>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</p>
+    <p>For enquiries: <a href="mailto:maiduguricapitalschool@yahoo.com">maiduguricapitalschool@yahoo.com</a></p>
+  </footer>
+
+  <script>
+    /* Your original JS code stays unchanged */
+  </script>
+
+</body>
+</html>
