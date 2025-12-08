@@ -4,65 +4,48 @@ backend:
   branch: main
 
 media_folder: "images"
-public_folder: "/images"
+public_folder: "/images/
 
 
 collections:
 
-  # ---------------------------------------
-  # 1. HOMEPAGE DATA
-  # ---------------------------------------
-  - name: "homepage"
-    label: "Homepage Content"
-    files:
-      - name: "home"
-        label: "Homepage Sections"
-        file: "_data/home.yml"
-        fields:
-          - label: "Forecast of Events"
-            name: foe
-            widget: object
-            fields:
-              - { label: "Session", name: "session", widget: "string" }
-              - { label: "Online URL", name: "onlineURL", widget: "string" }
-              - { label: "Download PDF URL", name: "downloadURL", widget: "string" }
-
-          - label: "Newsletter"
-            name: newsletter
-            widget: object
-            fields:
-              - { label: "Newsletter Date", name: "date", widget: "string" }
-              - { label: "Online URL", name: "onlineURL", widget: "string" }
-              - { label: "PDF URL", name: "pdfURL", widget: "string" }
-
-  # ---------------------------------------
-  # 2. ARTICLES
-  # ---------------------------------------
-  - name: "articles"
-    label: "Articles"
-    folder: "_articles"
+  # BLOG POSTS
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "_posts"
+    format: "frontmatter"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
-      - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Poster Image", name: "poster", widget: "image", required: false }
-      - { label: "Poster Alt Text", name: "posterAlt", widget: "string", required: false }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "post" }
       - { label: "Body", name: "body", widget: "markdown" }
 
-  # ---------------------------------------
-  # 3. BLOG POSTS
-  # ---------------------------------------
-  - name: "posts"
-    label: "Posts"
-    folder: "_posts"
+  # MISC COLLECTION — FORECAST OF EVENTS
+  - name: "forecast"
+    label: "Forecast of Events"
+    folder: "_miscellaneous/forecast"
+    format: "frontmatter"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Author", name: "author", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
-      - { label: "Poster Image", name: "poster", widget: "image", required: false }
-      - { label: "Poster Alt Text", name: "posterAlt", widget: "string", required: false }
+      - { label: "PDF File", name: "pdf", widget: "file", allow_multiple: false }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "miscellaneous" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # MISC COLLECTION — NEWSLETTER
+  - name: "newsletter"
+    label: "Newsletter"
+    folder: "_miscellaneous/newsletter"
+    format: "frontmatter"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "PDF File", name: "pdf", widget: "file", allow_multiple: false }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "miscellaneous" }
       - { label: "Body", name: "body", widget: "markdown" }
