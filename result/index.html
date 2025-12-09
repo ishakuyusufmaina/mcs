@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="description" content="Maiduguri Capital School — addmission procedure and school fees payment guidelines." />
+  <link href="index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ 
+
+  <title>Result Checker</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+    .container {
+      
+      max-width: 450px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      position: relative;
+    }
+    h2 {
+      text-align: center;
+      color: #1a4d7a;
+    }
+    label {
+      font-weight: bold;
+    }
+    select, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background: #1a4d7a;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #163d63;
+    }.result-card {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 5px solid #1a4d7a;
+}
+.not-found {
+  margin-top: 20px;
+  padding: 15px;
+  background: #ffe5e5;
+  color: #b10000;
+  border-radius: 10px;
+  border-left: 5px solid red;
+  font-weight: bold;
+}
+
+  .logo-container  {
+   //border: 1px solid;
+    text-align: center;
+  }
+  .logo-container  img {
+    display: inline-block;
+    text-align: center;
+    height: 100px;
+    width: 100px;
+  }
+  </style>
+</head>
+<body>
+  
+  
+  <div class="container">
+    <div class="logo-container">
+         <a href="index.html">
+          <img src="../images/logo.jpg" alt="MCS Logo">
+        </a>
+      </div>
+    <h2>Result Checker</h2><label>Session</label>
+<select id="session">
+
+  <option value="2025/2026">2025/2026</option>
+</select>
+
+<label>Term</label>
+<select id="term">
+  <option value="0">1st Term</option>
+  <option value="1">2nd Term</option>
+  <option value="2">3rd Term</option>
+</select>
+
+<label>Student ID</label>
+<input type="text" id="studentId" placeholder="Enter Student ID" />
+
+<button id="check">Check Result</button>
+
+<div id="output"></div>
+
+  </div>  
+  <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-analytics.js";
+  import {getFirestore, query, where, getDocs, doc, serverTimestamp, collection, writeBatch, setDoc, getDoc} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCWgh5RIrma5iVSnMNU4vedtQadReDDxqA",
+    authDomain: "result-32f33.firebaseapp.com",
+    projectId: "result-32f33",
+    storageBucket: "result-32f33.firebasestorage.app",
+    messagingSenderId: "518318428794",
+    appId: "1:518318428794:web:0e49851c783ea8c90d61c3",
+    measurementId: "G-N1EV4XNHNL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const db = getFirestore(app)
+
+  check.onclick = async e=> await checkResult();
+  async  function checkResult() {
+      const session = document.getElementById("session").value;
+      const term = document.getElementById("term").value;
+      const id = document.getElementById("studentId").value.trim();
+console.log(session, term, id);
+      const q = query(
+    collection(db, "results"),
+    where("term", "==", Number(term)),
+    where("session", "==", session),
+    where("id", "==", id)
+    );
+    const snap = await getDocs(q);
+    let result;
+    snap.forEach(doc => {
+       result = doc.data();
+       console.log(doc.id, result);
+    });
+    if (result){
+      let sectI = result.sectK.trim().toLowerCase()[0];
+      localStorage.setItem("result", JSON.stringify(result));
+      if (sectI=="p" || sectI=="n") window.location.href = "nur-pri-result.html"
+      else window.location.href = "sec-result.html"
+    } else {
+      output.innerHTML = `<div class='not-found'>Result not found. Student ID may be incorrect or result not yet published.</div>`;
+    }
+  
+      
+    }
+  </script></body>
+</html>

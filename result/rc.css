@@ -1,0 +1,312 @@
+  /* Apply handwriting font to a class or the body */
+.comment {
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.5rem; /* adjust as needed */
+  line-height: 1.5;
+}
+     .student-info-table * {
+     border: none;
+     }
+  .student-info-table {
+  width: 100%;
+  border-collapse: collapse;
+  
+}
+
+  
+.student-info-table th {
+//  background-color: #f9f9f9;
+  width: 20%;
+}
+
+.student-info-table td {
+  width: 30%;
+  text-align: left;
+}
+
+     .student-info-table.std-name {
+    
+      border-top: 1px solid black;
+       border-top-radius: 25px;
+   }
+.std-name,  .std-name > th{
+    background: white;
+    color: black;
+    
+  }
+
+  .std-name>td {
+    border-bottom: 1px solid black;
+    background-color: white;
+    color:black;
+    font-weight: bolder;
+    text-align: center;
+        
+  }
+    
+
+
+
+  
+  .rfooter {
+     border-bottom: 1px solid black;
+  }
+  .powered {
+    postion: absolute;
+    bottom: 0px;
+    color: indianred;
+    text-align: right;
+    font-size: 12px;
+    right: 0;
+    font-style: italic;
+  }
+  *{
+    box-sizing: border-box;
+  }
+ table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  //box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+   
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 6px;
+  text-align: center;
+}
+
+  table td:first-child,
+table th:first-child {
+ 
+}
+
+.vertical-header-table .thead th.subject {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  background: #004080;
+  color: white;
+  height: 150px;
+  vertical-align: center;
+  text-transform: uppercase;
+  text-align: left;
+  border: 1px solid grey;
+}
+  #gtotal, #position {
+    writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  
+  height: 150px;
+  vertical-align: center;
+    text-transform: uppercase;
+  text-align: left;
+  }
+
+ tbody tr:nth-child(even) {
+//  background-color: #f9f9f9;
+}
+
+ tbody tr:hover {
+  background-color: #eef;
+   color: black;
+}
+
+  body {
+    //  background-color: #121212;
+  //    color: #ffffff;
+      font-family: Arial, sans-serif;
+      padding: 10px;
+    }
+  select {
+ //   background-color: #121212;
+   //   color: #ffffff;
+      font-family: Arial, sans-serif;
+  }
+  
+  
+      button {
+      padding: 6px 12px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    table {
+      width: fit-content;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+
+    th, td{
+      padding: 2px;
+      border: 1px solid #007dbb;
+      text-align: center;
+    }
+ h1, .save-container {
+ //   display: inline-block;
+text-align: center;
+    
+  }
+ 
+ 
+   .select-container, .table-container {
+    text-align: center;
+    margin: auto;
+    padding: 3px;
+    //border: 1px solid white;
+    width: 100%;
+    overflow-x: auto;
+     position: relative;
+  }
+ 
+ 
+ select {
+  //  background-color: #121212;
+ //     color: #ffffff;
+      font-family: Arial, sans-serif;
+   //   border: none;
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+  }
+    
+  hr {
+    border: 0;
+    height: 4px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(200, 200, 200, 0.75), rgba(0, 0, 0, 0));
+}
+
+
+.logo {
+   // border-radius: 50%;
+    height: 100px;
+    width:100px;
+  position: relative;
+   
+    z-index: 100;
+    
+  }
+  
+    #stamp {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+  position: absolute;
+   bottom: 10px;
+   right:100px;
+    z-index: 100;
+    
+    
+  }
+  #logo-container {
+   // height: 120px;
+ //   width: 100%;
+   // border-bottom: 1px solid black;
+    position: relative;
+  }
+  
+  #top-hl, #bottom-hl {
+    border: 8px solid #007dbb;
+    position: absolute;
+    width: calc(100%);
+    left: 0;
+    bottom: 40px;
+    z-index: 1;
+    height: 0;
+  }
+  #p{
+    position: absolute;
+    bottom: 60px;
+    right: 30px;
+    text-align: left;
+    font-size: 10px;
+    
+  }
+  
+  #bottom-hl {
+ 
+    position: absolute;
+    width: calc(100% );
+    left: 0;
+    bottom: 20px;
+  }
+  
+  tr:nth-child(1) {
+   // padding: 0.7rem;
+     // background-color: #007dbb;
+    //  color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+  }
+.table-container {
+  border: 2px solid #007dbb;
+}
+  @media print {
+    hr {
+      page-break-after: always;
+    }
+    .no-print {
+      display: none;
+    }
+   table, .table-container, .table-container > *{
+      margin: auto;
+    }
+    
+    .table-container > * {
+    //  color: black;
+      //text-transform: uppercase;
+    }
+
+    .logo {
+      border-radius: 0%;
+    }
+     
+    .stamp {
+    
+  
+      
+    
+    
+  }
+
+    
+    
+    table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table th, table td {
+  padding: 2px;
+  text-align: left;
+  
+//border: 1px solid #ccc;
+}
+
+table tr:nth-child(even) {
+  //background-color: #f2f2f2;
+}
+
+table tr:nth-child(odd) {
+ // background-color: #ffffff;
+}
+    table td {
+  white-space: nowrap;
+      word-break: keep-all;
+    }
+
+  }
+
+  .n, .c {
+    display: none;
+  }

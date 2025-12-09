@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Include this in the <head> of your HTML -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="rc.css" rel="stylesheet">
+
+    <title id="title">Result</title>
+  <script src="rc.js"></script>
+</head>
+<body>
+  <h1 class="no-print">
+    Report Sheet
+  </h1>
+    
+  
+  
+  
+  <div id="container">
+    
+  </div>
+  
+
+  <div class="no-print">
+    <button id="print" onclick="window.print()">Download</button>
+  </div>
+   <script>
+
+    
+  let jsonRes = localStorage.getItem("result");
+  console.log(jsonRes);
+  let result = JSON.parse(jsonRes);
+  
+  loadPositions(result.student);
+  
+  
+ //given result
+  
+  
+   function loadPositions(result){
+title.innerHTML += "-"+result.name.toUpperCase();
+    
+     // console.log(std.religion);
+     // std.result = {};
+      let cls = result.class; //classSelect.value.toLowerCase()[0];      
+      let reportCard = document.createElement("table");
+      reportCard.innerHTML = `
+      <caption>
+      <header>
+      <h2>MAIDUGURI CAPITAL SCHOOL</h2>
+      <address>
+      PMB 1017, GOMBOLE ROAD, G.R.A, MAIDUGURI, BORNO STATE
+      <br>
+      <i>maiduguricapitalschool@yahoo.com</i>
+      </address>
+      </header>
+      <div id="logo-container">
+      <small id="p">
+      H/Master: 08061717939
+      <br>
+      Principal: 08036410712
+      <br>
+      Bursar: 08033986802
+      </small>
+
+      <div id="top-hl">
+      </div>
+      <div id="bottom-hl">     
+      </div>
+      <img class="logo" src="../images/logo.jpg" >
+      </div>
+      <h3>TERMINAL REPORT</h3>
+      <table class="student-info-table">
+      <tr>
+      <td colspan="2" class="std-pic-container">
+            <img class="logo" src="${optimizeCloudinaryUrl(result.pic)}">
+      </td>
+      </tr>
+      <tr class="std-name">          
+        <td>NAME: ${result.name.toUpperCase()}</td>
+        <td>GENDER: ${result.gender}</td>
+      </tr>
+      <tr>
+      <td>TERM: ${result.term}</td>
+      <td>CLASS: ${result.class}</td>
+      </tr>
+      <tr>    
+      <td>SESSION: ${result.session}</td>
+      <td>RESUMPTION: <strong><time>5<sup>th</sup> JANUARY, 2026</time></strong></td>
+      </tr>
+      <tr>
+      <td>NO: IN CLASS: ${result.noInClass}</td>      
+      <td>POSITION: ${toSuperscriptOrdinal(Number(result.position))}</td>
+      </tr>
+      </table>   
+      </caption>
+      <tr>
+      <th>SUBJECT</th>${
+          getAsmHeads(result.predefinedAsms, result.predefinedExam)
+      }
+      <th>GRADE</th>
+      <th>REMARK</th>
+      </tr>
+      `;
+      
+      /*std.result.name = std.name;
+      std.result.gender = std.gender;
+      std.result.noInClass = students.length;
+      std.result.term = sessionSelect.value.split(",")[1],
+      std.result.class = classSelect.value;
+      std.result.session = sessionSelect.value;
+      std.result.pic = std.picURL;
+      std.result.position = std.position;
+      std.result.predefinedAsms = predefinedAsms;
+      std.result.predefinedExam = scoreSheetConfig.exam;
+      std.result.resumption = {day: 5, month: "JANUARY", year: 2026};*/
+     
+      let subjKeys = Object.keys(result.subjects).sort();
+     
+     // std.result.subjects = {};
+      subjKeys.forEach(subj=>{
+        //score of the currrent term
+        let total = result.subjects[subj].total;
+        let interp = interpret(total, result.scoreInterps);
+
+        let row =document.createElement("tr");
+        row.innerHTML = `
+        <td>${result.subjects[subj].name.toUpperCase()}</td>
+        ${
+        getScores(result.subjects[subj].score)
+        }
+        <td>${result.subjects[subj].exam}</td>
+        <td>${total}</td>
+        <td>${interp.grade? interp.grade : grade(0, score) /*grade(t1+t2+t3, Number(subjects[subj][termIndex].exam))*/}</td>
+        <td>${interp.remark? interp.remark : remark(0, score) /*remark(t1+t2+t3, Number(subjects[subj][termIndex].exam))*/}</td>
+        
+        `;
+   //     std.result.subjects[subj] = {name: subjects[subj][termIndex].subject, score: scores, total};
+     //  std.result.scoreInterps = scoreInterpretations;
+        reportCard.appendChild(row);
+      });
+      
+      const comnt = comment(result.score/result.sc, result.averageInterps);
+     /* std.result.score = std.score;
+      std.result.sc = std.sc;
+      std.averageInterps = averageInterps;*/
+      let wrapper = document.createElement("div");
+      let hr = document.createElement("hr");
+      wrapper.className = "table-container";
+      //wrapper.innerHTML = '<img class="stamp" src="../../stamp.jpg">'
+      wrapper.appendChild(reportCard);
+      let p = document.createElement("p");
+      p.innerHTML = `
+      TOTAL SCORE: ${result.score}<br>
+      AVERAGE SCORE: ${tosf(result.score/result.sc, 4)}
+      <br>
+      
+      HEAD MASTER COMMENT: <strong class="comment">${comnt}</strong>
+    
+      `;
+      wrapper.append(p);
+      p.classList.add("rfooter");
+      p = document.createElement("p");
+      p.innerHTML = `
+      Powered by <strong>mainafly.com</strong>
+      
+      `;
+      wrapper.append(p);
+      p.classList.add("powered");
+      container.append(wrapper);
+    
+    
+    function remark(test, exam){
+      let total = test+exam;
+      let dict= {
+        "F": "Fail",
+        "E": "Poor",
+        "D": "Fair", 
+        "C": "Good", 
+        "B": "Very Good",
+        "A": "Excellent"
+      };
+      let g = grade(test, exam);
+      return dict[g]
+    }
+    
+    function grade(test, exam){
+      let total = test + exam;
+      /* <40 F, <=45 E,  <=49 D, <=59 C, <= 69 B, * 70 A */
+      let grade = null;
+        if (total < 40){ grade="F"}
+        else if (total <= 45) {grade="E"}
+        else if (total <= 49 ) {grade="D"}
+        else if (total <= 59 ) {grade="C"}
+        else if (total <= 69 ) {grade="B"}
+        else grade = "A";
+          
+          return grade;
+    }
+
+  }
+  
+   function assignPositions(students){
+    students.sort((a, b)=>b.score/b.sc - a.score/a.sc);
+  students.forEach((student, i)=>{
+    student.position = i+1
+    if (students[i+1])
+    student.next = students[i+1];
+    if (students[i-1])
+    student.prev = students[i-1];
+    if ((!!student.prev) && (student.score/student.sc == student.prev.score/student.prev.sc))
+    student.position = student.prev.position;
+    //console.log(student.position);
+  });
+   
+    
+  }
+  
+  
+  
+  
+    
+  
+/*  print.onclick = e=>{
+    alert();
+    window.print();
+  }*/
+  
+  function getAsmHeads(asms, examTotal){
+    /*
+    [{name, subtotal}, ..]
+    examTotal
+    */
+    let total = examTotal;
+    let txt =""
+    asms.forEach(a=>{
+      txt += `<th>${a.name} (${a.subtotal})</th>`;
+      total +=a.subtotal;
+    })
+    txt += `<th>Exam (${examTotal})</th><th>Total (${total})</th>`;
+    return txt;
+  }
+  
+  function getScores(scores){
+    /*
+    */
+   
+    let txt =""
+    scores.forEach(score=>{
+      txt += `<td>${score}</td>`;     
+    })
+    return txt;
+  }
+  
+  
+  function tosf(num, sf) {
+  if (num === 0) return 0;
+  return Number(num.toPrecision(sf));
+     }
+  
+  function comment(average, interpsModel){
+    for (const interp of interpsModel){
+      if (Number(average) < Number(interp.range))
+        return interp.comment;
+    }
+    
+    let lastInterp = interpsModel[interpsModel.length-1];
+    return lastInterp?.comment || '';
+  }
+  
+  
+      function toSuperscriptOrdinal(num) {
+  const suffixes = {
+    '1': 'ˢᵗ',
+    '2': 'ⁿᵈ',
+    '3': 'ʳᵈ'
+  };
+
+  // Handle 11th, 12th, 13th as special cases
+  const lastTwo = num % 100;
+  let suffix = 'ᵗʰ';
+
+  if (lastTwo < 11 || lastTwo > 13) {
+    const lastDigit = num % 10;
+    suffix = suffixes[lastDigit] || 'ᵗʰ';
+  }
+
+  return num + suffix;
+}
+  
+  
+  
+  
+
+  
+  
+/*  publish.onclick = async e=>{
+    if (!students) return;
+    let sectK = classSelect.selectedOptions[0].parentElement.label;
+    const cls = classSelect.value.trim().toLowerCase();
+    const section = sections[sectK];
+    let ssi = sessionSelect.selectedIndex;
+    let termIndex = Number(sessionSelect.options[ssi].getAttribute("data-term"));
+    let session = sessionSelect.value.split(",")[0].replaceAll(" ", "");
+    console.log(termIndex, session);
+    if (!section) return;
+    
+   let user = await registerOrLogin();
+    if (!user) return;
+    publish.innerHTML = "publishing";
+    const batch = writeBatch(pubDb);
+    const metaRef = doc(pubDb, session+termIndex+cls);
+    const metaDoc = await getDoc(metaRef);
+    const meta = metaDoc.exists()? metaDoc.data() : {students:{}};
+    students.forEach(std=>{
+      //console.log(JSON.stringify(std).length);
+     // return;
+      let result = {
+        student: std.result,
+        term: termIndex,
+        session,
+        id: std.id,
+        sectK: sectK,
+        "class": cls,
+        publisher: user.email,
+        timestamp: serverTimestamp()
+      }     
+      
+      meta.students[std.id] = meta.students[std.id] || doc(collection(pubDb, "results"));
+      meta.lastPublishedAt = serverTimestamp();
+      meta.lastPublisher = user.email;
+      let resultRef = meta.students[std.id];
+      console.log(std.id);
+      batch.set(resultRef, result);
+      batch.set(metaRef, meta);
+      
+    });
+    await batch.commit();
+    publish.innerHTML = "published";
+  }*/
+  
+  
+  function optimizeCloudinaryUrl(url, params = "f_auto,q_auto") {
+    if (!url || !url.length) return "../../std-pic.jpg";
+    return url.replace("/upload/", `/upload/${params}/`);
+}
+  </script>
+  
+<style>
+
+
+ .student-info-table {
+   text-transform: uppercase;
+ }
+  
+h2 {
+  font-size: 30px;
+}
+  
+   
+.std-pic-container > img {
+    display: block;
+    margin: auto;
+    max-width: 100px;
+    max-height: 120px;
+  border: 2px solid #e5e7eb; /* light gray */
+  border-radius: 12px;
+  padding: 4px;
+}
+  </style>
+</body>
+</html>
