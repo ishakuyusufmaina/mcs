@@ -876,7 +876,7 @@ blockquote {
     text-transform: uppercase;
   }
   
-.ico {
+.icon {
     width: 40px;
     height: 40px;
     object-fit: contain;
@@ -886,7 +886,7 @@ blockquote {
     display: inline-block;  /* Keeps it inline and allows sizing */
 }
 
-.ico:hover {
+.icon:hover {
     transform: scale(1.1);   /* Slight zoom effect on hover */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
