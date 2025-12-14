@@ -1,7 +1,10 @@
 ---
 layout: home
-title: "Maiduguri Capital School — Home"
-description: "Maiduguri Capital School — academic excellence, digital learning, modern facilities."
+title: Maiduguri Capital School — Home
+description: Maiduguri Capital School — academic excellence, digital learning,
+  modern facilities.
+hero_title: "Example title "
+hero_text: I'm hero!
 ---
 
 <!-- ======================
