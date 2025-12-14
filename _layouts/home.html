@@ -1,238 +1,533 @@
----
-# Home layout for Maiduguri Capital School
----
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ page.title }}</title>
-  <meta name="description" content="{{ page.description }}">
-  <link href="/index.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maiduguri Capital School — Home</title>
+  <meta name="description" content="Maiduguri Capital School — academic excellence, digital learning, modern facilities." />
+  <link href="index.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="/index.js" defer></script>
-</head>
-
+  <script src="index.js"></script>
+ 
+   </head>
 <body>
 
   <!-- Header / Hero -->
   <header>
     <div class="header-top">
       <div class="logo-container">
-        <img src="{{ page.logo | default: '/images/logo.jpg' }}" alt="MCS Logo">
+          <img src="images/logo.jpg" alt="MCS Logo">
       </div>
       <div class="header-title">
-        <h1>{{ page.hero_title }}</h1>
-        <p>{{ page.hero_text }}</p>
+          <h1>Maiduguri Capital School</h1>
+          <p>A premier citadel of learning institution, located in the heart of Maiduguri.</p>
       </div>
       <div id="menu-items">
-        <div id="menu" class="menu-icon"><span></span><span></span><span></span></div>
-        <div class="menu-container">
-          <button id="close">X</button> Menu
-          <hr>
-          <ul id="menuList" class="main-menu">
-            {% for link in site.data.menu %}
-              <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-            {% endfor %}
-          </ul>
+        <div id="menu" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-      </div>
-    </div>
-
-    <div class="nav">
-      <a href="result.html">Result Checker</a>
-      <a href="https://capital.mainafly.com/signin">Staff Portal</a>
-    </div>
-
-    <figure class="slideshow hero-container">
-      {% for item in site.data.home.hero_slides %}
-      <figure class="hero">
-        <img src="{{ item.src }}" alt="{{ item.alt }}">
-        <figcaption>{{ item.caption }}</figcaption>
-      </figure>
-      {% endfor %}
-      <a href="admission-fees.html" class="cta-button">Admission</a>
+        <div class="menu-container ">
+          <button id="close">X</button> Menu
+           <hr>
+            <ul id="menuList" class="main-menu">
+              <!-- list of links go here -->
+            </ul>
+         </div>
+        </div>
+         
+      </div> 
+  <div class="nav">
+    <a href="result.html">Result Checker</a>
+    <a href="https://capital.mainafly.com/signin">
+     Staff Portal</a>
+  </div>
+    
+      <figure class="slideshow hero-container">              
+        <a href="admission-fees.html" class="cta-button">Admission</a>
+        <!-- Hero items go here -->        
     </figure>
   </header>
 
-  <!-- Main content -->
   <main>
-
-    <!-- CMS editable content -->
-    {{ content }}
-
     <!-- School Overview -->
     <section id="overview">
       <h2>School Overview</h2>
-      <p>{{ site.data.home.overview }}</p>
+      <p>Maiduguri Capital School is one of Nigeria’s leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assemby Quarters, Gombole Road, P.M.B 1017, Maiduguri - Borno State. The school is known for its academic excellence, modern facilities, and commitment to digital learning.</p>
+      <figure class="slideshow">
+        
+        <figure>
+          <img src="images/Admin2.jpg" alt="School building">
+          <figcaption>Admin Block front-view of Maiduguri Capital School.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/Admin Block.jpg" alt="School building">
+          <figcaption>Campus Admin Block side-view of Maiduguri Capital School.</figcaption>
+        </figure>  
+        
+      </figure>        
     </section>
 
     <!-- About Us -->
     <section id="about">
       <h2>About Us</h2>
-      <p>{{ site.data.home.about_paragraph1 }}</p>
-      <p>{{ site.data.home.about_paragraph2 }}</p>
-      <p>{{ site.data.home.about_paragraph3 }}</p>
+      <p>Maiduguri Capital School, a premier citadel of learning, began humbly on the <strong>18th of September, 1988</strong>, with just three pupils and two teachers. The school graduated its first set of nine pupils in <strong>1991</strong>.</p>
+      <p>In <strong>1993</strong>, a secondary section was introduced with 14 pioneer students and six teachers. The first set of graduates from the secondary section completed their studies in <strong>1999</strong>.</p>
+      <p>As of <strong>2025</strong>, the school has successfully graduated approximately <strong>18 sets of students</strong>, totaling over <strong>6,000 graduates</strong> — averaging more than <strong>400 students per year</strong>.</p>
+ 
     </section>
 
     <!-- Vision & Mission -->
     <section id="vision-mission">
       <h2>Vision Statement</h2>
-      <p>{{ site.data.home.vision }}</p>
+      <p>
+        To raise smart, confident, and responsible young people who respect their culture and use their knowledge to serve and uplift their communities.
+      </p>
       <h2>Mission Statement</h2>
-      <p>{{ site.data.home.mission }}</p>
+      <p>
+        To provide children with a strong and affordable education that nurtures their intellect, equips them with technological skills, and keeps them grounded in cultural and moral values.
+      </p>      
     </section>
 
-    <!-- School Sections -->
-    <section id="structure">
+    <!-- School Structure -->
+    <section id="structure">      
       <a href="sections.html"><h2>School Sections</h2></a>
       <ul id="sectionList">
-        {% for section in site.data.sections %}
-        <li><a href="{{ section.url }}">{{ section.label }}</a></li>
-        {% endfor %}
+
       </ul>
     </section>
 
-    <!-- Facilities -->
+    <!-- Infrastructure & Facilities -->
     <section id="facilities">
-      <h2>Infrastructures & Facilities</h2>
-      {% for facility in site.data.facilities %}
+      <h2>Infrastructures</h2>
       <article>
-        <h3>{{ facility.title }}</h3>
-        {% if facility.images %}
+        <h3>Over 100 Modern Classrooms</h3>
         <figure class="slideshow">
-          {% for img in facility.images %}
+          
           <figure>
-            <img src="{{ img.src }}" alt="{{ img.alt }}">
-            <figcaption>{{ img.caption }}</figcaption>
+            <img src="images/jss class.jpg" alt="Classrooms">
+            <figcaption>Modern classroom.</figcaption>
           </figure>
-          {% endfor %}
+          <figure>
+            <img src="images/girls class.jpg" alt="Classrooms">
+            <figcaption>Modern classroom.</figcaption>
+          </figure>         
         </figure>
-        {% endif %}
-        <p>{{ facility.description }}</p>
       </article>
-      {% endfor %}
+      
+      <article>
+        <h3>Three (3) Computer Laboratories — over 300 computers</h3>
+        <figure class="slideshow">
+          <figure>
+            <img src="images/computer-lab.jpg" alt="Computer laboratories">
+            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/computer-lab2.jpg" alt="Computer laboratories">
+            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/computer-lab3.jpg" alt="Computer laboratories">
+            <figcaption>Computer labs equipped for ICT and coding lessons.</figcaption>
+          </figure>
+        </figure>
+      </article>
+
+      <article>
+        <h3>24/7 Power Supply</h3>  
+       
+        <figure class="slideshow">
+            <img src="images/power.jpg" alt="Science laboratories">
+            <figcaption>
+              With steady light flowed through our halls, classrooms and offices, the school's digitalization rose from hope to heartbeat, fully alive.
+            </figcaption>
+          </figure>   
+            
+        <h3>24/7 Internet</h3>       
+         <figure class="slideshow">
+            <img src="images/internet.jpg" alt="Science laboratories">
+            <figcaption>24/7 access to high speed made the school dream of digitalization "came true".</figcaption>
+          </figure> 
+      </article>
+
+
+      <article>
+        <h3>Well Equipped Science Laboratories</h3>
+        <figure class="slideshow">
+          
+          <figure>
+            <img src="images/practicals1.jpg" alt="Science laboratories">
+            <figcaption>Functional science labs for hands-on experiments.</figcaption>
+          </figure>
+          <figure>
+            <img src="images/bio labs.jpg" alt="Science laboratories">
+            <figcaption>Functional science labs for hands-on experiments.</figcaption>
+          </figure>
+          
+        </figure>
+        </article>
+      
+        <article>
+          <h3>School dispensary</h3>
+          <figure class="slideshow">
+            <img src="images/clinics.jpg" alt="School dispensary">
+            <figcaption>A clinic within our walls, where care meets classroom, and each child’s health becomes a shared promise.</figcaption>
+          </figure>
+        </article>
+      
+      <article>
+        <h3>Modern Playground</h3>
+        <figure class="slideshow">
+          
+        <figure>
+          <img src="images/playground.jpg" alt="Playground">
+          <figcaption>A playground that inspires play, sparks imagination, and keeps children happily engaged.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/playground2.jpg" alt="Playground">
+          <figcaption>Our playground is a lively landscape of swings, laughter, and bright footsteps — a nurturing environment where every child finds joy and belonging.</figcaption>
+        </figure>
+         <figure>
+          <img src="images/playground3.jpg" alt="Playground">
+          <figcaption>Our playground offers pupils a place where learning extends beyond the classroom walls.</figcaption>
+        </figure>
+        </figure>
+      </article>
+
+ 
+
+      <article>
+        <h3>CCTV cameras for round-the-clock security</h3>
+        <figure class="slideshow">
+          <img src="images/cctv.jpg" alt="CCTV cameras">
+          <figcaption>Our campus is equipped with comprehensive CCTV surveillance to ensure the safety and security of students, staff, and school property at all times.</figcaption>
+        </figure>
+      </article>
+
+      
+
+      <article>
+        <h3>Multi-purpose School Hall</h3>
+        <figure class="slideshow">
+          <img src="images/Hall.jpg" alt="School hall">
+          <figcaption>A multipurpose hall at the heart of our school, where students or staff gather for events, celebrate milestones, and engage in examinations among other things.</figcaption>
+        </figure>
+      </article>
+
+     
+
+      <article>
+        <h3>Conducive Administrative Offices</h3>
+        <figure class="slideshow">
+          <img src="images/hm-working-in-office.jpg" alt="Administrative offices">
+          <figcaption>
+            Spacious, comfortable offices offer our staff a calm and supportive space to plan, collaborate, and manage school operations efficiently.          </figcaption>
+        </figure>
+      </article>
     </section>
 
     <!-- Capital School Annex -->
     <section id="annex">
       <h2>Capital School Annex</h2>
-      <p>{{ site.data.home.annex_text }}</p>
+      <p>Due to the increasing demand for enrollment, the Capital School Annex was established. It provides a conducive environment for teaching and learning and houses facilities for conducting national examinations such as WAEC and NECO.</p>
+
     </section>
 
     <!-- Digitalization & Technology -->
     <section id="digitalization">
-      <h2>Digitalization & Technology</h2>
-      <blockquote>{{ site.data.home.digitalization_quote }}</blockquote>
-      <p>{{ site.data.home.digitalization_text }}</p>
+      <h2>Digitalization &amp; Technology</h2>
+      <blockquote>
+        A school with digital oriented proprietress, constant power supply, adequate computer laboratories, 24/7 internet access and in good standing with <a href="https://mainafly.com">Mainafly Software Solutions</a> has every reason to be digital. 
+      </blockquote>
+      <p>The school operates many education-related software systems and continues progress toward maximum digitalization.</p>
       <ul>
-        {% for software in site.data.home.software %}
-        <li>
-          {{ software.name }}
-          {% if software.link %}
-          <hr><a class="link" href="{{ software.link }}">Access</a>
-          {% endif %}
+        <li>JAMB Mock CBT Software – used to prepare students for UTME exams</li>
+        <li>School in the Box (premium version) – comprehensive cloud-based school management software
+          <hr>
+           <a class="link" href="https://capital.mainafly.com/signin">Login</a>
         </li>
-        {% endfor %}
+       
+        <li>
+          ArithmeticQ - a gamified arithmetic learning app
+          <hr>
+          <a class="link" href="arithmeticq/index.html">Play</a>
+        </li>
       </ul>
+
     </section>
 
-    <!-- Latest Articles -->
-    <section id="articles">
-      <h2>Articles</h2>
-      {% for article in site.articles limit:3 %}
+    <!-- Academic Excellence -->
+    <section id="academic">
+      <h2>Academic Excellence</h2>
+      
+       <figure class="slideshow">
+        <img src="images/award.jpg" alt="Academic excellence">
+        <figcaption>Students celebrating academic success.</figcaption>
+      </figure>
+      <a href="#">more..</a>
+    </section>
+
+
+    <!-- Our Team -->
+    <section id="team">
+      <h2>Our Team</h2>
+      <p>Meet the leadership who guide the school</a></p>
+       <figure class="slideshow">
+          
+        <figure>
+          <img src="images/board-members.jpg" alt="MCS Board Members">
+          <figcaption>Infatigable board members of Maiduguri Capital School</figcaption>
+        </figure>
+        <figure>
+          <img src="images/mgt-staff.jpg" alt="MGT Staff of MCS">
+          <figcaption>The management faces behind Maiduguri Capital School</figcaption>
+        </figure>
+        
+        </figure>
+    </section>
+
+
+
+    <!-- Dynamic Sections -->
+    <section id="dynamic">
+      <!--h2>Dynamic Sections</h2-->
+
+      <!-- Upcoming Events -->
+        <h2>   
+          <img class="icon" src="images/events.jpg" alt="Gallery image 3">
+          Forecast of Events {{foe.session}}
+        </h2>
+      <article id="events">
+
+        <a href="{{foe.onlineURL}}">Read online</a> |
+        <a href="{{foe.downloadURL}}">Download pdf</a>
+      </article>
+      
+      <h2>
+        <img class="icon" src="images/news.jpg" alt="Gallery image 3">
+          Newsletter {{page.newsletterDate}}
+       </h2>
+      <article id="newsletters">
+        <h1 class="headline">Dear Parent/Guardian</h1>
+        <p class="subtitle">Dear <strong>Parent/Guardian</strong>,
+        </p>
+        <p class="subtitle indented">
+          We wish to inform you that... 
+        </p>
+        
+        <a class="read-more" href="{{page.newsletterOnlineURL}}">Read More&rarr;</a> |
+        <a href="{{page.newsletterPDFURL}}">Download pdf</a> 
+      </article>
+      
+      <hr>
+      <h2>Articles</h2>     
+      {% for post in site.articles limit:3 %}
       <article class="home-article">
-        {% if article.poster %}
+         {% if post.poster %}
         <div class="poster-container">
-          <img class="poster-image" src="{{ article.poster }}" alt="{{ article.posterAlt }}">
+           <img class="poster-image" src="{{ post.poster }}" alt="post.posterAlt">
         </div>
         {% endif %}
-        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-        <p class="pubdate"><small>{{ article.date | date: "%B %d, %Y" }}</small></p>
-        <p>Written by {{ article.author }}</p>
-        <p class="excerpt">{{ article.excerpt }}</p>
-        <a class="read-more" href="{{ article.url }}">Read More →</a>
+        
+        <h2>
+          <a href="{{post.url}}">{{ post.title }}</a>               
+        </h2>
+        <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>    
+        <p>Writtent by {{ post.author }}</p>
+        <p class="excerpt">
+          {{ post.excerpt }}
+        </p>
+        <a class="read-more" href="{{post.url}}">Read More &rarr;</a>     
       </article>
-      {% endfor %}
-      <article><a href="articles/index.html">More articles →</a></article>
-    </section>
-
-    <!-- Latest Posts -->
-    <section id="posts">
-      <h2>Posts</h2>
+      {% endfor %}      
+      <article>    
+        <a href="articles/index.html">More articles --></a>
+      </article>
+      
+      
+      <hr>
+      <h2>Posts</h2>     
       {% for post in site.posts limit:3 %}
       <article class="home-article">
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
-        <p>Written by {{ post.author }}</p>
-        <p class="excerpt">{{ post.excerpt }}</p>
-        <a class="read-more" href="{{ post.url }}">Read More →</a>
+         {% if post.poster %}
+        <div class="poster-container">
+           <img class="poster-image" src="{{ post.poster }}" alt="post.posterAlt">
+        </div>
+        {% endif %}
+        
+        <h2>
+          <a href="{{post.url}}">{{ post.title }}</a>               
+        </h2>
+        <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>    
+        <p>Writtent by {{ post.author }}</p>
+        <p class="excerpt">
+          {{ post.excerpt }}
+        </p>
+        <a class="read-more" href="{{post.url}}">Read More &rarr;</a>     
       </article>
-      {% endfor %}
-      <article><a href="posts/index.html">More posts →</a></article>
-    </section>
-
-    <!-- Upcoming Events & Newsletters -->
-    <section id="dynamic">
-      <h2>Forecast of Events</h2>
-      {% assign forecast = site.forecast | first %}
-      {% if forecast %}
-      <article id="events">
-        <a href="{{ forecast.pdf }}">Download PDF</a>
+      {% endfor %}      
+      <article>    
+        <a href="posts/index.html">More articles --></a>
       </article>
-      {% endif %}
 
-      <h2>Newsletter</h2>
-      {% assign newsletter = site.newsletter | first %}
-      {% if newsletter %}
-      <article id="newsletter">
-        <h3>{{ newsletter.title }}</h3>
-        <p>{{ newsletter.body }}</p>
-        <a href="{{ newsletter.pdf }}">Download PDF</a>
+
+      <!-- Media & Updates -->
+      <article id="media">
+        <h3>Media &amp; Updates</h3>
+          
+        <!-- Gallery (image list / pseudo-carousel without JS) -->
+        <section aria-labelledby="gallery-heading">
+          <h4 id="gallery-heading">Gallery</h4>
+         <div class="slideshow">
+  <figure>
+    <img src="images/grad-day.jpg" alt="Gallery image 1">
+    <figcaption>Gallery image 1 — school event.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/class-room3.jpg" alt="Gallery image 2">
+    <figcaption>Gallery image 2 — students in class.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="images/award2.jpg" alt="Gallery image 3">
+    <figcaption>Gallery image 3 — speech and prize giving day.</figcaption>
+  </figure>
+</div>
+        </section>
+
+       
+        <hr>
+
+
+        <!-- School Fees Information -->
+
       </article>
-      {% endif %}
-    </section>
 
-    <!-- Media & Updates -->
-    <section id="media">
-      <h3>Gallery</h3>
-      <div class="slideshow">
-        {% for img in site.data.home.gallery %}
-        <figure>
-          <img src="{{ img.src }}" alt="{{ img.alt }}">
-          <figcaption>{{ img.caption }}</figcaption>
-        </figure>
-        {% endfor %}
-      </div>
     </section>
-
-    <!-- Contact -->
+    <!-- Contact Information -->
     <section id="contact">
-      {% for social in site.data.home.social_links %}
-      <a href="{{ social.url }}"><i class="fa {{ social.icon }}"></i></a>
-      {% endfor %}
-      <h3>Location</h3>
-      <iframe src="{{ site.data.home.map_embed }}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      <a href="https://www.facebook.com/profile.php?id=100090987086145">
+      <i class="fa fa-facebook-f"></i>
+      </a>
+      <a href="https://youtube.com/@maiduguricapitalschool?si=DFGfls2T53kRd8JQ">
+      <i class="fa fa-youtube"></i> 
+      </a>
+      <a href="https://www.instagram.com/mcs_personal_account?igsh=dTZobm05YmozZDBj">
+      <i class="fa fa-instagram"></i> 
+      </a>
+      <a href="https://wa.me/2347036936027" target="_blank" rel="noopener noreferrer">
+        <i class="fa fa-whatsapp"></i> 
+      </a>
+      <a href="mailto:maiduguricapitalschool@yahoo.com">
+      <i class="fa fa-envelope"></i>
+      </a>
+     <h3>Location</h3>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.082083313971!2d13.152!3d11.829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10c37fa1188b2d33%3A0x1d72cb5eeef9f0e8!2sOld%20GRA%20Gombole%20Road%2C%20Maiduguri%2C%20Borno%20State!5e0!3m2!1sen!2sng!4v1739950000000!5m2!1sen!2sng"
+        width="100%"
+        height="400"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </section>
-
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-links">
-      <h3>Quick Links</h3>
-      <ul>
-        {% for link in site.data.menu %}
-        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-    <p>&copy; {{ site.time | date: "%Y" }} Maiduguri Capital School. All rights reserved.</p>
-    <p>For enquiries: <a href="mailto:{{ site.data.home.contact_email }}">{{ site.data.home.contact_email }}</a></p>
+  <h3>Quick Links</h3>
+  <ul>
+    <li><a href="result.html">Result Checker</a></li>
+    <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
+    <li><a href="admission-fees.html">Admission</a></li>
+    <li><a href="admission-fees.html#fees">School Fees</a></li>
+    <li><a href="sections.html">School Sections</a></li>
+  </ul>
+</div>
+    <p>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</p>
+    <p>For enquiries: <a href="mailto:maiduguricapitalschool@yahoo.com">maiduguricapitalschool@yahoo.com</a></p>
   </footer>
-
-</body>
-  </html>
   
+  
+  <script>
+  
+  
+  const link = (ref, txt)=>{
+    let a = document.createElement("a");
+    a.href = ref;
+    a.innerHTML = txt;
+    return a;
+  }
+  menuList.innerHTML = "";
+ menuData.forEach(l=>{
+    let a = link(l.url, l.label);
+    console.log(l.url, l.label);
+    let li = document.createElement("li");
+    li.append(a);
+    menuList.append(li);
+  })
+  const heroConatainer = document.querySelector(".hero-container");
+  heroConatainer.innerHTML = "";
+  heroItems.forEach(item=>{
+    let fig = document.createElement("figure");
+    fig.className = "hero";
+    let img = document.createElement("img");
+    img.src = item.src;
+    img.alt = item.alt;
+    let cap = document.createElement("figcaption");
+    cap.innerText= item.caption;
+    fig.append(img, cap);
+    heroConatainer.append(fig);
+  })
+  
+  const menu = document.querySelector("#sectionList");
+sections.forEach(section => {
+  const li = document.createElement("li");
+  const a = document.createElement("a");
+  a.href = section.url;
+  a.textContent = section.label;
+  li.appendChild(a);
+  menu.appendChild(li);
+});
+  
+  // --- Dynamic Year in Footer ---
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// --- Hero Image Slideshow ---
+const slides = document.querySelectorAll('.hero-container .hero');
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+// Auto-rotate every 5 seconds
+if (slides.length > 0) {
+  showSlide(currentSlide);
+  setInterval(nextSlide, 5000);
+}
+  
+    
+  document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
+  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
+
+  </script>
+  
+ 
+  <style>
+  
+  </style>
+</body>
+      </html>
+          
