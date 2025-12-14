@@ -41,9 +41,10 @@ collections:
   # MISC COLLECTION — NEWSLETTER
   - name: "newsletter"
     label: "Newsletter"
-    folder: "_miscellaneous/newsletter"
+    folder: "_newsletters"
     format: "frontmatter"
     create: true
+    output: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
