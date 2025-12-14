@@ -1,0 +1,14 @@
+# Navigation menu
+- label: "Home"
+  url: "/"
+- label: "Result Checker"
+  url: "/result.html"
+- label: "Staff Portal"
+  url: "https://capital.mainafly.com/signin"
+- label: "Admission"
+  url: "/admission-fees.html"
+- label: "School Fees"
+  url: "/admission-fees.html#fees"
+- label: "School Sections"
+  url: "/sections.html"
+  
