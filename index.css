@@ -297,11 +297,11 @@ footer a {
   color: #bfdbfe;
 }
 
-img {
+/*img {
   max-width: 100%;
   height: auto;
   display: block;
-}
+}*/
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
@@ -761,3 +761,184 @@ blockquote {
   color: #ffffff;
   padding-left: 5px;
 }
+
+
+
+
+.home-article {
+    border-bottom: 1px solid #ddd;
+    padding: 1.5rem 0;
+}
+
+.home-article .headline {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+}
+
+.home-article .headline a {
+    text-decoration: none;
+    color: #1a73e8;
+    transition: color 0.2s ease;
+}
+
+.home-article .headline a:hover {
+    color: #155ab6;
+}
+
+.home-article .excerpt {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.75rem;
+}
+
+.home-article .read-more {
+    font-weight: 500;
+    color: #1a73e8;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.home-article .read-more:hover {
+    color: #155ab6;
+    text-decoration: underline;
+}
+
+
+#vision-mission {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px 25px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  border-left: 6px solid #1e6a8a;   /* your deep blue accent */
+  animation: fadeIn 1.2s ease;
+}
+
+/* Headings */
+#vision-mission h2 {
+  font-size: 1.7rem;
+  color: #1e6a8a;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  position: relative;
+}
+
+#vision-mission h2::after {
+  content: "";
+  width: 50px;
+  height: 3px;
+  background: #2563eb;
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  border-radius: 2px;
+}
+
+/* Paragraphs */
+#vision-mission p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 25px;
+  text-align: justify;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #vision-mission {
+    padding: 25px 15px;
+    margin: 30px 10px;
+  }
+
+  #vision-mission h2 {
+    font-size: 1.4rem;
+  }
+
+  #vision-mission p {
+    font-size: 1rem;
+  }
+}
+  
+  
+  h2, h3, h4 {
+    
+    text-transform: uppercase;
+  }
+  
+.ico {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    vertical-align: middle; /* Aligns the icon to the middle of the text */
+    display: inline-block;  /* Keeps it inline and allows sizing */
+}
+
+.ico:hover {
+    transform: scale(1.1);   /* Slight zoom effect on hover */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+  
+  
+  a {
+    color: #1a73e8;              /* Primary link color */
+    text-decoration: none;        /* Remove underline */
+    font-weight: 500;             /* Slightly bold for readability */
+    transition: color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+}
+
+a:hover,
+a:focus {
+    color: #155ab6;              /* Darker shade on hover/focus */
+    text-decoration: underline;  /* Optional subtle underline on hover */
+    transform: translateY(-1px); /* Tiny lift for interactivity */
+}
+
+a:active {
+    color: #0c3d82;              /* Even darker when clicked */
+    transform: translateY(0);    /* Reset lift */
+}
+  
+  
+  .headline {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;            /* Large and prominent */
+    font-weight: 700;            /* Bold headline */
+    line-height: 1.2;            /* Good readability */
+    color: #222;                 /* Dark text for contrast */
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;             /* Smaller than headline */
+    font-weight: 400;            /* Regular weight */
+    color: #555;                 /* Lighter color for contrast */
+    margin-top: 0;
+}
+  
+  .indented {
+    text-indent: 2em;   /* Indents first line only */
+    /* OR for full paragraph indent */
+    margin-left: 2em;   
+}
+  
+  
+  
+  #newsletters {
+    border-left: 8px solid teal;
+    padding-left: 10px;
+  }
