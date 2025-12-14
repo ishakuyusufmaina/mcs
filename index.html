@@ -1,5 +1,10 @@
-<!-- _layouts/home.html -->
+---
+layout: home
+title: Home
+---
+
+<!-- Everything below can be dynamic -->
 <section>
-  <h1>{{ page.hero_title }}</h1>
-  <p>{{ page.hero_text }}</p>
+  <h1>{{ site.data.home.hero_title }}</h1>
+  <p>{{ site.data.home.hero_text }}</p>
 </section>
