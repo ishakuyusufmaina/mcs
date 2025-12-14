@@ -65,3 +65,14 @@ collections:
       - { label: "Poster Alt Text", name: "posterAlt", widget: "string", required: false }
       - { label: "Body", name: "body", widget: "markdown" }
 
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Homepage"
+        file: "index.md"
+        fields:
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+          
