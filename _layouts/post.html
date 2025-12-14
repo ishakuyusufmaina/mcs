@@ -41,10 +41,10 @@
   <div class="nav">
       
     {% if page.previous %}
-      <a class="prev" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+      <a class="prev" href="{{ page.previous.url }}#full-article">&larr; {{ page.previous.title }}</a>
     {% endif %}
     {% if page.next %}
-      <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+      <a class="next" href="{{ page.next.url }}#full-article">{{ page.next.title }} &rarr;</a>
     {% endif %}
   
   </div>
@@ -79,10 +79,10 @@
   <!-- Previous / Next -->
   <nav class="article-nav">
     {% if page.previous %}
-      <a class="prev" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+      <a class="prev" href="{{ page.previous.url }}#full-article">&larr; {{ page.previous.title }}</a>
     {% endif %}
     {% if page.next %}
-      <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+      <a class="next" href="{{ page.next.url }}#full-article">{{ page.next.title }} &rarr;</a>
     {% endif %}
   </nav>
 
@@ -120,11 +120,11 @@
     <div class="footer-links">
   <h3>Quick Links</h3>
   <ul>
-    <li><a href="result.html">Result Checker</a></li>
+    <li><a href="/result">Result Checker</a></li>
     <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
-    <li><a href="admission-fees.html">Admission</a></li>
-    <li><a href="admission-fees.html#fees">School Fees</a></li>
-    <li><a href="sections.html">School Sections</a></li>
+    <li><a href="/admission-fees.html">Admission</a></li>
+    <li><a href="/admission-fees.html#fees">School Fees</a></li>
+    <li><a href="/sections.html">School Sections</a></li>
   </ul>
 
 
