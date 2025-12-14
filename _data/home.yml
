@@ -1,2 +1,97 @@
-hero_title: Welcome
-hero_text: Quality education for tomorrow
+# Home page dynamic content
+
+# Hero section
+hero_title: "Shaping Future Leaders"
+hero_text: "Quality education in a safe, modern environment."
+logo: "/images/logo.jpg"
+
+# Hero slideshow
+hero_slides:
+  - src: "/images/hero1.jpg"
+    alt: "School campus view"
+    caption: "Welcome to Maiduguri Capital School"
+  - src: "/images/hero2.jpg"
+    alt: "Students in classroom"
+    caption: "Inspiring excellence every day"
+
+# Overview
+overview: "Maiduguri Capital School is one of Nigeria’s leading pre-tertiary institutions..."
+
+# About Us
+about_paragraph1: "Started in 1988 with three pupils and two teachers..."
+about_paragraph2: "Secondary section introduced in 1993..."
+about_paragraph3: "As of 2025, over 6,000 graduates..."
+
+# Vision & Mission
+vision: "To raise smart, confident, and responsible young people..."
+mission: "To provide children with a strong and affordable education..."
+
+# School Annex
+annex_text: "Due to increasing demand for enrollment, the Capital School Annex was established..."
+
+# Digitalization & Technology
+digitalization_quote: "A school with digital-oriented proprietress, constant power supply, and modern computer labs..."
+digitalization_text: "The school operates many education-related software systems..."
+software:
+  - name: "JAMB Mock CBT"
+    link: "#"
+  - name: "School in the Box (premium version)"
+    link: "https://capital.mainafly.com/signin"
+  - name: "ArithmeticQ"
+    link: "/arithmeticq/index.html"
+
+# Facilities (example: repeatable in Decap CMS)
+facilities:
+  - title: "Over 100 Modern Classrooms"
+    description: "Well-ventilated and equipped classrooms for all grades."
+    images:
+      - src: "/images/jss-class.jpg"
+        alt: "Classroom"
+        caption: "Modern classroom"
+      - src: "/images/girls-class.jpg"
+        alt: "Classroom"
+        caption: "Modern classroom"
+
+  - title: "Three Computer Laboratories — 300+ computers"
+    description: "Labs equipped for ICT and coding lessons."
+    images:
+      - src: "/images/computer-lab.jpg"
+        alt: "Computer Lab"
+        caption: "Lab with modern PCs"
+      - src: "/images/computer-lab2.jpg"
+        alt: "Computer Lab"
+        caption: "ICT Lab"
+      - src: "/images/computer-lab3.jpg"
+        alt: "Computer Lab"
+        caption: "Coding lab"
+
+# Gallery images
+gallery:
+  - src: "/images/grad-day.jpg"
+    alt: "Graduation day"
+    caption: "Graduation day celebration"
+  - src: "/images/class-room3.jpg"
+    alt: "Classroom activity"
+    caption: "Students learning"
+  - src: "/images/award2.jpg"
+    alt: "Prize giving"
+    caption: "Speech and prize giving day"
+
+# Social Links
+social_links:
+  - icon: "fa-facebook-f"
+    url: "https://www.facebook.com/profile.php?id=100090987086145"
+  - icon: "fa-youtube"
+    url: "https://youtube.com/@maiduguricapitalschool?si=DFGfls2T53kRd8JQ"
+  - icon: "fa-instagram"
+    url: "https://www.instagram.com/mcs_personal_account?igsh=dTZobm05YmozZDBj"
+  - icon: "fa-whatsapp"
+    url: "https://wa.me/2347036936027"
+  - icon: "fa-envelope"
+    url: "mailto:maiduguricapitalschool@yahoo.com"
+
+# Map embed
+map_embed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3944.082083313971!2d13.152!3d11.829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x10c37fa1188b2d33%3A0x1d72cb5eeef9f0e8!2sOld%20GRA%20Gombole%20Road%2C%20Maiduguri%2C%20Borno%20State!5e0!3m2!1sen!2sng!4v1739950000000!5m2!1sen!2sng"
+
+# Contact email
+contact_email: "maiduguricapitalschool@yahoo.com"
