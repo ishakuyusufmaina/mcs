@@ -71,8 +71,12 @@ collections:
     files:
       - name: "home"
         label: "Homepage"
-        file: "index.md"
+        file: "index.html"
         fields:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Text", name: "hero_text", widget: "text" }
-          
+          - { label: "Page Title", name: "title", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Text", name: "hero_text", widget: "text" }
+          - { label: "Main Content", name: "body", widget: "markdown" }
