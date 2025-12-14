@@ -71,7 +71,7 @@ collections:
     files:
       - name: "home"
         label: "Homepage"
-        file: "index1.html"
+        file: "index1.md"
         fields:
           - { label: "Hero Title", name: "hero_title", widget: "string" }
           - { label: "Hero Text", name: "hero_text", widget: "text" }
