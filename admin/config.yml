@@ -50,7 +50,7 @@ collections:
       - { label: "Title", name: "title", widget: "string" }
       - { label: "Date", name: "date", widget: "datetime" }
       - { label: "PDF File", name: "pdf", widget: "file", allow_multiple: false }
-      - { label: "Layout", name: "layout", widget: "hidden", default: "miscellaneous" }
+      - { label: "Layout", name: "layout", widget: "hidden", default: "newsletter" }
       - { label: "Body", name: "body", widget: "markdown" }
   # ---------------------------------------
   # 2. ARTICLES
