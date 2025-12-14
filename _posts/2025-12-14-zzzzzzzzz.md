@@ -2,6 +2,7 @@
 title: "Level Up Your Learning: The Power of Gamified Education"
 poster: /images/67339.jpg
 date: 2025-12-14T18:39:00.000+01:00
+author: I. Y Maina
 layout: post
 ---
 ## **INTRODUCTION**
