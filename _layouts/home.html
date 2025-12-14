@@ -1,29 +1,238 @@
+---
+# Home layout for Maiduguri Capital School
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ page.title }}</title>
   <meta name="description" content="{{ page.description }}">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="/index.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="/index.js" defer></script>
 </head>
 
 <body>
 
+  <!-- Header / Hero -->
   <header>
-    <nav>
-      <a href="/">Home</a>
-      <a href="/admission/">Admission</a>
-      <a href="/contact/">Contact</a>
-    </nav>
+    <div class="header-top">
+      <div class="logo-container">
+        <img src="{{ page.logo | default: '/images/logo.jpg' }}" alt="MCS Logo">
+      </div>
+      <div class="header-title">
+        <h1>{{ page.hero_title }}</h1>
+        <p>{{ page.hero_text }}</p>
+      </div>
+      <div id="menu-items">
+        <div id="menu" class="menu-icon"><span></span><span></span><span></span></div>
+        <div class="menu-container">
+          <button id="close">X</button> Menu
+          <hr>
+          <ul id="menuList" class="main-menu">
+            {% for link in site.data.menu %}
+              <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="result.html">Result Checker</a>
+      <a href="https://capital.mainafly.com/signin">Staff Portal</a>
+    </div>
+
+    <figure class="slideshow hero-container">
+      {% for item in site.data.home.hero_slides %}
+      <figure class="hero">
+        <img src="{{ item.src }}" alt="{{ item.alt }}">
+        <figcaption>{{ item.caption }}</figcaption>
+      </figure>
+      {% endfor %}
+      <a href="admission-fees.html" class="cta-button">Admission</a>
+    </figure>
   </header>
 
+  <!-- Main content -->
   <main>
+
+    <!-- CMS editable content -->
     {{ content }}
+
+    <!-- School Overview -->
+    <section id="overview">
+      <h2>School Overview</h2>
+      <p>{{ site.data.home.overview }}</p>
+    </section>
+
+    <!-- About Us -->
+    <section id="about">
+      <h2>About Us</h2>
+      <p>{{ site.data.home.about_paragraph1 }}</p>
+      <p>{{ site.data.home.about_paragraph2 }}</p>
+      <p>{{ site.data.home.about_paragraph3 }}</p>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="vision-mission">
+      <h2>Vision Statement</h2>
+      <p>{{ site.data.home.vision }}</p>
+      <h2>Mission Statement</h2>
+      <p>{{ site.data.home.mission }}</p>
+    </section>
+
+    <!-- School Sections -->
+    <section id="structure">
+      <a href="sections.html"><h2>School Sections</h2></a>
+      <ul id="sectionList">
+        {% for section in site.data.sections %}
+        <li><a href="{{ section.url }}">{{ section.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Facilities -->
+    <section id="facilities">
+      <h2>Infrastructures & Facilities</h2>
+      {% for facility in site.data.facilities %}
+      <article>
+        <h3>{{ facility.title }}</h3>
+        {% if facility.images %}
+        <figure class="slideshow">
+          {% for img in facility.images %}
+          <figure>
+            <img src="{{ img.src }}" alt="{{ img.alt }}">
+            <figcaption>{{ img.caption }}</figcaption>
+          </figure>
+          {% endfor %}
+        </figure>
+        {% endif %}
+        <p>{{ facility.description }}</p>
+      </article>
+      {% endfor %}
+    </section>
+
+    <!-- Capital School Annex -->
+    <section id="annex">
+      <h2>Capital School Annex</h2>
+      <p>{{ site.data.home.annex_text }}</p>
+    </section>
+
+    <!-- Digitalization & Technology -->
+    <section id="digitalization">
+      <h2>Digitalization & Technology</h2>
+      <blockquote>{{ site.data.home.digitalization_quote }}</blockquote>
+      <p>{{ site.data.home.digitalization_text }}</p>
+      <ul>
+        {% for software in site.data.home.software %}
+        <li>
+          {{ software.name }}
+          {% if software.link %}
+          <hr><a class="link" href="{{ software.link }}">Access</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+
+    <!-- Latest Articles -->
+    <section id="articles">
+      <h2>Articles</h2>
+      {% for article in site.articles limit:3 %}
+      <article class="home-article">
+        {% if article.poster %}
+        <div class="poster-container">
+          <img class="poster-image" src="{{ article.poster }}" alt="{{ article.posterAlt }}">
+        </div>
+        {% endif %}
+        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <p class="pubdate"><small>{{ article.date | date: "%B %d, %Y" }}</small></p>
+        <p>Written by {{ article.author }}</p>
+        <p class="excerpt">{{ article.excerpt }}</p>
+        <a class="read-more" href="{{ article.url }}">Read More →</a>
+      </article>
+      {% endfor %}
+      <article><a href="articles/index.html">More articles →</a></article>
+    </section>
+
+    <!-- Latest Posts -->
+    <section id="posts">
+      <h2>Posts</h2>
+      {% for post in site.posts limit:3 %}
+      <article class="home-article">
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>
+        <p>Written by {{ post.author }}</p>
+        <p class="excerpt">{{ post.excerpt }}</p>
+        <a class="read-more" href="{{ post.url }}">Read More →</a>
+      </article>
+      {% endfor %}
+      <article><a href="posts/index.html">More posts →</a></article>
+    </section>
+
+    <!-- Upcoming Events & Newsletters -->
+    <section id="dynamic">
+      <h2>Forecast of Events</h2>
+      {% assign forecast = site.forecast | first %}
+      {% if forecast %}
+      <article id="events">
+        <a href="{{ forecast.pdf }}">Download PDF</a>
+      </article>
+      {% endif %}
+
+      <h2>Newsletter</h2>
+      {% assign newsletter = site.newsletter | first %}
+      {% if newsletter %}
+      <article id="newsletter">
+        <h3>{{ newsletter.title }}</h3>
+        <p>{{ newsletter.body }}</p>
+        <a href="{{ newsletter.pdf }}">Download PDF</a>
+      </article>
+      {% endif %}
+    </section>
+
+    <!-- Media & Updates -->
+    <section id="media">
+      <h3>Gallery</h3>
+      <div class="slideshow">
+        {% for img in site.data.home.gallery %}
+        <figure>
+          <img src="{{ img.src }}" alt="{{ img.alt }}">
+          <figcaption>{{ img.caption }}</figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      {% for social in site.data.home.social_links %}
+      <a href="{{ social.url }}"><i class="fa {{ social.icon }}"></i></a>
+      {% endfor %}
+      <h3>Location</h3>
+      <iframe src="{{ site.data.home.map_embed }}" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
   </main>
 
+  <!-- Footer -->
   <footer>
-    <p>&copy; {{ site.time | date: "%Y" }} Maiduguri Capital School</p>
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        {% for link in site.data.menu %}
+        <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    <p>&copy; {{ site.time | date: "%Y" }} Maiduguri Capital School. All rights reserved.</p>
+    <p>For enquiries: <a href="mailto:{{ site.data.home.contact_email }}">{{ site.data.home.contact_email }}</a></p>
   </footer>
 
 </body>
-</html>
+  </html>
+  
