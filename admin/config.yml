@@ -40,7 +40,7 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
   # MISC COLLECTION — NEWSLETTER
   - name: "newsletter"
-    label: "Newsletter"
+    label: "Newsletters"
     folder: "_newsletters"
     format: "frontmatter"
     create: true
