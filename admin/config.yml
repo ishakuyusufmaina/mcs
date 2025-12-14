@@ -39,7 +39,7 @@ collections:
       - { label: "Layout", name: "layout", widget: "hidden", default: "miscellaneous" }
       - { label: "Body", name: "body", widget: "markdown" }
   # MISC COLLECTION — NEWSLETTER
-  - name: "newsletter"
+  - name: "newsletters"
     label: "Newsletters"
     folder: "_newsletters"
     format: "frontmatter"
