@@ -3,3 +3,10 @@ description: Demo site with Decap CMS
 theme: minima
 plugins:
   - jekyll-feed
+
+collections:
+  forecast:
+    output: true
+  newsletter:
+    output: true
+    
