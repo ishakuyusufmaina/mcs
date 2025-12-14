@@ -306,12 +306,10 @@
       </article>
       
       <h2>
-        {% assign latest = site.newsletter | sort: "date" | last %}
-{% if latest %}
-  
-        
+        {% assign latest = site.newsletters | sort: "date" | last %}
+       {% if latest %}
         <img class="icon" src="images/news.jpg" alt="Gallery image 3">
-          Newsletter {{page.newsletterDate}}
+          Newsletter {{latest.date}}
         
        </h2>
       <article id="newsletters">
@@ -321,7 +319,6 @@
         <p class="subtitle indented">
           We wish to inform you that... 
         </p>
-        
         <a class="read-more" href="{{latest.url}}">Read More&rarr;</a> |
         <a href="{{latest.pdf | relative_url}}">Download pdf</a> 
         {% endif %}
