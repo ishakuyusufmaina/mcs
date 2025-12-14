@@ -7,6 +7,6 @@ plugins:
 collections:
   forecast:
     output: true
-  newsletter:
+  newsletters:
     output: true
     
