@@ -14,14 +14,43 @@
 </head>
 <body>
 
-<header class="sub-header">
-  <div class="header-top inner">
-    <div class="logo-container">
-      <a href="/"><img src="/images/logo.jpg" alt="MCS Logo"></a>
-    </div>
-    <h1 class="sub-title">Post</h1>
+ <header>
+    <div class="header-top">
+      <div class="logo-container">
+          <img src="images/logo.jpg" alt="MCS Logo">
+      </div>
+      <div class="header-title">
+          <h1>Maiduguri Capital School - Posts</h1>
+      </div>
+      <div id="menu-items">
+        <div id="menu" class="menu-icon">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="menu-container ">
+          <button id="close">X</button> Menu
+           <hr>
+            <ul id="menuList" class="main-menu">
+              <!-- list of links go here -->
+            </ul>
+         </div>
+        </div>
+         
+      </div> 
+  <div class="nav">
+      
+    {% if page.previous %}
+      <a class="prev" href="{{ page.previous.url }}">&larr; {{ page.previous.title }}</a>
+    {% endif %}
+    {% if page.next %}
+      <a class="next" href="{{ page.next.url }}">{{ page.next.title }} &rarr;</a>
+    {% endif %}
+  
   </div>
-</header>
+    
+      
+  </header>
 
 <main class="content-area">
   
