@@ -307,22 +307,33 @@
       
       <h2>
         {% assign latest = site.newsletters | sort: "date" | last %}
-       {% if latest %}
-        <img class="icon" src="images/news.jpg" alt="Gallery image 3">
-          Newsletter {{latest.date}}
-        
-       </h2>
-      <article id="newsletters">
-        <h1 class="headline">Dear Parent/Guardian</h1>
-        <p class="subtitle">Dear <strong>Parent/Guardian</strong>,
-        </p>
-        <p class="subtitle indented">
-          We wish to inform you that... 
-        </p>
-        <a class="read-more" href="{{latest.url}}">Read More&rarr;</a> |
-        <a href="{{latest.pdf | relative_url}}">Download pdf</a> 
-        {% endif %}
-      </article>
+
+{% if latest %}
+<h2>
+  <img class="icon" src="{{ '/images/news.jpg' | relative_url }}" alt="Newsletter icon">
+  Newsletter {{ latest.date | date: "%B %d, %Y" }}
+</h2>
+
+<article id="newsletters">
+  <h1 class="headline">Dear Parent/Guardian</h1>
+
+  <p class="subtitle">
+    Dear <strong>Parent/Guardian</strong>,
+  </p>
+
+  <p class="subtitle indented">
+    We wish to inform you that...
+  </p>
+
+  <a class="read-more" href="{{ latest.url }}">Read More &rarr;</a>
+
+  {% if latest.pdf %}
+    | <a href="{{ latest.pdf | relative_url }}">Download PDF</a>
+  {% endif %}
+</article>
+{% endif %}
+
+    
       
       <hr>
       <h2>Articles</h2>     
