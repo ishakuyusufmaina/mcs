@@ -1,9 +1,2 @@
-foe:
-  session: ""
-  onlineURL: ""
-  downloadURL: ""
-
-newsletter:
-  date: ""
-  onlineURL: ""
-  pdfURL: ""
+hero_title: Welcome
+hero_text: Quality education for tomorrow
