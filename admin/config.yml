@@ -16,6 +16,7 @@ collections:
     format: "frontmatter"
     output: true
     create: true
+    permalink: /posts/:title/
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
