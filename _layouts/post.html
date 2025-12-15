@@ -137,6 +137,13 @@
   <p>&copy; {{ site.time | date: "%Y" }} Maiduguri Capital School</p>
 </footer>
 
+  <script>
+
+    document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
+  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
+    
+  </script>
+
 <style>
 /* Same styling as articles */
 .content-area {
