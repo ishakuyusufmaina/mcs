@@ -499,14 +499,14 @@
     heroConatainer.append(fig);
   })
   
- // const menu = document.querySelector("#sectionList");
+ const meu = document.querySelector("#sectionList");
 sections.forEach(section => {
   const li = document.createElement("li");
   const a = document.createElement("a");
   a.href = section.url;
   a.textContent = section.label;
   li.appendChild(a);
-  menu.appendChild(li);
+  meu.appendChild(li);
 });
   
   // --- Dynamic Year in Footer ---
