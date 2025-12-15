@@ -1,5 +1,5 @@
 ---
-title: First Term, 2025/2026 Academic Session Newsletter
+title: End of First Term, 2025/2026 Academic Session Newsletter
 date: 2025-12-03T20:57:00.000+01:00
 pdf: /images/capital-school-newsletter.pdf
 layout: newsletter
