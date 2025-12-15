@@ -5,10 +5,6 @@ date: 2025-12-14T01:30:00.000+01:00
 author: I. Y Maina
 layout: article
 ---
-
-
----
-
 A **playground** is an important part of a school. It is not just a place for fun; it plays a key role in the **physical, mental, and social development** of children.
 
 #### **1. Physical Development**
@@ -39,9 +35,8 @@ A **playground** is an important part of a school. It is not just a place for fu
 * Many games teach **numbers, colors, and rules** in a fun way.
 * Playgrounds can support **physical education lessons** and **sports activities**.
 
----
-
+- - -
 
 A playground is more than just a fun area. It is a vital space where children **grow physically, mentally, socially, and emotionally**, making it an essential part of every school.
 
----
+- - -
