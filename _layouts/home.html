@@ -342,7 +342,7 @@
       <article class="home-article">
          {% if post.poster %}
         <div class="poster-container">
-           <img class="poster-image" src="{{ post.poster }}" alt="post.posterAlt">
+           <img class="poster-image feature-image" src="{{ post.poster }}" alt="post.posterAlt">
         </div>
         {% endif %}
         
@@ -368,7 +368,7 @@
       <article class="home-article">
          {% if post.poster %}
         <div class="poster-container">
-           <img class="poster-image" src="{{ post.poster }}" alt="post.posterAlt">
+           <img class="poster-image feature-image" src="{{ post.poster }}" alt="post.posterAlt">
         </div>
         {% endif %}
         
@@ -397,7 +397,7 @@
           <h4 id="gallery-heading">Gallery</h4>
          <div class="slideshow">
   <figure>
-    <img src="images/grad-day.jpg" alt="Gallery image 1">
+    <img src="/images/grad-day.jpg" alt="Gallery image 1">
     <figcaption>Gallery image 1 — school event.</figcaption>
   </figure>
 
@@ -456,11 +456,11 @@
     <div class="footer-links">
   <h3>Quick Links</h3>
   <ul>
-    <li><a href="result.html">Result Checker</a></li>
+    <li><a href="/result">Result Checker</a></li>
     <li><a href="https://capital.mainafly.com/signin">Staff Portal</a></li>
-    <li><a href="admission-fees.html">Admission</a></li>
-    <li><a href="admission-fees.html#fees">School Fees</a></li>
-    <li><a href="sections.html">School Sections</a></li>
+    <li><a href="/admission-fees.html">Admission</a></li>
+    <li><a href="/admission-fees.html#fees">School Fees</a></li>
+    <li><a href="/sections.html">School Sections</a></li>
   </ul>
 </div>
     <p>&copy; <span id="year">2025</span> Maiduguri Capital School. All rights reserved.</p>
@@ -541,7 +541,16 @@ if (slides.length > 0) {
   
 
   <style>
-  
+  .feature-image {
+  width: 100%;            /* always fill the container width */
+  max-width: 1200px;      /* optional max width on large screens */
+  height: auto;           /* maintain aspect ratio */
+  max-height: 90vh;       /* never taller than 90% of viewport height */
+  object-fit: cover;      /* crop/fit nicely if container ratio differs */
+  display: block;
+  margin: 0 auto;         /* center horizontally */
+    }
+    
   </style>
 </body>
 </html>
