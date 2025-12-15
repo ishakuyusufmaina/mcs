@@ -128,7 +128,95 @@
         margin: 12px;
     }
     
-    
+  /* ================================
+   Clean & Modern Table Style
+   ================================ */
+
+
+
+/* Base table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Header */
+thead {
+  background: linear-gradient(135deg, #0d47a1, #1976d2);
+}
+
+thead th {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8rem;
+}
+
+/* Body cells */
+tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid #eaeaea;
+  color: #333333;
+}
+
+/* Zebra striping */
+tbody tr:nth-child(even) {
+  background-color: #f9fbff;
+}
+
+/* Hover effect */
+tbody tr:hover {
+  background-color: #eef4ff;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Last row border fix */
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Footer (optional) */
+tfoot td {
+  padding: 14px 16px;
+  font-weight: 600;
+  background-color: #f3f6fb;
+  border-top: 2px solid #d6e0f0;
+}
+
+/* Alignment helpers */
+td.center,
+th.center {
+  text-align: center;
+}
+
+td.right,
+th.right {
+  text-align: right;
+}
+
+
+
+/* Responsive tweak */
+@media (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  thead th,
+  tbody td {
+    padding: 12px;
+  }
+ }
+   
 </style>
 </head>
 <body>
@@ -168,8 +256,7 @@
 <!-- Main Title -->
 <section id="newsletter">
   <h2>{{page.title}}</h2>
-  <p class="post-date">{{ page.date | date: "%B %d, %Y" }}</p>
-  {{content}}
+    {{content}}
 </section>
   
   <section id="contact">
