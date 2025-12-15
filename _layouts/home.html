@@ -481,14 +481,8 @@
     a.innerHTML = txt;
     return a;
   }
-  menuList.innerHTML = "";
- menuData.forEach(l=>{
-    let a = link(l.url, l.label);
-    console.log(l.url, l.label);
-    let li = document.createElement("li");
-    li.append(a);
-    menuList.append(li);
-  })
+  
+ 
   const heroConatainer = document.querySelector(".hero-container");
   heroConatainer.innerHTML = "";
   heroItems.forEach(item=>{
