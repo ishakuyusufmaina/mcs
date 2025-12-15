@@ -350,7 +350,7 @@
           <a href="{{post.url}}">{{ post.title }}</a>               
         </h2>
         <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>    
-        <p>Writtent by {{ post.author }}</p>
+        <p class="author">By {{ post.author }}</p>
         <p class="excerpt">
           {{ post.excerpt }}
         </p>
@@ -376,7 +376,7 @@
           <a href="{{post.url}}#full-article">{{ post.title }}</a>               
         </h2>
         <p class="pubdate"><small>{{ post.date | date: "%B %d, %Y" }}</small></p>    
-        <p>By {{ post.author }}</p>
+        <p class="author">By {{ post.author }}</p>
         <p class="excerpt">
           {{ post.excerpt }}
         </p>
@@ -549,6 +549,21 @@ if (slides.length > 0) {
   object-fit: cover;      /* crop/fit nicely if container ratio differs */
   display: block;
   margin: 0 auto;         /* center horizontally */
+    }
+
+    .author {
+  font-family: 'Georgia', 'Times New Roman', serif; /* Elegant, readable font */
+  font-size: 16px; /* Adjust size as needed */
+  font-style: italic; /* Makes it stand out as a byline */
+  color: #555; /* Dark gray for a subtle look */
+  margin-top: 10px; /* Space above the author name */
+  margin-bottom: 20px; /* Space below if followed by content */
+  display: block; /* Ensures it occupies its own line */
+  text-align: right; /* Optional: aligns author name to the right */
+    
+  background-color: #f0f0f0;
+  padding: 5px 10px;
+  border-radius: 5px;
     }
     
   </style>
