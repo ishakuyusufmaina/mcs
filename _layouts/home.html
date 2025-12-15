@@ -473,7 +473,9 @@
   
   
   <script>
-  
+  document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
+  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
+    
   
   const link = (ref, txt)=>{
     let a = document.createElement("a");
@@ -497,7 +499,7 @@
     heroConatainer.append(fig);
   })
   
-  const menu = document.querySelector("#sectionList");
+ // const menu = document.querySelector("#sectionList");
 sections.forEach(section => {
   const li = document.createElement("li");
   const a = document.createElement("a");
@@ -532,9 +534,7 @@ if (slides.length > 0) {
 }
   
     
-  document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
-  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
-
+  
   </script>
   
 
