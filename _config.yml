@@ -9,4 +9,6 @@ collections:
     output: true
   newsletters:
     output: true
+  articles:
+    output: true
     
