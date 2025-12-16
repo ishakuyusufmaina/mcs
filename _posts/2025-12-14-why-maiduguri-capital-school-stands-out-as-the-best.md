@@ -22,4 +22,4 @@ Choosing the right school shapes a child’s future. **Maiduguri Capital School*
 
 From academic excellence to holistic growth, **Maiduguri Capital School** combines quality education, modern facilities, and a nurturing environment to prepare students for a bright future. It’s not just a school—it’s a place where young minds grow, dreams flourish, and leaders are born.
 
-Enroll your child today and give them the opportunity to learn, grow, and succeed at Maiduguri Capital School!mallam
+Enroll your child today and give them the opportunity to learn, grow, and succeed at Maiduguri Capital School!
