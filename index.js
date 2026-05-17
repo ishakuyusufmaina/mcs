@@ -1,4 +1,16 @@
 const heroItems = [
+  
+  {
+    src: "images/top UTME 2026.png",
+    alt: "Maiduguri Capital School - Hero image",
+    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+  },
+
+  {
+    src: "images/top b2 UTME 2026.png",
+    alt: "Maiduguri Capital School - Hero image",
+    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+  },  
   {
     src: "images/hero.jpg",
     alt: "Maiduguri Capital School - Hero image",
