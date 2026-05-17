@@ -3,13 +3,13 @@ const heroItems = [
   {
     src: "images/top UTME 2026.png",
     alt: "Maiduguri Capital School - Hero image",
-    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+    caption: "Top JAMB - UTME Scorers of 2026"
   },
 
   {
     src: "images/top b2 UTME 2026.png",
     alt: "Maiduguri Capital School - Hero image",
-    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+    caption: "JAMB - UTME Scorers of 2026"
   },  
   {
     src: "images/hero.jpg",
@@ -24,7 +24,7 @@ const heroItems = [
   {
     src: "images/top UTME 2026.png",
     alt: "Maiduguri Capital School - Hero image",
-    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+    caption: "Top JAMB - UTME Scorers of 2026"
   },
   {
     src: "images/mock 2.jpg",
@@ -50,7 +50,7 @@ const heroItems = [
   {
     src: "images/top UTME 2026.png",
     alt: "Maiduguri Capital School - Hero image",
-    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
+    caption: "Top JAMB - UTME Scorers of 2026"
   },
   {
     src: "images/award2.jpg",
