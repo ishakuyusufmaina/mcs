@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Maiduguri Capital School - Top UTME Scorers</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        linear-gradient(rgb(220, 230, 230), lightblue);
+        background-size: cover;
+    //  background-position: center;
+    //  background-attachment: fixed;
+      color: green;
+      min-height: 100vh;
+      
+    }
+
+    .container{
+      max-width: 1400px;
+      margin: auto;
+      padding: 30px 20px 60px;
+    }
+
+    .top-bar,
+   .bottom-bar{
+     position: relative;
+      //margin-bottom:200px;
+      
+  
+ 
+    }
+  .top-bar img{
+     display: block;
+    text-align: center;
+    top: 0;
+    left: 0;
+    //min-height: 200px;
+    width: 100vw;
+    }
+  .bottom-bar img{
+     display: block;
+    text-align: center;
+    top: 0;
+    left: 0;
+    
+    width: 100vw;
+    
+    bottom: 0;
+    
+    }
+
+    .logo-box{
+      display:flex;
+      align-items:center;
+      gap:15px;
+    }
+
+    .logo-box img{
+      width:80px;
+      height:80px;
+      object-fit:contain;
+      background:white;
+      border-radius:50%;
+      padding:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    }
+
+    .title-area{
+      text-align:center;
+      flex:1;
+    }
+
+    .title-area h1{
+      font-size:3rem;
+      margin-bottom:10px;
+      font-weight:800;
+      letter-spacing:1px;
+    }
+
+    .title-area p{
+      font-size:1.1rem;
+      color:#d9e6ff;
+    }
+
+    .highlight{
+      color:#2dd4bf;
+    }
+
+  
+
+  
+    .students-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+      gap:28px;
+      margin-top:20px;
+    }
+
+    .student-card{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.12);
+      border-radius:25px;
+      padding:25px 18px;
+      text-align:center;
+      backdrop-filter: blur(12px);
+      transition:0.35s ease;
+      position:relative;
+      overflow:hidden;
+      text-transform: uppercase;
+    }
+
+    .student-card::before{
+      content:"";
+      position:absolute;
+      top:0;
+      left:0;
+      width:100%;
+      height:6px;
+      background:linear-gradient(to right, #2dd4bf, #16a34a);
+    }
+
+    .student-card{
+      transform:translateY(-8px) scale(1.02);
+      box-shadow:0 15px 30px rgba(0,0,0,0.35);
+    }
+
+    .rank{
+      position:absolute;
+      top:15px;
+      right:15px;
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      background:#0d9488;
+      color:#fff;
+      font-weight:bold;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.5rem;
+      box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    }
+
+    .student-image{
+      width:140px;
+      height:140px;
+      margin:10px auto 20px;
+      border-radius:50%;
+      overflow:hidden;
+      border:5px solid #0d9488;
+      box-shadow:0 8px 20px rgba(0,0,0,0.35);
+      background:white;
+    }
+
+    .student-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .student-name{
+      font-size:1.15rem;
+      font-weight:700;
+      line-height:1.5;
+      margin-bottom:18px;
+      min-height:60px;
+    }
+
+    .score{
+      display:inline-block;
+      background:linear-gradient(135deg, #0d9488, #16a34a);
+      color:#fff;
+      padding:12px 22px;
+      border-radius:40px;
+      font-size:1.4rem;
+      font-weight:800;
+      box-shadow:0 6px 16px rgba(0,0,0,0.3);
+    }
+
+    .footer{
+      margin-top:60px;
+      text-align:center;
+      color:#c8d6f2;
+      font-size:0.95rem;
+    }
+
+    @media (max-width:768px){
+
+      .title-area h1{
+        font-size:2rem;
+      }
+
+      .logo-box img{
+        width:65px;
+        height:65px;
+      }
+
+      .students-grid{
+        grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      }
+
+      .student-image{
+        width:120px;
+        height:120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-bar">
+
+      <img src="banner.png">
+      
+    </div>
+  <div class="container">
+
+    
+
+    <div class="students-grid" id="studentsGrid"></div>
+
+    
+      
+    </div>
+  <div class="footer bottom-bar">  
+      <img src="footer.png">
+  </div>
+
+  <script>
+    const jambScores = [
+      { sNo: 1,  name: "Aisha Ali Saidu",               phone: "09064640326",              score: 249, registrationNumber: "202660332680AI", picURL: "Aisha Ali Saidu 249.jpg" },
+      { sNo: 2,  name: "Hassan Tijjani Muhammad",        phone: "09076308184",              score: 268, registrationNumber: "202660067902AJ", picURL: "Hassan Tijjani Muhammad 268.jpg" },
+      { sNo: 3,  name: "Zara Saleh Jidda",               phone: "08133708830",              score: 248, registrationNumber: "202660777298GA", picURL: "Zara Saleh Jidda 248.jpg" },
+      { sNo: 4,  name: "Faiza Alhaji Bukar",             phone: "07076611702",              score: 255, registrationNumber: "202660566258JE", picURL: "Faiza Alhaji Bukar 255.jpg" },
+      { sNo: 5,  name: "Ahmed Kolo",                     phone: "09162939242",              score: 301, registrationNumber: "202660627814GF", picURL: "Ahmed Kolo 301.jpg" },
+      { sNo: 6,  name: "Abubakar Usman Muhammad",        phone: "09033887502",              score: 301, registrationNumber: "202660774320GI", picURL: "Abubakar Usman Muhammad 301.jpg" },
+      { sNo: 7,  name: "Tahir Muhammad Umar",            phone: "09078821924",              score: 268, registrationNumber: "202660089058BI", picURL: "Tahir Muhammad Umar 268.jpg" },
+      { sNo: 8,  name: "Hajara Kachallah Lawan",         phone: "09060396854",              score: 250, registrationNumber: "202660670591GI", picURL: "Hajara Kachallah Lawan 250.jpg" },
+      { sNo: 9,  name: "Nana Aisha Shettima Tijjani",    phone: null,                       score: 226, registrationNumber: null,             picURL: "Nana Aisha Shettima Tijjani 226.jpg" },
+      { sNo: 10, name: "Najib Idris Zarami",             phone: "09130597834",              score: 230, registrationNumber: "202660312592JC", picURL: "Najib Idris Zarami 230.jpg" },
+      { sNo: 11, name: "Abubakar Audu Yakubu",           phone: "07061580055",              score: 241, registrationNumber: "202660700870CF", picURL: "Abubakar Audu Yakubu 241.jpg" },
+      { sNo: 12, name: "Al-amin Muhammad Muhammad",      phone: "08066815711",              score: 255, registrationNumber: "202660765245GD", picURL: "Al-amin Muhammad Muhammad 255.jpg" },
+      { sNo: 13, name: "Aliyu Adamu Isa",                phone: "07017327211",              score: 238, registrationNumber: "202660658864AA", picURL: "Aliyu Adamu Isa 238.jpg" },
+      { sNo: 14, name: "Ali Muhammad Satomi",            phone: "09041423411",              score: 224, registrationNumber: "202660654912FE", picURL: "Ali Muhammad Satomi 224.jpg" },
+      { sNo: 15, name: "Khadija Muhammad Benisheikh",    phone: "07040934857",              score: 206, registrationNumber: "202660795713JG", picURL: "Khadija Muhammad Benisheikh 206.jpg" },
+      { sNo: 16, name: "Aisha Muhammad Mustapha",        phone: "07068717158",              score: 218, registrationNumber: "202661082787AH", picURL: "Aisha Muhammad Mustapha 218.jpg" },
+      { sNo: 17, name: "Fadila Ibrahim Bako",            phone: "07066889501",              score: 207, registrationNumber: "202660487053CG", picURL: "Fadila Ibrahim Bako 207.jpg" },
+      { sNo: 18, name: "Zara'u Baba Zanna",              phone: "08161191642",              score: 211, registrationNumber: "202660980940JF", picURL: "Zara'u Baba Zanna 211.jpg" },
+      { sNo: 19, name: "Bintu Mustapha Bukar",           phone: "0708251318/08036516139",   score: 209, registrationNumber: "202661273110JB", picURL: "Bintu Mustapha Bukar 209.jpg" },
+      { sNo: 20, name: "Hajja Zara Adam Muhammad",       phone: "09071597484/09064151404",  score: 204, registrationNumber: null,             picURL: "Hajja Zara Adam Muhammad 204.jpg" },
+      { sNo: 21, name: "Abubakar Gujba",                 phone: null,                       score: 219, registrationNumber: null,             picURL: "Abubakar Gujba 219.jpg" },
+      { sNo: 22, name: "Ayuba Musa Ayuba",               phone: "08067530631",              score: 245, registrationNumber: "202660159134BE", picURL: "Ayuba Musa Ayuba 245.jpg" },
+      { sNo: 23, name: "Annur Goni Dunoma",              phone: "08032250393",              score: 202, registrationNumber: "202660329945IC", picURL: "Annur Goni Dunoma 202.jpg" },
+      { sNo: 24, name: "Mubarak Babagana Korede",        phone: "09079686556",              score: 210, registrationNumber: "202661033720GJ", picURL: "Mubarak Babagana Korede 210.jpg" },
+      { sNo: 25, name: "Yahaya Yusuf Timta",             phone: "07063888245",              score: 222, registrationNumber: "202660442399HF", picURL: "Yahaya Yusuf Timta 222.jpg" },
+    ];
+
+    // Sort by score descending
+    const sortedScores = jambScores.sort((a, b) => b.score - a.score);
+
+    const studentsGrid = document.getElementById("studentsGrid");
+
+    sortedScores.forEach((student, index) => {
+
+      const card = document.createElement("div");
+      card.className = "student-card";
+
+      card.innerHTML = `
+        <div class="rank">${"•"}</div>
+
+        <div class="student-image">
+          <img src="${student.picURL}" alt="${student.name}">
+        </div>
+
+        <div class="student-name">
+          ${student.name}
+        </div>
+
+        <div class="score">
+          ${student.score}
+        </div>
+      `;
+
+      studentsGrid.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
