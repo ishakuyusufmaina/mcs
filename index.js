@@ -34,10 +34,11 @@ const heroItems = [
     alt: "School building",
     caption: "Proprietress delivering keynote speech at 26th & 33rd speech and prize giving day."
   },
+
   {
-    src: "images/beautiful-capital-students.png",
-    alt: "School building",
-    caption: "Inked and educated happy graduating students of Capital"
+    src: "images/top UTME 2026.png",
+    alt: "Maiduguri Capital School - Hero image",
+    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
   },
   {
     src: "images/award2.jpg",
