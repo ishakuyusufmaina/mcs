@@ -10,9 +10,9 @@ const heroItems = [
     caption: "Welcome to Maiduguri Capital School — academic excellence & digital learning."
   },
   {
-    src: "images/mock.jpg",
+    src: "images/top UTME 2026.png",
     alt: "Maiduguri Capital School - Hero image",
-    caption: "Welcome to Maiduguri Capital School — academic excellence & digital learning."
+    caption: "<a href='#'>Top JAMB - UTME Scorers of 2026</a>"
   },
   {
     src: "images/mock 2.jpg",
