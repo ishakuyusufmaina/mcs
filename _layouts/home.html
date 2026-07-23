@@ -29,9 +29,6 @@
 <link rel="icon" type="image/png" sizes="128x128"
       href="https://ishakuyusufmaina.github.io/capital/asset/favicon-128x128.png">
 
-<link rel="icon" type="image/png" sizes="192x192"
-      href="https://ishakuyusufmaina.github.io/capital/asset/favicon-192x192.png">
-
 <link rel="icon" type="image/png" sizes="256x256"
       href="https://ishakuyusufmaina.github.io/capital/asset/favicon-256x256.png">
 
@@ -50,7 +47,7 @@
 <link rel="manifest"
       href="https://ishakuyusufmaina.github.io/capital/asset/site.webmanifest"> 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <script src="/index.js"></script>
+  <script src="/index.js" defer></script>
  
    </head>
 <body>
@@ -100,9 +97,9 @@
   </div>
     
       <figure class="slideshow hero-container">              
-        <a href="admission-fees.html" class="cta-button">Admission</a>
-        <!-- Hero items go here -->        
+        <!-- Hero slides get injected here by JS; CTA lives outside so it never gets wiped -->        
     </figure>
+    <a href="admission-fees.html" class="cta-button">Admission</a>
   </header>
   
   <main>
@@ -110,7 +107,7 @@
     <section id="overview">
       <h2>School Overview</h2>
             
-      <p>Maiduguri Capital School is one of Nigeria’s leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assemby Quarters, Gombole Road, P.M.B 1017, Maiduguri - Borno State. The school is known for its academic excellence, modern facilities, and commitment to digital learning.</p>
+      <p>Maiduguri Capital School is one of Nigeria's leading pre-tertiary educational institutions, located in the heart of Maiduguri, Opposite Former Assemby Quarters, Gombole Road, P.M.B 1017, Maiduguri - Borno State. The school is known for its academic excellence, modern facilities, and commitment to digital learning.</p>
       <figure class="slideshow">
         
         <figure>
@@ -228,7 +225,7 @@
           <h3>School dispensary</h3>
           <figure class="slideshow">
             <img src="images/clinics.jpg" alt="School dispensary">
-            <figcaption>A clinic within our walls, where care meets classroom, and each child’s health becomes a shared promise.</figcaption>
+            <figcaption>A clinic within our walls, where care meets classroom, and each child's health becomes a shared promise.</figcaption>
           </figure>
         </article>
       
@@ -328,12 +325,12 @@
     <!-- Our Team -->
     <section id="team">
       <h2>Our Team</h2>
-      <p>Meet the leadership who guide the school</a></p>
+      <p>Meet the leadership who guide the school</p>
        <figure class="slideshow">
           
         <figure>
           <img src="images/board-members.jpg" alt="MCS Board Members">
-          <figcaption>Infatigable board members of Maiduguri Capital School</figcaption>
+          <figcaption>Indefatigable board members of Maiduguri Capital School</figcaption>
         </figure>
         <figure>
           <img src="images/mgt-staff.jpg" alt="MGT Staff of MCS">
@@ -361,11 +358,9 @@
       </article>
       
       <h2>
-       NEWS LETTER
-<h2>
-  <img class="icon" src="{{ '/images/news.jpg' | relative_url }}" alt="Newsletter icon">
-   Third Term, 2025/2026 Newsletter
-</h2>
+        <img class="icon" src="{{ '/images/news.jpg' | relative_url }}" alt="Newsletter icon">
+        NEWS LETTER &mdash; Third Term, 2025/2026 Newsletter
+      </h2>
 
 <article id="newsletters">
   <h1 class="headline">END OF TERM NOTICE</h1>
@@ -384,7 +379,6 @@
     | <a href="{{ latest.pdf | relative_url }}">Download PDF</a>
   {% endif %}
 </article>
-{% endif %}
 
     
       
@@ -394,7 +388,7 @@
       <article class="home-article">
          {% if post.poster %}
         <div class="poster-container">
-           <img class="poster-image feature-image" src="{{ post.poster }}" alt="post.posterAlt">
+           <img class="poster-image feature-image" src="{{ post.poster }}" alt="{{ post.posterAlt }}">
         </div>
         {% endif %}
         
@@ -420,7 +414,7 @@
       <article class="home-article">
          {% if post.poster %}
         <div class="poster-container">
-           <img class="poster-image feature-image" src="{{ post.poster }}" alt="post.posterAlt">
+           <img class="poster-image feature-image" src="{{ post.poster }}" alt="{{ post.posterAlt }}">
         </div>
         {% endif %}
         
@@ -522,67 +516,68 @@
   
   <script>
   document.getElementById("close").onclick = _ => document.querySelector(".menu-container").classList.remove("show");
-  menu.onclick = _ => document.querySelector(".menu-container").classList.add("show");
-    
-  
-  const link = (ref, txt)=>{
+  document.getElementById("menu").onclick = _ => document.querySelector(".menu-container").classList.add("show");
+
+  const link = (ref, txt) => {
     let a = document.createElement("a");
     a.href = ref;
     a.innerHTML = txt;
     return a;
+  };
+
+  const heroContainer = document.querySelector(".hero-container");
+  if (heroContainer) {
+    heroContainer.innerHTML = "";
+    if (typeof heroItems !== "undefined" && Array.isArray(heroItems)) {
+      heroItems.forEach(item => {
+        let fig = document.createElement("figure");
+        fig.className = "hero";
+        let img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.alt;
+        let cap = document.createElement("figcaption");
+        cap.innerText = item.caption;
+        fig.append(img, cap);
+        heroContainer.append(fig);
+      });
+    }
   }
-  
- 
-  const heroConatainer = document.querySelector(".hero-container");
-  heroConatainer.innerHTML = "";
-  heroItems.forEach(item=>{
-    let fig = document.createElement("figure");
-    fig.className = "hero";
-    let img = document.createElement("img");
-    img.src = item.src;
-    img.alt = item.alt;
-    let cap = document.createElement("figcaption");
-    cap.innerText= item.caption;
-    fig.append(img, cap);
-    heroConatainer.append(fig);
-  })
-  
- const meu = document.querySelector("#sectionList");
-sections.forEach(section => {
-  const li = document.createElement("li");
-  const a = document.createElement("a");
-  a.href = section.url;
-  a.textContent = section.label;
-  li.appendChild(a);
-  meu.appendChild(li);
-});
-  
+
+  const sectionList = document.querySelector("#sectionList");
+  if (sectionList && typeof sections !== "undefined" && Array.isArray(sections)) {
+    sections.forEach(section => {
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = section.url;
+      a.textContent = section.label;
+      li.appendChild(a);
+      sectionList.appendChild(li);
+    });
+  }
+
   // --- Dynamic Year in Footer ---
-document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-// --- Hero Image Slideshow ---
-const slides = document.querySelectorAll('.hero-container .hero');
-let currentSlide = 0;
+  // --- Hero Image Slideshow ---
+  const slides = document.querySelectorAll('.hero-container .hero');
+  let currentSlide = 0;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
-  });
-}
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
 
-function nextSlide() {
-  currentSlide = (currentSlide + 1) % slides.length;
-  showSlide(currentSlide);
-}
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
 
-// Auto-rotate every 5 seconds
-if (slides.length > 0) {
-  showSlide(currentSlide);
-  setInterval(nextSlide, 5000);
-}
-  
-    
-  
+  // Auto-rotate every 5 seconds
+  if (slides.length > 0) {
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000);
+  }
   </script>
   
 
