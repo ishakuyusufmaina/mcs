@@ -8,7 +8,7 @@ layout: newsletter
 # NEWSLETTER
 **Dear Parent/Guardian,**
 
-  We wish to inform you that the First Term of 2025/2026 Academic Session ends today, **Wednesday, 3rd December, 2025**. Report Sheets will be available for collection on **Friday, 12th December, 2025**.
+  We wish to inform you that the First Term of 2025/2026 Academic Session ends today, **Wednesday, 3rd December, 2025**. Report Sheets will be available for collection on **Friday, 12th December, 2025.**
 
 The Second Term of the 2025/2026 Academic Session will commence on **Monday, 5th January, 2026**. We kindly request that children/wards resume on the stipulated date, as the first Continuous Assessment (CA) test will be held on that date.
 
